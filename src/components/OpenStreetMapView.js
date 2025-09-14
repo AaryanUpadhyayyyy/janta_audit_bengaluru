@@ -21,10 +21,10 @@ const SatelliteLayer = () => (
 
 // Custom OSM layer
 const OSMLayer = () => (
-  <TileLayer
-    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  />
+    <TileLayer
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    />
 );
 
 // Custom CartoDB layer
@@ -148,7 +148,7 @@ const OpenStreetMapView = ({
                 }}
               />
             )}
-          </Marker>
+    </Marker>
         ))}
 
         {/* Analysis area circle */}
@@ -169,9 +169,9 @@ const OpenStreetMapView = ({
           onAnalysisStart={onAnalysisStart}
           analysisData={analysisData}
         />
-      </MapContainer>
+  </MapContainer>
     </div>
-  );
+);
 };
 
 export default OpenStreetMapView;

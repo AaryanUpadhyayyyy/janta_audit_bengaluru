@@ -1,0 +1,37 @@
+{
+  "summary": {
+    "totalProjects": 8,
+    "totalBudget": 708213122,
+    "averageBudget": 88526640.25,
+    "dataQualityScore": 0
+  },
+  "byDepartment": {
+    "BBMP": 5,
+    "BDA": 3
+  },
+  "byStatus": {
+    "In Progress": 2,
+    "Pending": 4,
+    "Completed": 2
+  },
+  "byCategory": {
+    "general": 8
+  },
+  "byPriority": {
+    "Low": 8
+  },
+  "byRiskLevel": {
+    "Low": 8
+  },
+  "budgetDistribution": {
+    "small": 1,
+    "medium": 5,
+    "large": 2,
+    "mega": 0
+  },
+  "timelineAnalysis": {
+    "shortTerm": 2,
+    "mediumTerm": 6,
+    "longTerm": 0
+  }
+}

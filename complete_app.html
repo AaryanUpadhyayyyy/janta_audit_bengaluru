@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janata Audit Bengaluru - AI-Powered Project Analysis</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #3182ce;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #3182ce;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2c5aa0;
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #3182ce;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .map-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .map-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+
+        .projects-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .projects-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .projects-count {
+            background: #3182ce;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .filter-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-select, .filter-input {
+            padding: 0.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.875rem;
+        }
+
+        .filter-input {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .projects-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .project-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #2d3748;
+            flex: 1;
+        }
+
+        .project-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-completed {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status-in-progress {
+            background: #bee3f8;
+            color: #2a4365;
+        }
+
+        .status-pending {
+            background: #fef5e7;
+            color: #744210;
+        }
+
+        .project-description {
+            color: #4a5568;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-item {
+            font-size: 0.75rem;
+        }
+
+        .meta-label {
+            color: #718096;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .meta-value {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-small {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-view {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .btn-analyze {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-description {
+            color: #4a5568;
+            font-size: 0.875rem;
+        }
+
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: #4a5568;
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid #3182ce;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .auth-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #4a5568;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .auth-switch a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="nav">
+            <div class="logo">
+                <span>🏛️</span>
+                <span>Janata Audit Bengaluru</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            <div id="authButtons" style="display: flex; gap: 0.5rem;">
+                <button id="signInBtn" class="btn btn-secondary">Sign In</button>
+                <button id="signUpBtn" class="btn btn-primary">Sign Up</button>
+            </div>
+            <div id="userMenu" style="display: none; align-items: center; gap: 0.5rem;">
+                <img id="userPhoto" src="" alt="User" style="width: 32px; height: 32px; border-radius: 50%; display: none;">
+                <span id="userName">User</span>
+                <button id="signOutBtn" class="btn btn-secondary">Sign Out</button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>AI-Powered Civic Accountability Platform</h1>
+            <p>Track local government infrastructure projects, public funds, and political donations in Bengaluru with real-time AI analysis using free APIs.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalProjects">0</div>
+                <div class="stat-label">Total Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completedProjects">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="inProgressProjects">0</div>
+                <div class="stat-label">In Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalBudget">₹0</div>
+                <div class="stat-label">Total Budget</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="map-container">
+                <div class="map-header">
+                    <div class="map-title">Project Locations</div>
+                <div class="map-controls">
+                    <button class="btn btn-secondary" onclick="toggleSatelliteView()">🛰️ Satellite</button>
+                    <button class="btn btn-secondary" onclick="refreshMap()">🔄 Refresh</button>
+                    <button class="btn btn-primary" onclick="scrapeRealProjects()">📊 Scrape Real Projects</button>
+                </div>
+                </div>
+                <div id="map"></div>
+            </div>
+
+            <div class="projects-section">
+                <div class="projects-header">
+                    <div class="projects-title">Government Projects</div>
+                    <div class="projects-count" id="projectsCount">0</div>
+                </div>
+                
+                <!-- Filter Options -->
+                <div class="filter-section">
+                    <div class="filter-row">
+                        <select id="departmentFilter" class="filter-select">
+                            <option value="">All Departments</option>
+                            <option value="BBMP">BBMP</option>
+                            <option value="BDA">BDA</option>
+                            <option value="BWSSB">BWSSB</option>
+                            <option value="BMRCL">BMRCL</option>
+                            <option value="BESCOM">BESCOM</option>
+                            <option value="KPWD">KPWD</option>
+                            <option value="KUIDFC">KUIDFC</option>
+                            <option value="BMTC">BMTC</option>
+                        </select>
+                        <select id="statusFilter" class="filter-select">
+                            <option value="">All Status</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                        <input type="text" id="searchFilter" placeholder="Search projects..." class="filter-input">
+                        <button onclick="applyFilters()" class="btn btn-primary">🔍 Filter</button>
+                    </div>
+                </div>
+                
+                <div class="projects-list" id="projectsList">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <div>Loading projects...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <div class="feature-title">Project Tracking</div>
+                <div class="feature-description">Monitor infrastructure projects across Bengaluru with real-time updates</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <div class="feature-title">AI Analysis</div>
+                <div class="feature-description">Automated anomaly detection and delay prediction using machine learning</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛰️</div>
+                <div class="feature-title">Satellite Imagery</div>
+                <div class="feature-description">Visual progress tracking using satellite data and change detection</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">Free APIs</div>
+                <div class="feature-description">OpenStreetMap and Esri World Imagery integration at no cost</div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <div>Starting application...</div>
+            <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">
+                This may take a few minutes for the first time
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div id="signInModal" class="auth-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div class="modal-content" style="background: white; padding: 2rem; border-radius: 8px; width: 100%; max-width: 400px; position: relative;">
+            <button id="closeModal" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">Sign In</h2>
+            <form id="signInForm">
+                <div class="form-group">
+                    <label for="signInEmail">Email</label>
+                    <input type="email" id="signInEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signInPassword">Password</label>
+                    <input type="password" id="signInPassword" name="password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="authSystem.hideModals()" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </div>
+            </form>
+            <div class="auth-switch">
+                <p>Don't have an account? <a href="#" onclick="authSystem.showSignUp()">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="signUpModal" class="auth-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sign Up</h3>
+                <button onclick="authSystem.hideModals()" class="modal-close">×</button>
+            </div>
+            <form onsubmit="authSystem.handleSignUp(event)">
+                <div class="form-group">
+                    <label for="signUpName">Full Name</label>
+                    <input type="text" id="signUpName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signUpEmail">Email</label>
+                    <input type="email" id="signUpEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signUpPassword">Password</label>
+                    <input type="password" id="signUpPassword" name="password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="authSystem.hideModals()" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+            </form>
+            <div class="auth-switch">
+                <p>Already have an account? <a href="#" onclick="authSystem.showSignIn()">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let map;
+        let osmLayer;
+        let satelliteLayer;
+        let isSatelliteView = false;
+        let projects = [];
+        let projectMarkers = [];
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMap();
+            loadProjects();
+        });
+
+        // Initialize the map
+        function initializeMap() {
+            // Initialize map centered on Bengaluru
+            map = L.map('map').setView([12.9716, 77.5946], 11);
+
+            // Add OpenStreetMap layer
+            osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            });
+
+            // Add Esri World Imagery layer (satellite)
+            satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: '© Esri'
+            });
+
+            // Add default layer
+            osmLayer.addTo(map);
+
+            // Add layer control
+            L.control.layers({
+                'OpenStreetMap': osmLayer,
+                'Satellite': satelliteLayer
+            }).addTo(map);
+        }
+
+        // Toggle satellite view
+        function toggleSatelliteView() {
+            if (isSatelliteView) {
+                map.removeLayer(satelliteLayer);
+                map.addLayer(osmLayer);
+                isSatelliteView = false;
+            } else {
+                map.removeLayer(osmLayer);
+                map.addLayer(satelliteLayer);
+                isSatelliteView = true;
+            }
+        }
+
+        // Refresh map
+        function refreshMap() {
+            map.invalidateSize();
+            loadProjects();
+        }
+
+        // Load projects from API or mock data
+        function loadProjects() {
+            // Try to load from web server first
+            fetch('/api/projects')
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('API not available');
+                    }
+                })
+                .then(data => {
+                    projects = data.projects || [];
+                    displayProjects();
+                    updateStats();
+                    addProjectMarkers();
+                })
+                .catch(error => {
+                    console.log('API not available, using mock data');
+                    loadMockProjects();
+                });
+        }
+
+        // Load mock projects for demonstration
+        function loadMockProjects() {
+            projects = [
+                {
+                    id: '1',
+                    projectName: 'BBMP Road Infrastructure Development',
+                    description: 'Comprehensive road development project in Ward 15',
+                    status: 'In Progress',
+                    budget: 50000000,
+                    location: 'Bengaluru, Karnataka',
+                    department: 'BBMP',
+                    wardNumber: 15,
+                    geoPoint: { latitude: 12.9716, longitude: 77.5946 },
+                    contractor: 'ABC Construction Ltd.',
+                    startDate: '2023-01-15',
+                    endDate: '2024-12-31'
+                },
+                {
+                    id: '2',
+                    projectName: 'BDA Housing Scheme Phase 2',
+                    description: 'Affordable housing project for middle-income families',
+                    status: 'Completed',
+                    budget: 75000000,
+                    location: 'Bengaluru, Karnataka',
+                    department: 'BDA',
+                    wardNumber: 8,
+                    geoPoint: { latitude: 12.9352, longitude: 77.6245 },
+                    contractor: 'XYZ Builders',
+                    startDate: '2022-06-01',
+                    endDate: '2023-11-30'
+                },
+                {
+                    id: '3',
+                    projectName: 'BWSSB Water Supply Network',
+                    description: 'New water supply network for expanding areas',
+                    status: 'Pending',
+                    budget: 30000000,
+                    location: 'Bengaluru, Karnataka',
+                    department: 'BWSSB',
+                    wardNumber: 22,
+                    geoPoint: { latitude: 12.9141, longitude: 77.6781 },
+                    contractor: 'Water Works Ltd.',
+                    startDate: '2024-01-01',
+                    endDate: '2024-12-31'
+                },
+                {
+                    id: '4',
+                    projectName: 'BMRCL Metro Line Extension',
+                    description: 'Extension of metro line to new areas',
+                    status: 'In Progress',
+                    budget: 120000000,
+                    location: 'Bengaluru, Karnataka',
+                    department: 'BMRCL',
+                    wardNumber: 12,
+                    geoPoint: { latitude: 12.9858, longitude: 77.6101 },
+                    contractor: 'Metro Construction Co.',
+                    startDate: '2023-03-01',
+                    endDate: '2025-06-30'
+                },
+                {
+                    id: '5',
+                    projectName: 'BESCOM Electrical Infrastructure',
+                    description: 'Upgradation of electrical infrastructure',
+                    status: 'In Progress',
+                    budget: 40000000,
+                    location: 'Bengaluru, Karnataka',
+                    department: 'BESCOM',
+                    wardNumber: 18,
+                    geoPoint: { latitude: 12.9230, longitude: 77.5933 },
+                    contractor: 'Power Solutions Inc.',
+                    startDate: '2023-08-01',
+                    endDate: '2024-08-31'
+                },
+                {
+                    id: '6',
+                    projectName: 'KPWD Bridge Construction',
+                    description: 'New bridge construction over river',
+                    status: 'Pending',
+                    budget: 60000000,
+                    location: 'Bengaluru, Karnataka',
+                    department: 'KPWD',
+                    wardNumber: 25,
+                    geoPoint: { latitude: 12.9569, longitude: 77.7011 },
+                    contractor: 'Bridge Builders Ltd.',
+                    startDate: '2024-02-01',
+                    endDate: '2025-01-31'
+                }
+            ];
+
+            displayProjects();
+            updateStats();
+            addProjectMarkers();
+        }
+
+        // Display projects in the list
+        function displayProjects() {
+            const projectsList = document.getElementById('projectsList');
+            const projectsCount = document.getElementById('projectsCount');
+            
+            projectsCount.textContent = projects.length;
+
+            if (projects.length === 0) {
+                projectsList.innerHTML = '<div class="loading">No projects found</div>';
+                return;
+            }
+
+            projectsList.innerHTML = projects.map(project => `
+                <div class="project-card" onclick="showProjectDetails('${project.id}')">
+                    <div class="project-header">
+                        <div class="project-name">${project.projectName}</div>
+                        <div class="project-status status-${project.status.toLowerCase().replace(' ', '-')}">${project.status}</div>
+                    </div>
+                    <div class="project-description">${project.description}</div>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Budget</div>
+                            <div class="meta-value">₹${project.budget?.toLocaleString() || 'N/A'}</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Department</div>
+                            <div class="meta-value">${project.department || 'N/A'}</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Location</div>
+                            <div class="meta-value">${project.location || 'N/A'}</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Ward</div>
+                            <div class="meta-value">${project.wardNumber || 'N/A'}</div>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn-small btn-view" onclick="event.stopPropagation(); showProjectDetails('${project.id}')">
+                            👁️ View Details
+                        </button>
+                        <button class="btn-small btn-analyze" onclick="event.stopPropagation(); analyzeProject('${project.id}')">
+                            🤖 AI Analysis
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update statistics
+        function updateStats() {
+            const totalProjects = projects.length;
+            const completedProjects = projects.filter(p => p.status === 'Completed').length;
+            const inProgressProjects = projects.filter(p => p.status === 'In Progress').length;
+            const totalBudget = projects.reduce((sum, p) => sum + (p.budget || 0), 0);
+
+            document.getElementById('totalProjects').textContent = totalProjects;
+            document.getElementById('completedProjects').textContent = completedProjects;
+            document.getElementById('inProgressProjects').textContent = inProgressProjects;
+            document.getElementById('totalBudget').textContent = `₹${(totalBudget / 10000000).toFixed(1)}Cr`;
+        }
+
+        // Add project markers to map
+        function addProjectMarkers() {
+            // Clear existing markers
+            projectMarkers.forEach(marker => map.removeLayer(marker));
+            projectMarkers = [];
+
+            projects.forEach(project => {
+                if (project.geoPoint && project.geoPoint.latitude && project.geoPoint.longitude) {
+                    const marker = L.marker([project.geoPoint.latitude, project.geoPoint.longitude])
+                        .bindPopup(`
+                            <div style="min-width: 200px;">
+                                <h3 style="margin: 0 0 8px 0; font-size: 14px;">${project.projectName}</h3>
+                                <p style="margin: 0 0 8px 0; font-size: 12px; color: #666;">${project.description}</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+                                    <span style="background: ${getStatusColor(project.status)}; color: white; padding: 2px 6px; border-radius: 3px;">${project.status}</span>
+                                    <span>₹${(project.budget / 10000000).toFixed(1)}Cr</span>
+                                </div>
+                            </div>
+                        `)
+                        .on('click', () => selectProject(project.id));
+
+                    projectMarkers.push(marker);
+                    marker.addTo(map);
+                }
+            });
+        }
+
+        // Get status color for markers
+        function getStatusColor(status) {
+            const colors = {
+                'Completed': '#28a745',
+                'In Progress': '#007bff',
+                'Pending': '#ffc107',
+                'Cancelled': '#dc3545'
+            };
+            return colors[status] || '#6c757d';
+        }
+
+        // Select a project
+        function selectProject(projectId) {
+            const project = projects.find(p => p.id === projectId);
+            if (project && project.geoPoint) {
+                map.setView([project.geoPoint.latitude, project.geoPoint.longitude], 15);
+                
+                // Highlight the selected project
+                const projectCards = document.querySelectorAll('.project-card');
+                projectCards.forEach(card => card.style.backgroundColor = '');
+                
+                const selectedCard = event.currentTarget;
+                selectedCard.style.backgroundColor = '#e3f2fd';
+            }
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const departmentFilter = document.getElementById('departmentFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
+            
+            let filteredProjects = projects;
+            
+            if (departmentFilter) {
+                filteredProjects = filteredProjects.filter(p => p.department === departmentFilter);
+            }
+            
+            if (statusFilter) {
+                filteredProjects = filteredProjects.filter(p => p.status === statusFilter);
+            }
+            
+            if (searchFilter) {
+                filteredProjects = filteredProjects.filter(p => 
+                    p.projectName.toLowerCase().includes(searchFilter) ||
+                    p.description.toLowerCase().includes(searchFilter) ||
+                    p.department.toLowerCase().includes(searchFilter)
+                );
+            }
+            
+            // Temporarily replace projects array for display
+            const originalProjects = projects;
+            projects = filteredProjects;
+            displayProjects();
+            updateStats();
+            addProjectMarkers();
+            projects = originalProjects;
+        }
+
+        // Analyze project with AI
+        function analyzeProject(projectId) {
+            const project = projects.find(p => p.id === projectId);
+            if (!project) return;
+            
+            const analysisDiv = document.getElementById(`aiAnalysis_${project.id}`);
+            if (!analysisDiv) return;
+            
+            // Show loading state
+            analysisDiv.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⏳</div>
+                    <div>Analyzing project with AI and Health Engine...</div>
+                </div>
+            `;
+            
+            // Call real AI analysis API and Health Engine
+            Promise.all([
+                fetch('/api/ai/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        projectId: project.id,
+                        projectData: project
+                    })
+                }).then(response => response.json()),
+                
+                fetch('/api/health', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }).then(response => response.json())
+            ])
+            .then(([aiData, healthData]) => {
+                if (aiData.success) {
+                    const analysis = aiData.analysis;
+                    let healthSection = '';
+                    
+                    // Add health metrics if available
+                    if (healthData && !healthData.error) {
+                        const health = healthData;
+                        healthSection = `
+                        <div style="margin-bottom: 1rem; background: #f7fafc; padding: 1rem; border-radius: 8px; border-left: 4px solid #4299e1;">
+                            <h4 style="font-weight: 600; color: #2b6cb0; margin-bottom: 0.5rem;">🏥 Health Engine Analysis</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <div><strong>True Progress:</strong> ${health.trueProgress || 'N/A'}%</div>
+                                <div><strong>Status:</strong> <span style="color: ${health.status === 'GREEN' ? '#38a169' : health.status === 'YELLOW' ? '#d69e2e' : '#e53e3e'}">${health.status || 'Unknown'}</span></div>
+                                <div><strong>Confidence:</strong> ${health.confidenceScore ? (health.confidenceScore * 100).toFixed(1) : 'N/A'}%</div>
+                                <div><strong>Cost Index:</strong> ${health.costPerformanceIndex || 'N/A'}</div>
+                            </div>
+                            <div style="font-size: 0.875rem; color: #4a5568;">
+                                <strong>Predicted Completion:</strong> ${health.predictedCompletion || 'Not available'}
+                            </div>
+                            <div style="font-size: 0.75rem; color: #718096; margin-top: 0.5rem;">
+                                Health Engine: ${health.systemHealth?.data_points || 0} data points | 
+                                Model Confidence: ${health.systemHealth?.model_confidence ? (health.systemHealth.model_confidence * 100).toFixed(1) : 0}%
+                            </div>
+                        </div>
+                        `;
+                    }
+                    
+                    analysisDiv.innerHTML = `
+                        ${healthSection}
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 0.5rem;">📊 AI Project Analysis</h4>
+                            <p style="color: #4a5568; line-height: 1.6;">${analysis.summary}</p>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-weight: 600; color: #e53e3e; margin-bottom: 0.5rem;">⚠️ Risk Assessment</h4>
+                            <p style="color: #4a5568; line-height: 1.6;">${analysis.risks}</p>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-weight: 600; color: #38a169; margin-bottom: 0.5rem;">💡 AI Recommendations</h4>
+                            <p style="color: #4a5568; line-height: 1.6;">${analysis.recommendations}</p>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-weight: 600; color: #3182ce; margin-bottom: 0.5rem;">📈 Progress Prediction</h4>
+                            <p style="color: #4a5568; line-height: 1.6;">${analysis.progress}</p>
+                        </div>
+                        ${analysis.anomalies ? `
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-weight: 600; color: #d69e2e; margin-bottom: 0.5rem;">🔍 Anomaly Detection</h4>
+                            <p style="color: #4a5568; line-height: 1.6;">${analysis.anomalies}</p>
+                        </div>
+                        ` : ''}
+                        ${analysis.redFlags && analysis.redFlags.length > 0 ? `
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-weight: 600; color: #e53e3e; margin-bottom: 0.5rem;">🚩 Red Flags</h4>
+                            <ul style="color: #4a5568; line-height: 1.6; margin-left: 1rem;">
+                                ${analysis.redFlags.map(flag => `<li>${flag}</li>`).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
+                        <div style="font-size: 0.75rem; color: #718096; margin-top: 1rem;">
+                            Analysis Type: ${analysis.analysisType || 'AI-powered'} | 
+                            Anomalies Detected: ${analysis.anomalyCount || 0} |
+                            Health Engine: ${healthData && !healthData.error ? 'Active' : 'Unavailable'}
+                        </div>
+                    `;
+                } else {
+                    throw new Error(aiData.error || 'AI analysis failed');
+                }
+            })
+            .catch(error => {
+                console.error('AI analysis error:', error);
+                // Fallback to simulated analysis with health engine attempt
+                fetch('/api/health')
+                    .then(response => response.json())
+                    .then(healthData => {
+                        const analysis = generateAIAnalysis(project);
+                        let healthSection = '';
+                        
+                        if (healthData && !healthData.error) {
+                            const health = healthData;
+                            healthSection = `
+                            <div style="margin-bottom: 1rem; background: #f7fafc; padding: 1rem; border-radius: 8px; border-left: 4px solid #4299e1;">
+                                <h4 style="font-weight: 600; color: #2b6cb0; margin-bottom: 0.5rem;">🏥 Health Engine Analysis</h4>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <div><strong>True Progress:</strong> ${health.trueProgress || 'N/A'}%</div>
+                                    <div><strong>Status:</strong> <span style="color: ${health.status === 'GREEN' ? '#38a169' : health.status === 'YELLOW' ? '#d69e2e' : '#e53e3e'}">${health.status || 'Unknown'}</span></div>
+                                    <div><strong>Confidence:</strong> ${health.confidenceScore ? (health.confidenceScore * 100).toFixed(1) : 'N/A'}%</div>
+                                    <div><strong>Cost Index:</strong> ${health.costPerformanceIndex || 'N/A'}</div>
+                                </div>
+                                <div style="font-size: 0.875rem; color: #4a5568;">
+                                    <strong>Predicted Completion:</strong> ${health.predictedCompletion || 'Not available'}
+                                </div>
+                            </div>
+                            `;
+                        }
+                        
+                        analysisDiv.innerHTML = `
+                            ${healthSection}
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 0.5rem;">📊 Project Analysis</h4>
+                                <p style="color: #4a5568; line-height: 1.6;">${analysis.summary}</p>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="font-weight: 600; color: #e53e3e; margin-bottom: 0.5rem;">⚠️ Risk Assessment</h4>
+                                <p style="color: #4a5568; line-height: 1.6;">${analysis.risks}</p>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="font-weight: 600; color: #38a169; margin-bottom: 0.5rem;">💡 Recommendations</h4>
+                                <p style="color: #4a5568; line-height: 1.6;">${analysis.recommendations}</p>
+                            </div>
+                            <div>
+                                <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 0.5rem;">📈 Progress Prediction</h4>
+                                <p style="color: #4a5568; line-height: 1.6;">${analysis.progress}</p>
+                            </div>
+                            <div style="margin-top: 0.5rem; padding: 0.5rem; background: #fef5e7; border-radius: 4px; font-size: 0.875rem; color: #744210;">
+                                ℹ️ Using simulated AI analysis | Health Engine: ${healthData && !healthData.error ? 'Active' : 'Unavailable'}
+                            </div>
+                        `;
+                    })
+                    .catch(healthError => {
+                        console.error('Health engine error:', healthError);
+                        const analysis = generateAIAnalysis(project);
+                        analysisDiv.innerHTML = `
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 0.5rem;">📊 Project Analysis</h4>
+                                <p style="color: #4a5568; line-height: 1.6;">${analysis.summary}</p>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="font-weight: 600; color: #e53e3e; margin-bottom: 0.5rem;">⚠️ Risk Assessment</h4>
+                                <p style="color: #4a5568; line-height: 1.6;">${analysis.risks}</p>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="font-weight: 600; color: #38a169; margin-bottom: 0.5rem;">💡 Recommendations</h4>
+                                <p style="color: #4a5568; line-height: 1.6;">${analysis.recommendations}</p>
+                            </div>
+                            <div>
+                                <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 0.5rem;">📈 Progress Prediction</h4>
+                                <p style="color: #4a5568; line-height: 1.6;">${analysis.progress}</p>
+                            </div>
+                            <div style="margin-top: 0.5rem; padding: 0.5rem; background: #fef5e7; border-radius: 4px; font-size: 0.875rem; color: #744210;">
+                                ℹ️ Using simulated AI analysis (backend services unavailable)
+                            </div>
+                        `;
+                    });
+            });
+        }
+
+        // Generate AI analysis for project
+        function generateAIAnalysis(project) {
+            const budget = project.budget || 0;
+            const status = project.status || 'Unknown';
+            const department = project.department || 'Unknown';
+            
+            let summary = `This ${department} project with a budget of ₹${budget.toLocaleString()} is currently ${status.toLowerCase()}. `;
+            
+            if (budget > 100000000) {
+                summary += "This is a high-value infrastructure project that requires careful monitoring and management. ";
+            } else if (budget > 50000000) {
+                summary += "This is a medium-scale project that should be tracked regularly for progress updates. ";
+            } else {
+                summary += "This is a smaller-scale project that can be managed with standard oversight procedures. ";
+            }
+            
+            let risks = "Based on similar projects, potential risks include: ";
+            if (status === 'Pending') {
+                risks += "Delays in project initiation, budget allocation issues, and contractor selection challenges. ";
+            } else if (status === 'In Progress') {
+                risks += "Timeline delays, cost overruns, quality control issues, and resource constraints. ";
+            } else {
+                risks += "Post-completion maintenance requirements and performance evaluation. ";
+            }
+            
+            let recommendations = "Recommended actions: ";
+            if (status === 'Pending') {
+                recommendations += "Ensure proper planning and resource allocation before project start. ";
+            } else if (status === 'In Progress') {
+                recommendations += "Implement regular progress monitoring and stakeholder communication. ";
+            } else {
+                recommendations += "Conduct thorough project evaluation and document lessons learned. ";
+            }
+            
+            let progress = "Progress prediction: ";
+            if (status === 'Pending') {
+                progress += "Project is expected to start within 30-60 days based on current planning phase. ";
+            } else if (status === 'In Progress') {
+                progress += "Project is on track for completion within the estimated timeline. ";
+            } else {
+                progress += "Project has been successfully completed and is ready for handover. ";
+            }
+            
+            return {
+                summary: summary.trim(),
+                risks: risks.trim(),
+                recommendations: recommendations.trim(),
+                progress: progress.trim()
+            };
+        }
+
+        // Scrape real projects from government websites
+        function scrapeRealProjects() {
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block';
+            
+            // Show loading message
+            const loadingDiv = loading.querySelector('div:last-child');
+            loadingDiv.textContent = 'Scraping real projects from government websites...';
+            
+            // Start the scraper
+            fetch('/api/scrape', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                loading.style.display = 'none';
+                if (data.success) {
+                    alert(`Successfully scraped ${data.count} real projects from government websites!`);
+                    loadProjects(); // Reload projects
+                } else {
+                    alert('Error scraping projects: ' + data.error);
+                }
+            })
+            .catch(error => {
+                loading.style.display = 'none';
+                console.error('Error:', error);
+                alert('Error scraping projects. Make sure the scraper is running.');
+            });
+        }
+
+        // Show project details
+        function showProjectDetails(projectId) {
+            const project = projects.find(p => p.id === projectId);
+            if (!project) return;
+            
+            // Create detailed project modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+            `;
+            
+            modal.innerHTML = `
+                <div style="
+                    background: white;
+                    border-radius: 12px;
+                    padding: 2rem;
+                    max-width: 800px;
+                    max-height: 90vh;
+                    overflow-y: auto;
+                    margin: 1rem;
+                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+                ">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h2 style="font-size: 1.5rem; font-weight: 700; color: #2d3748;">${project.projectName}</h2>
+                        <button onclick="this.closest('.modal').remove()" style="
+                            background: #e2e8f0;
+                            border: none;
+                            border-radius: 50%;
+                            width: 32px;
+                            height: 32px;
+                            cursor: pointer;
+                            font-size: 1.2rem;
+                        ">×</button>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="project-status status-${project.status.toLowerCase().replace(' ', '-')}" style="display: inline-block; margin-bottom: 1rem;">
+                            ${project.status}
+                        </div>
+                        <p style="color: #4a5568; line-height: 1.6; margin-bottom: 1.5rem;">${project.description}</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <div style="font-size: 0.75rem; color: #718096; font-weight: 500; text-transform: uppercase; margin-bottom: 0.25rem;">Budget</div>
+                            <div style="font-size: 1.25rem; font-weight: 700; color: #2d3748;">₹${project.budget?.toLocaleString() || 'N/A'}</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: #718096; font-weight: 500; text-transform: uppercase; margin-bottom: 0.25rem;">Department</div>
+                            <div style="font-size: 1rem; font-weight: 600; color: #2d3748;">${project.department || 'N/A'}</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: #718096; font-weight: 500; text-transform: uppercase; margin-bottom: 0.25rem;">Location</div>
+                            <div style="font-size: 1rem; font-weight: 600; color: #2d3748;">${project.location || 'N/A'}</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: #718096; font-weight: 500; text-transform: uppercase; margin-bottom: 0.25rem;">Ward Number</div>
+                            <div style="font-size: 1rem; font-weight: 600; color: #2d3748;">${project.wardNumber || 'N/A'}</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: #718096; font-weight: 500; text-transform: uppercase; margin-bottom: 0.25rem;">Start Date</div>
+                            <div style="font-size: 1rem; font-weight: 600; color: #2d3748;">${project.startDate ? new Date(project.startDate).toLocaleDateString() : 'N/A'}</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: #718096; font-weight: 500; text-transform: uppercase; margin-bottom: 0.25rem;">End Date</div>
+                            <div style="font-size: 1rem; font-weight: 600; color: #2d3748;">${project.endDate ? new Date(project.endDate).toLocaleDateString() : 'N/A'}</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; font-weight: 600; color: #2d3748; margin-bottom: 0.5rem;">AI Analysis</h3>
+                        <div id="aiAnalysis_${project.id}" style="
+                            background: #f8fafc;
+                            border: 1px solid #e2e8f0;
+                            border-radius: 8px;
+                            padding: 1rem;
+                            color: #4a5568;
+                        ">
+                            <div style="text-align: center; padding: 2rem;">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤖</div>
+                                <div>Click "AI Analysis" to get detailed insights about this project</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                        <button onclick="analyzeProject('${project.id}')" style="
+                            background: #38a169;
+                            color: white;
+                            border: none;
+                            padding: 0.75rem 1.5rem;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            font-weight: 600;
+                        ">🤖 AI Analysis</button>
+                        <button onclick="this.closest('.modal').remove()" style="
+                            background: #e2e8f0;
+                            color: #4a5568;
+                            border: none;
+                            padding: 0.75rem 1.5rem;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            font-weight: 600;
+                        ">Close</button>
+                    </div>
+                </div>
+            `;
+            
+            modal.className = 'modal';
+            document.body.appendChild(modal);
+            
+            // Center the project on map
+            if (project.geoPoint) {
+                map.setView([project.geoPoint.latitude, project.geoPoint.longitude], 15);
+            }
+        }
+
+        // Authentication system
+        const authSystem = {
+            showSignIn: function() {
+                document.getElementById('signInModal').style.display = 'flex';
+                document.getElementById('signUpModal').style.display = 'none';
+            },
+            
+            showSignUp: function() {
+                document.getElementById('signUpModal').style.display = 'flex';
+                document.getElementById('signInModal').style.display = 'none';
+            },
+            
+            hideModals: function() {
+                document.getElementById('signInModal').style.display = 'none';
+                document.getElementById('signUpModal').style.display = 'none';
+            },
+            
+            handleSignIn: function(event) {
+                event.preventDefault();
+                const email = document.getElementById('signInEmail').value;
+                const password = document.getElementById('signInPassword').value;
+                
+                // Simulate authentication
+                setTimeout(() => {
+                    alert('Sign in successful!');
+                    this.hideModals();
+                    this.updateUI(true, { email: email, name: email.split('@')[0] });
+                }, 1000);
+            },
+            
+            handleSignUp: function(event) {
+                event.preventDefault();
+                const name = document.getElementById('signUpName').value;
+                const email = document.getElementById('signUpEmail').value;
+                const password = document.getElementById('signUpPassword').value;
+                
+                // Simulate registration
+                setTimeout(() => {
+                    alert('Sign up successful!');
+                    this.hideModals();
+                    this.updateUI(true, { email: email, name: name });
+                }, 1000);
+            },
+            
+            signOut: function() {
+                this.updateUI(false);
+                alert('Signed out successfully!');
+            },
+            
+            updateUI: function(isSignedIn, user = null) {
+                const authButtons = document.getElementById('authButtons');
+                const userMenu = document.getElementById('userMenu');
+                
+                if (isSignedIn && user) {
+                    authButtons.style.display = 'none';
+                    userMenu.style.display = 'flex';
+                    document.getElementById('userName').textContent = user.name;
+                } else {
+                    authButtons.style.display = 'flex';
+                    userMenu.style.display = 'none';
+                }
+            }
+        };
+
+        // Event listeners for authentication
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sign in button
+            document.getElementById('signInBtn').addEventListener('click', () => {
+                authSystem.showSignIn();
+            });
+            
+            // Sign up button
+            document.getElementById('signUpBtn').addEventListener('click', () => {
+                authSystem.showSignUp();
+            });
+            
+            // Sign out button
+            document.getElementById('signOutBtn').addEventListener('click', () => {
+                authSystem.signOut();
+            });
+            
+            // Sign in form
+            document.getElementById('signInForm').addEventListener('submit', (e) => {
+                authSystem.handleSignIn(e);
+            });
+            
+            // Close modal button
+            document.getElementById('closeModal').addEventListener('click', () => {
+                authSystem.hideModals();
+            });
+            
+            // Close modal on background click
+            document.getElementById('signInModal').addEventListener('click', (e) => {
+                if (e.target === e.currentTarget) {
+                    authSystem.hideModals();
+                }
+            });
+            
+            document.getElementById('signUpModal').addEventListener('click', (e) => {
+                if (e.target === e.currentTarget) {
+                    authSystem.hideModals();
+                }
+            });
+        });
+
+        // Start application function
+        function startApplication() {
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block';
+            
+            // Simulate starting the application
+            setTimeout(() => {
+                loading.style.display = 'none';
+                alert('Application started! You can now view projects and use the satellite map.');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

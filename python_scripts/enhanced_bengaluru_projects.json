@@ -1,0 +1,2810 @@
+[
+  {
+    "id": "EPROC_MOCK_1",
+    "projectName": "BBMP Road Infrastructure Tender - Phase 1",
+    "description": "Tender for comprehensive road development and maintenance in BBMP jurisdiction covering major arterial roads and residential areas",
+    "budget": 25000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-12T15:51:55.170602",
+    "endDate": "2026-05-31T15:51:55.170626",
+    "source": "Karnataka e-Procurement",
+    "sourceUrl": "https://eproc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:51:55.170630",
+    "department": "BBMP",
+    "wardNumber": 20,
+    "contractor": null,
+    "geoPoint": {
+      "latitude": 13.00861,
+      "longitude": 77.557887
+    },
+    "categories": [
+      "infrastructure",
+      "housing"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "EPROC_MOCK_2",
+    "projectName": "BDA Housing Scheme Tender - Affordable Housing",
+    "description": "Tender for construction of affordable housing units under various government schemes in Bengaluru",
+    "budget": 75000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-10-25T15:51:55.170641",
+    "endDate": "2026-02-05T15:51:55.170646",
+    "source": "Karnataka e-Procurement",
+    "sourceUrl": "https://eproc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:51:55.170649",
+    "department": "BDA",
+    "wardNumber": 23,
+    "contractor": null,
+    "geoPoint": {
+      "latitude": 12.800716,
+      "longitude": 77.607665
+    },
+    "categories": [
+      "housing"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 69,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "EPROC_MOCK_3",
+    "projectName": "BWSSB Water Supply Network Tender",
+    "description": "Tender for laying new water supply pipelines and upgrading existing infrastructure in Bengaluru",
+    "budget": 40000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-12-30T15:51:55.170654",
+    "endDate": "2026-06-09T15:51:55.170660",
+    "source": "Karnataka e-Procurement",
+    "sourceUrl": "https://eproc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:51:55.170668",
+    "department": "BWSSB",
+    "wardNumber": 25,
+    "contractor": null,
+    "geoPoint": {
+      "latitude": 13.074749,
+      "longitude": 77.674095
+    },
+    "categories": [
+      "water_management"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "EPROC_MOCK_4",
+    "projectName": "BMRCL Metro Station Construction Tender",
+    "description": "Tender for construction of new metro stations and related infrastructure in Bengaluru",
+    "budget": 120000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-12-16T15:51:55.170672",
+    "endDate": "2025-11-13T15:51:55.170676",
+    "source": "Karnataka e-Procurement",
+    "sourceUrl": "https://eproc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:51:55.170679",
+    "department": "BMRCL",
+    "wardNumber": 18,
+    "contractor": null,
+    "geoPoint": {
+      "latitude": 12.946366,
+      "longitude": 77.788564
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 82,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "EPROC_MOCK_5",
+    "projectName": "BESCOM Electrical Infrastructure Tender",
+    "description": "Tender for upgrading electrical infrastructure including transformers, cables, and distribution networks",
+    "budget": 35000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-12-25T15:51:55.170684",
+    "endDate": "2025-11-20T15:51:55.170687",
+    "source": "Karnataka e-Procurement",
+    "sourceUrl": "https://eproc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:51:55.170690",
+    "department": "BESCOM",
+    "wardNumber": 19,
+    "contractor": null,
+    "geoPoint": {
+      "latitude": 13.188067,
+      "longitude": 77.628513
+    },
+    "categories": [
+      "utilities"
+    ],
+    "priority": "Low",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_MOCK_6",
+    "projectName": "BBMP Ward 15 Road Development Project",
+    "description": "Comprehensive road development including widening, resurfacing, and drainage improvement in Ward 15",
+    "budget": 15000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-10-16T15:51:55.393008",
+    "endDate": "2026-03-25T15:51:55.393029",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:51:55.393034",
+    "department": "BBMP",
+    "wardNumber": 15,
+    "contractor": "Metro Construction Co.",
+    "geoPoint": {
+      "latitude": 13.164049,
+      "longitude": 77.610962
+    },
+    "categories": [
+      "infrastructure",
+      "water_management"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 63,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BBMP_MOCK_7",
+    "projectName": "BBMP Solid Waste Management Initiative",
+    "description": "Implementation of advanced solid waste management system with segregation and processing facilities",
+    "budget": 30000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-08T15:51:55.393047",
+    "endDate": "2026-01-12T15:51:55.393051",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:51:55.393055",
+    "department": "BBMP",
+    "wardNumber": 23,
+    "contractor": "Infrastructure Solutions Inc.",
+    "geoPoint": {
+      "latitude": 13.18316,
+      "longitude": 77.644908
+    },
+    "categories": [
+      "environment"
+    ],
+    "priority": "Low",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_MOCK_8",
+    "projectName": "BBMP Street Lighting Upgrade Project",
+    "description": "Upgradation of street lighting infrastructure with LED lights and smart controls",
+    "budget": 8000000,
+    "status": "Completed",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-01-14T15:51:55.393061",
+    "endDate": "2026-05-17T15:51:55.393066",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:51:55.393070",
+    "department": "BBMP",
+    "wardNumber": 18,
+    "contractor": "Water Works Ltd.",
+    "geoPoint": {
+      "latitude": 13.101719,
+      "longitude": 77.632496
+    },
+    "categories": [
+      "digital_governance",
+      "environment"
+    ],
+    "priority": "Low",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 100,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_MOCK_9",
+    "projectName": "BBMP Parks and Recreation Development",
+    "description": "Development of new parks and recreational facilities across various wards",
+    "budget": 12000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-07-16T15:51:55.393077",
+    "endDate": "2026-05-31T15:51:55.393082",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:51:55.393085",
+    "department": "BBMP",
+    "wardNumber": 22,
+    "contractor": "Urban Development Corp.",
+    "geoPoint": {
+      "latitude": 12.972209,
+      "longitude": 77.492493
+    },
+    "categories": [
+      "civic_services"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 19,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_MOCK_10",
+    "projectName": "BBMP Storm Water Drainage System",
+    "description": "Construction and upgradation of storm water drainage system to prevent flooding",
+    "budget": 45000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-01-15T15:51:55.393089",
+    "endDate": "2026-06-08T15:51:55.393093",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:51:55.393096",
+    "department": "BBMP",
+    "wardNumber": 23,
+    "contractor": "Metro Rail Contractors",
+    "geoPoint": {
+      "latitude": 12.960471,
+      "longitude": 77.704048
+    },
+    "categories": [
+      "water_management"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BDA_7537767725847019682",
+    "projectName": "Housing (Flats &\r\n                        villas)",
+    "description": "HOUSING PROJECT AT SY.NO.95 OF KANIMINIKE VILLAGE, KENGERI HOBLI, BANGALORE SOUTH",
+    "budget": 250000000,
+    "status": "Completed",
+    "location": "1 KM FROM MYSORE ROAD",
+    "startDate": "2025-03-21T15:51:56.324236",
+    "endDate": "2026-03-15T15:51:56.324750",
+    "source": "BDA",
+    "sourceUrl": "https://housing.bdabangalore.org/",
+    "scrapedAt": "2025-09-14T15:51:56.324756",
+    "department": "BDA",
+    "wardNumber": 16,
+    "contractor": "Public Works Contractors",
+    "geoPoint": {
+      "latitude": 12.815982,
+      "longitude": 77.475077
+    },
+    "categories": [
+      "housing"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 100,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "High budget project"
+      ]
+    }
+  },
+  {
+    "id": "BDA_7537767725847019682",
+    "projectName": "Housing (Flats &\r\n                          villas)",
+    "description": "HOUSING PROJECT AT SY.NO.95 OF KANIMINIKE VILLAGE, KENGERI HOBLI, BANGALORE SOUTH",
+    "budget": 250000000,
+    "status": "Pending",
+    "location": "1 KM FROM MYSORE ROAD",
+    "startDate": "2025-01-06T15:51:58.464626",
+    "endDate": "2026-03-05T15:51:58.464973",
+    "source": "BDA",
+    "sourceUrl": "https://housing.bdabangalore.org/",
+    "scrapedAt": "2025-09-14T15:51:58.464978",
+    "department": "BDA",
+    "wardNumber": 18,
+    "contractor": "XYZ Builders",
+    "geoPoint": {
+      "latitude": 13.125345,
+      "longitude": 77.630317
+    },
+    "categories": [
+      "housing"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 4,
+      "factors": [
+        "High budget project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BDA_-8129265581278947569",
+    "projectName": "List of Unauthorized Layouts in BDA Jurisdiction, 06-04-2024.",
+    "description": "To transform Bengaluru to an ideal global destination with high quality infrastructure,better\r\n                  quality of life by ensuring sustainable and planned development based oneffective monitoring,\r\n                  regulation, through participatory and innovative approach.",
+    "budget": 90800303,
+    "status": "Pending",
+    "location": "s of the BDA.",
+    "startDate": "2024-10-16T15:52:02.067115",
+    "endDate": "2026-08-04T15:52:02.068041",
+    "source": "BDA",
+    "sourceUrl": "https://bdabangalore.org/images/Unauthorized_layout_List.pdf",
+    "scrapedAt": "2025-09-14T15:52:02.068047",
+    "department": "BDA",
+    "wardNumber": 5,
+    "contractor": "Urban Development Corp.",
+    "geoPoint": {
+      "latitude": 13.012607,
+      "longitude": 77.445985
+    },
+    "categories": [
+      "housing"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BDA_MOCK_14",
+    "projectName": "BDA Namma Metro Housing Scheme Phase 2",
+    "description": "Affordable housing project near metro stations with modern amenities and connectivity",
+    "budget": 85000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-01-13T15:53:48.258871",
+    "endDate": "2026-01-11T15:53:48.258893",
+    "source": "BDA",
+    "sourceUrl": "https://bdabangalore.org/",
+    "scrapedAt": "2025-09-14T15:53:48.258898",
+    "department": "BDA",
+    "wardNumber": 26,
+    "contractor": "Metro Construction Co.",
+    "geoPoint": {
+      "latitude": 13.036371,
+      "longitude": 77.751646
+    },
+    "categories": [
+      "transportation",
+      "housing"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 67,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BDA_MOCK_15",
+    "projectName": "BDA Commercial Complex Development",
+    "description": "Development of integrated commercial complex with retail, office, and parking facilities",
+    "budget": 120000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-08-03T15:53:48.258909",
+    "endDate": "2026-08-10T15:53:48.258914",
+    "source": "BDA",
+    "sourceUrl": "https://bdabangalore.org/",
+    "scrapedAt": "2025-09-14T15:53:48.258917",
+    "department": "BDA",
+    "wardNumber": 6,
+    "contractor": "Bridge Builders Ltd.",
+    "geoPoint": {
+      "latitude": 13.083788,
+      "longitude": 77.772686
+    },
+    "categories": [
+      "housing",
+      "civic_services"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BWSSB_MOCK_16",
+    "projectName": "BWSSB Cauvery Water Supply Phase 5",
+    "description": "Extension of Cauvery water supply network to new areas with treatment plants",
+    "budget": 65000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-07-29T15:53:48.258927",
+    "endDate": "2026-05-16T15:53:48.258931",
+    "source": "BWSSB",
+    "sourceUrl": "https://bwssb.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.258935",
+    "department": "BWSSB",
+    "wardNumber": 27,
+    "contractor": "City Builders Pvt Ltd.",
+    "geoPoint": {
+      "latitude": 12.891076,
+      "longitude": 77.41059
+    },
+    "categories": [
+      "water_management"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 16,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BWSSB_MOCK_17",
+    "projectName": "BWSSB Sewerage Treatment Plant Upgrade",
+    "description": "Modernization of existing sewerage treatment plants with advanced technology",
+    "budget": 40000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-12-20T15:53:48.258939",
+    "endDate": "2026-01-14T15:53:48.258943",
+    "source": "BWSSB",
+    "sourceUrl": "https://bwssb.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.258946",
+    "department": "BWSSB",
+    "wardNumber": 5,
+    "contractor": "Water Works Ltd.",
+    "geoPoint": {
+      "latitude": 13.089718,
+      "longitude": 77.405521
+    },
+    "categories": [
+      "water_management",
+      "digital_governance"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BMRCL_MOCK_18",
+    "projectName": "BMRCL Purple Line Extension Phase 2",
+    "description": "Extension of purple line metro from Whitefield to Electronic City with 8 new stations",
+    "budget": 250000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-03-03T15:53:48.258951",
+    "endDate": "2026-05-18T15:53:48.258954",
+    "source": "BMRCL",
+    "sourceUrl": "https://english.bmrc.co.in/",
+    "scrapedAt": "2025-09-14T15:53:48.258958",
+    "department": "BMRCL",
+    "wardNumber": 4,
+    "contractor": "Bridge Builders Ltd.",
+    "geoPoint": {
+      "latitude": 13.068331,
+      "longitude": 77.664163
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 44,
+    "riskAssessment": {
+      "level": "High",
+      "score": 5,
+      "factors": [
+        "High budget project",
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BMRCL_MOCK_19",
+    "projectName": "BMRCL Airport Metro Line",
+    "description": "Direct metro connectivity from city center to Kempegowda International Airport",
+    "budget": 180000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-02-13T15:53:48.258962",
+    "endDate": "2025-11-26T15:53:48.258967",
+    "source": "BMRCL",
+    "sourceUrl": "https://english.bmrc.co.in/",
+    "scrapedAt": "2025-09-14T15:53:48.258971",
+    "department": "BMRCL",
+    "wardNumber": 2,
+    "contractor": "Public Works Contractors",
+    "geoPoint": {
+      "latitude": 13.020238,
+      "longitude": 77.453425
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "Complex infrastructure project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BESCOM_MOCK_20",
+    "projectName": "BESCOM Smart Grid Implementation",
+    "description": "Implementation of smart grid technology for efficient power distribution and monitoring",
+    "budget": 75000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-03-03T15:53:48.258975",
+    "endDate": "2026-01-22T15:53:48.258978",
+    "source": "BESCOM",
+    "sourceUrl": "https://bescom.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.258982",
+    "department": "BESCOM",
+    "wardNumber": 18,
+    "contractor": "Public Works Contractors",
+    "geoPoint": {
+      "latitude": 13.018222,
+      "longitude": 77.591777
+    },
+    "categories": [
+      "utilities",
+      "digital_governance"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 60,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BESCOM_MOCK_21",
+    "projectName": "BESCOM Solar Power Integration",
+    "description": "Integration of solar power systems in government buildings and public facilities",
+    "budget": 35000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-01-06T15:53:48.258985",
+    "endDate": "2026-08-29T15:53:48.258989",
+    "source": "BESCOM",
+    "sourceUrl": "https://bescom.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.258992",
+    "department": "BESCOM",
+    "wardNumber": 8,
+    "contractor": "Public Works Contractors",
+    "geoPoint": {
+      "latitude": 12.97007,
+      "longitude": 77.435953
+    },
+    "categories": [
+      "utilities"
+    ],
+    "priority": "Low",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "KPWD_MOCK_22",
+    "projectName": "KPWD Outer Ring Road Phase 3",
+    "description": "Construction of third phase of outer ring road with flyovers and underpasses",
+    "budget": 150000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-01-17T15:53:48.258996",
+    "endDate": "2025-12-11T15:53:48.259000",
+    "source": "KPWD",
+    "sourceUrl": "https://kpwd.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259013",
+    "department": "KPWD",
+    "wardNumber": 11,
+    "contractor": "Bridge Builders Ltd.",
+    "geoPoint": {
+      "latitude": 12.95226,
+      "longitude": 77.529428
+    },
+    "categories": [
+      "infrastructure"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 73,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "KPWD_MOCK_23",
+    "projectName": "KPWD Multi-Level Parking Complex",
+    "description": "Construction of automated multi-level parking complexes in commercial areas",
+    "budget": 60000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-28T15:53:48.259017",
+    "endDate": "2026-07-29T15:53:48.259021",
+    "source": "KPWD",
+    "sourceUrl": "https://kpwd.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259024",
+    "department": "KPWD",
+    "wardNumber": 24,
+    "contractor": "Karnataka Development Corp.",
+    "geoPoint": {
+      "latitude": 12.840419,
+      "longitude": 77.75144
+    },
+    "categories": [
+      "housing",
+      "civic_services"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "KUIDFC_MOCK_24",
+    "projectName": "KUIDFC Smart City Infrastructure",
+    "description": "Development of smart city infrastructure including IoT sensors and data centers",
+    "budget": 200000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-04-27T15:53:48.259028",
+    "endDate": "2026-01-10T15:53:48.259031",
+    "source": "KUIDFC",
+    "sourceUrl": "https://kuidfc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259035",
+    "department": "KUIDFC",
+    "wardNumber": 28,
+    "contractor": "Water Works Ltd.",
+    "geoPoint": {
+      "latitude": 12.972152,
+      "longitude": 77.586499
+    },
+    "categories": [
+      "digital_governance"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 54,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "KUIDFC_MOCK_25",
+    "projectName": "KUIDFC Urban Mobility Hub",
+    "description": "Development of integrated urban mobility hub with bus, metro, and taxi connectivity",
+    "budget": 90000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-01-03T15:53:48.259039",
+    "endDate": "2026-02-10T15:53:48.259042",
+    "source": "KUIDFC",
+    "sourceUrl": "https://kuidfc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259045",
+    "department": "KUIDFC",
+    "wardNumber": 6,
+    "contractor": "Bridge Builders Ltd.",
+    "geoPoint": {
+      "latitude": 12.879129,
+      "longitude": 77.565864
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "Complex infrastructure project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BMTC_MOCK_26",
+    "projectName": "BMTC Electric Bus Fleet Expansion",
+    "description": "Introduction of 500 electric buses for eco-friendly public transportation",
+    "budget": 80000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-12-12T15:53:48.259051",
+    "endDate": "2026-02-07T15:53:48.259055",
+    "source": "BMTC",
+    "sourceUrl": "https://mybmtc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259058",
+    "department": "BMTC",
+    "wardNumber": 30,
+    "contractor": "Karnataka Development Corp.",
+    "geoPoint": {
+      "latitude": 13.023375,
+      "longitude": 77.642383
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 65,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BMTC_MOCK_27",
+    "projectName": "BMTC Bus Terminal Modernization",
+    "description": "Modernization of major bus terminals with digital displays and amenities",
+    "budget": 25000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-10-15T15:53:48.259062",
+    "endDate": "2026-02-19T15:53:48.259066",
+    "source": "BMTC",
+    "sourceUrl": "https://mybmtc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259069",
+    "department": "BMTC",
+    "wardNumber": 10,
+    "contractor": "Power Solutions Inc.",
+    "geoPoint": {
+      "latitude": 13.117381,
+      "longitude": 77.48553
+    },
+    "categories": [
+      "transportation",
+      "digital_governance"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BBMP_ADDITIONAL_14",
+    "projectName": "BBMP Digital Governance Initiative",
+    "description": "Implementation of digital services for citizen engagement and e-governance",
+    "budget": 45000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-02-18T15:53:48.259075",
+    "endDate": "2026-01-30T15:53:48.259079",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259082",
+    "department": "BBMP",
+    "wardNumber": 24,
+    "contractor": "Transport Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 12.982307,
+      "longitude": 77.490755
+    },
+    "categories": [
+      "digital_governance"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 60,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_ADDITIONAL_15",
+    "projectName": "BBMP Lake Restoration Project Phase 3",
+    "description": "Restoration and beautification of lakes across Bengaluru with eco-friendly measures",
+    "budget": 35000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-02-24T15:53:48.259086",
+    "endDate": "2026-08-12T15:53:48.259089",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259092",
+    "department": "BBMP",
+    "wardNumber": 5,
+    "contractor": "City Builders Pvt Ltd.",
+    "geoPoint": {
+      "latitude": 12.955062,
+      "longitude": 77.759601
+    },
+    "categories": [
+      "environment"
+    ],
+    "priority": "Low",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_ADDITIONAL_16",
+    "projectName": "BBMP Smart Traffic Management System",
+    "description": "Installation of AI-powered traffic management systems at major junctions",
+    "budget": 28000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-05-06T15:53:48.259095",
+    "endDate": "2026-07-27T15:53:48.259099",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259102",
+    "department": "BBMP",
+    "wardNumber": 23,
+    "contractor": "Karnataka Development Corp.",
+    "geoPoint": {
+      "latitude": 13.05028,
+      "longitude": 77.437769
+    },
+    "categories": [
+      "utilities",
+      "digital_governance"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 29,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_ADDITIONAL_17",
+    "projectName": "BBMP Public Toilet Construction Program",
+    "description": "Construction of modern public toilet facilities across all wards",
+    "budget": 18000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-12-23T15:53:48.259106",
+    "endDate": "2025-10-23T15:53:48.259109",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259112",
+    "department": "BBMP",
+    "wardNumber": 1,
+    "contractor": "Urban Development Corp.",
+    "geoPoint": {
+      "latitude": 13.022037,
+      "longitude": 77.77055
+    },
+    "categories": [
+      "civic_services"
+    ],
+    "priority": "Low",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_ADDITIONAL_18",
+    "projectName": "BBMP Tree Plantation Drive 2024",
+    "description": "Large-scale tree plantation initiative to increase green cover",
+    "budget": 12000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-02-16T15:53:48.259115",
+    "endDate": "2026-01-23T15:53:48.259118",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259121",
+    "department": "BBMP",
+    "wardNumber": 25,
+    "contractor": "City Builders Pvt Ltd.",
+    "geoPoint": {
+      "latitude": 12.960417,
+      "longitude": 77.637467
+    },
+    "categories": [
+      "environment"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 62,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_ADDITIONAL_19",
+    "projectName": "BBMP Market Infrastructure Upgrade",
+    "description": "Modernization of traditional markets with better facilities",
+    "budget": 22000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-17T15:53:48.259124",
+    "endDate": "2026-09-05T15:53:48.259128",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259131",
+    "department": "BBMP",
+    "wardNumber": 6,
+    "contractor": "Public Works Contractors",
+    "geoPoint": {
+      "latitude": 13.163198,
+      "longitude": 77.753074
+    },
+    "categories": [
+      "civic_services"
+    ],
+    "priority": "Low",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_ADDITIONAL_20",
+    "projectName": "BBMP Emergency Response System",
+    "description": "Setup of integrated emergency response and disaster management system",
+    "budget": 32000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-02-21T15:53:48.259135",
+    "endDate": "2026-08-28T15:53:48.259138",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259141",
+    "department": "BBMP",
+    "wardNumber": 16,
+    "contractor": "Metro Construction Co.",
+    "geoPoint": {
+      "latitude": 12.81393,
+      "longitude": 77.587972
+    },
+    "categories": [
+      "general"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 37,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BBMP_ADDITIONAL_21",
+    "projectName": "BBMP Community Health Centers",
+    "description": "Establishment of primary health centers in underserved areas",
+    "budget": 55000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-05-16T15:53:48.259146",
+    "endDate": "2026-04-27T15:53:48.259149",
+    "source": "BBMP",
+    "sourceUrl": "https://bbmp.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259153",
+    "department": "BBMP",
+    "wardNumber": 25,
+    "contractor": "Metro Rail Contractors",
+    "geoPoint": {
+      "latitude": 13.104567,
+      "longitude": 77.475365
+    },
+    "categories": [
+      "general"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BDA_ADDITIONAL_14",
+    "projectName": "BDA Affordable Housing Scheme 2024",
+    "description": "New affordable housing scheme for economically weaker sections",
+    "budget": 95000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-12-27T15:53:48.259158",
+    "endDate": "2026-06-22T15:53:48.259161",
+    "source": "BDA",
+    "sourceUrl": "https://bdabangalore.org/",
+    "scrapedAt": "2025-09-14T15:53:48.259165",
+    "department": "BDA",
+    "wardNumber": 12,
+    "contractor": "ABC Construction Ltd.",
+    "geoPoint": {
+      "latitude": 12.855738,
+      "longitude": 77.599462
+    },
+    "categories": [
+      "housing"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BDA_ADDITIONAL_15",
+    "projectName": "BDA Layout Development Project",
+    "description": "Development of new residential layouts with modern infrastructure",
+    "budget": 78000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-01-29T15:53:48.259169",
+    "endDate": "2025-12-30T15:53:48.259172",
+    "source": "BDA",
+    "sourceUrl": "https://bdabangalore.org/",
+    "scrapedAt": "2025-09-14T15:53:48.259175",
+    "department": "BDA",
+    "wardNumber": 11,
+    "contractor": "XYZ Builders",
+    "geoPoint": {
+      "latitude": 12.93189,
+      "longitude": 77.532056
+    },
+    "categories": [
+      "housing"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 68,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BDA_ADDITIONAL_16",
+    "projectName": "BDA Commercial Complex Phase 2",
+    "description": "Second phase of integrated commercial complex development",
+    "budget": 125000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-04-26T15:53:48.259178",
+    "endDate": "2025-12-05T15:53:48.259181",
+    "source": "BDA",
+    "sourceUrl": "https://bdabangalore.org/",
+    "scrapedAt": "2025-09-14T15:53:48.259184",
+    "department": "BDA",
+    "wardNumber": 6,
+    "contractor": "Karnataka Development Corp.",
+    "geoPoint": {
+      "latitude": 13.036418,
+      "longitude": 77.771461
+    },
+    "categories": [
+      "housing"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BDA_ADDITIONAL_17",
+    "projectName": "BDA Site Allotment Digital Platform",
+    "description": "Digital platform for transparent site allotment process",
+    "budget": 15000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-05-04T15:53:48.259188",
+    "endDate": "2025-10-25T15:53:48.259191",
+    "source": "BDA",
+    "sourceUrl": "https://bdabangalore.org/",
+    "scrapedAt": "2025-09-14T15:53:48.259194",
+    "department": "BDA",
+    "wardNumber": 12,
+    "contractor": "Water Works Ltd.",
+    "geoPoint": {
+      "latitude": 12.921827,
+      "longitude": 77.530279
+    },
+    "categories": [
+      "housing",
+      "digital_governance"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 76,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BDA_ADDITIONAL_18",
+    "projectName": "BDA Green Building Initiative",
+    "description": "Promotion of eco-friendly construction practices",
+    "budget": 25000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-08-14T15:53:48.259197",
+    "endDate": "2026-01-30T15:53:48.259200",
+    "source": "BDA",
+    "sourceUrl": "https://bdabangalore.org/",
+    "scrapedAt": "2025-09-14T15:53:48.259203",
+    "department": "BDA",
+    "wardNumber": 30,
+    "contractor": "City Builders Pvt Ltd.",
+    "geoPoint": {
+      "latitude": 13.099838,
+      "longitude": 77.69928
+    },
+    "categories": [
+      "environment"
+    ],
+    "priority": "Low",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BDA_ADDITIONAL_19",
+    "projectName": "BDA Infrastructure Development Fund",
+    "description": "Fund for developing basic infrastructure in new layouts",
+    "budget": 150000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-24T15:53:48.259207",
+    "endDate": "2026-03-30T15:53:48.259210",
+    "source": "BDA",
+    "sourceUrl": "https://bdabangalore.org/",
+    "scrapedAt": "2025-09-14T15:53:48.259213",
+    "department": "BDA",
+    "wardNumber": 19,
+    "contractor": "Urban Development Corp.",
+    "geoPoint": {
+      "latitude": 12.884258,
+      "longitude": 77.403384
+    },
+    "categories": [
+      "housing"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 29,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BWSSB_ADDITIONAL_14",
+    "projectName": "BWSSB 24x7 Water Supply Project",
+    "description": "Implementation of round-the-clock water supply system",
+    "budget": 180000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-04-08T15:53:48.259220",
+    "endDate": "2026-01-18T15:53:48.259223",
+    "source": "BWSSB",
+    "sourceUrl": "https://bwssb.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259226",
+    "department": "BWSSB",
+    "wardNumber": 1,
+    "contractor": "Bengaluru Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 12.84632,
+      "longitude": 77.754686
+    },
+    "categories": [
+      "water_management"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 56,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BWSSB_ADDITIONAL_15",
+    "projectName": "BWSSB Sewerage Network Expansion",
+    "description": "Extension of sewerage network to newly developed areas",
+    "budget": 95000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-02-07T15:53:48.259229",
+    "endDate": "2026-06-10T15:53:48.259232",
+    "source": "BWSSB",
+    "sourceUrl": "https://bwssb.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259235",
+    "department": "BWSSB",
+    "wardNumber": 17,
+    "contractor": "Urban Development Corp.",
+    "geoPoint": {
+      "latitude": 12.944743,
+      "longitude": 77.52384
+    },
+    "categories": [
+      "water_management"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BWSSB_ADDITIONAL_16",
+    "projectName": "BWSSB Water Quality Monitoring System",
+    "description": "Real-time water quality monitoring across the city",
+    "budget": 35000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-02-10T15:53:48.259238",
+    "endDate": "2026-03-01T15:53:48.259242",
+    "source": "BWSSB",
+    "sourceUrl": "https://bwssb.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259244",
+    "department": "BWSSB",
+    "wardNumber": 16,
+    "contractor": "Infrastructure Solutions Inc.",
+    "geoPoint": {
+      "latitude": 13.144237,
+      "longitude": 77.668761
+    },
+    "categories": [
+      "water_management"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 56,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BWSSB_ADDITIONAL_17",
+    "projectName": "BWSSB Rainwater Harvesting Initiative",
+    "description": "Mandatory rainwater harvesting in all buildings",
+    "budget": 28000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-11-30T15:53:48.259248",
+    "endDate": "2026-03-25T15:53:48.259251",
+    "source": "BWSSB",
+    "sourceUrl": "https://bwssb.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259254",
+    "department": "BWSSB",
+    "wardNumber": 25,
+    "contractor": "Infrastructure Solutions Inc.",
+    "geoPoint": {
+      "latitude": 13.035019,
+      "longitude": 77.682359
+    },
+    "categories": [
+      "water_management"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BWSSB_ADDITIONAL_18",
+    "projectName": "BWSSB Wastewater Recycling Plant",
+    "description": "Advanced wastewater treatment and recycling facility",
+    "budget": 120000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-02T15:53:48.259257",
+    "endDate": "2025-12-06T15:53:48.259260",
+    "source": "BWSSB",
+    "sourceUrl": "https://bwssb.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259263",
+    "department": "BWSSB",
+    "wardNumber": 16,
+    "contractor": "Bengaluru Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 12.831572,
+      "longitude": 77.543882
+    },
+    "categories": [
+      "water_management",
+      "environment"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 56,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BWSSB_ADDITIONAL_19",
+    "projectName": "BWSSB Smart Meter Installation",
+    "description": "Installation of smart water meters for better monitoring",
+    "budget": 45000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-03-22T15:53:48.259266",
+    "endDate": "2025-11-14T15:53:48.259270",
+    "source": "BWSSB",
+    "sourceUrl": "https://bwssb.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259272",
+    "department": "BWSSB",
+    "wardNumber": 13,
+    "contractor": "Transport Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 12.91252,
+      "longitude": 77.635854
+    },
+    "categories": [
+      "water_management",
+      "digital_governance"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BMRCL_ADDITIONAL_14",
+    "projectName": "BMRCL Phase 3 Planning and Design",
+    "description": "Detailed project planning for Phase 3 metro expansion",
+    "budget": 85000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-20T15:53:48.259277",
+    "endDate": "2026-01-22T15:53:48.259280",
+    "source": "BMRCL",
+    "sourceUrl": "https://english.bmrc.co.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259283",
+    "department": "BMRCL",
+    "wardNumber": 7,
+    "contractor": "ABC Construction Ltd.",
+    "geoPoint": {
+      "latitude": 12.919175,
+      "longitude": 77.659026
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 40,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BMRCL_ADDITIONAL_15",
+    "projectName": "BMRCL Station Accessibility Upgrade",
+    "description": "Making metro stations accessible for differently-abled passengers",
+    "budget": 45000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-23T15:53:48.259286",
+    "endDate": "2026-07-08T15:53:48.259290",
+    "source": "BMRCL",
+    "sourceUrl": "https://english.bmrc.co.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259293",
+    "department": "BMRCL",
+    "wardNumber": 27,
+    "contractor": "Metro Rail Contractors",
+    "geoPoint": {
+      "latitude": 13.134648,
+      "longitude": 77.408698
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BMRCL_ADDITIONAL_16",
+    "projectName": "BMRCL Feeder Bus Service Integration",
+    "description": "Integration of feeder bus services with metro stations",
+    "budget": 32000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-12-06T15:53:48.259296",
+    "endDate": "2026-07-09T15:53:48.259299",
+    "source": "BMRCL",
+    "sourceUrl": "https://english.bmrc.co.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259302",
+    "department": "BMRCL",
+    "wardNumber": 28,
+    "contractor": "Transport Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 12.977555,
+      "longitude": 77.662449
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 49,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BMRCL_ADDITIONAL_17",
+    "projectName": "BMRCL Solar Power Integration",
+    "description": "Installation of solar panels at metro stations and depots",
+    "budget": 55000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-11-13T15:53:48.259305",
+    "endDate": "2026-03-03T15:53:48.259308",
+    "source": "BMRCL",
+    "sourceUrl": "https://english.bmrc.co.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259311",
+    "department": "BMRCL",
+    "wardNumber": 21,
+    "contractor": "Urban Development Corp.",
+    "geoPoint": {
+      "latitude": 13.168894,
+      "longitude": 77.447015
+    },
+    "categories": [
+      "transportation",
+      "utilities"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "Complex infrastructure project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BMRCL_ADDITIONAL_18",
+    "projectName": "BMRCL Digital Ticketing System Upgrade",
+    "description": "Advanced digital ticketing and payment systems",
+    "budget": 25000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-25T15:53:48.259314",
+    "endDate": "2026-02-23T15:53:48.259318",
+    "source": "BMRCL",
+    "sourceUrl": "https://english.bmrc.co.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259321",
+    "department": "BMRCL",
+    "wardNumber": 6,
+    "contractor": "Bengaluru Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 12.922063,
+      "longitude": 77.443395
+    },
+    "categories": [
+      "digital_governance"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 33,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BMRCL_ADDITIONAL_19",
+    "projectName": "BMRCL Depot Expansion Project",
+    "description": "Expansion of metro depot facilities for increased fleet",
+    "budget": 95000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-09-18T15:53:48.259324",
+    "endDate": "2026-03-19T15:53:48.259327",
+    "source": "BMRCL",
+    "sourceUrl": "https://english.bmrc.co.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259330",
+    "department": "BMRCL",
+    "wardNumber": 30,
+    "contractor": "City Builders Pvt Ltd.",
+    "geoPoint": {
+      "latitude": 13.106163,
+      "longitude": 77.54164
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "Complex infrastructure project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BESCOM_ADDITIONAL_14",
+    "projectName": "BESCOM Underground Cable Network",
+    "description": "Conversion of overhead cables to underground network",
+    "budget": 125000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-02T15:53:48.259334",
+    "endDate": "2025-12-28T15:53:48.259337",
+    "source": "BESCOM",
+    "sourceUrl": "https://bescom.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259340",
+    "department": "BESCOM",
+    "wardNumber": 18,
+    "contractor": "Bridge Builders Ltd.",
+    "geoPoint": {
+      "latitude": 13.129291,
+      "longitude": 77.626782
+    },
+    "categories": [
+      "general"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 50,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BESCOM_ADDITIONAL_15",
+    "projectName": "BESCOM Smart Substation Automation",
+    "description": "Automation of electrical substations with smart technology",
+    "budget": 85000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-04-22T15:53:48.259343",
+    "endDate": "2026-05-10T15:53:48.259346",
+    "source": "BESCOM",
+    "sourceUrl": "https://bescom.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259349",
+    "department": "BESCOM",
+    "wardNumber": 7,
+    "contractor": "Metro Construction Co.",
+    "geoPoint": {
+      "latitude": 13.018227,
+      "longitude": 77.469275
+    },
+    "categories": [
+      "transportation",
+      "utilities",
+      "digital_governance"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "Complex infrastructure project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BESCOM_ADDITIONAL_16",
+    "projectName": "BESCOM Renewable Energy Integration",
+    "description": "Integration of renewable energy sources into the grid",
+    "budget": 95000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-03-21T15:53:48.259352",
+    "endDate": "2026-04-20T15:53:48.259356",
+    "source": "BESCOM",
+    "sourceUrl": "https://bescom.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259358",
+    "department": "BESCOM",
+    "wardNumber": 15,
+    "contractor": "Urban Development Corp.",
+    "geoPoint": {
+      "latitude": 13.149524,
+      "longitude": 77.745828
+    },
+    "categories": [
+      "utilities"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 45,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BESCOM_ADDITIONAL_17",
+    "projectName": "BESCOM Power Quality Improvement",
+    "description": "Improvement of power quality and reduction of outages",
+    "budget": 65000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-06-21T15:53:48.259362",
+    "endDate": "2025-11-20T15:53:48.259365",
+    "source": "BESCOM",
+    "sourceUrl": "https://bescom.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259367",
+    "department": "BESCOM",
+    "wardNumber": 29,
+    "contractor": "City Builders Pvt Ltd.",
+    "geoPoint": {
+      "latitude": 12.979178,
+      "longitude": 77.511822
+    },
+    "categories": [
+      "utilities"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BESCOM_ADDITIONAL_18",
+    "projectName": "BESCOM Electric Vehicle Charging Infrastructure",
+    "description": "Installation of EV charging stations across the city",
+    "budget": 45000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-01-20T15:53:48.259371",
+    "endDate": "2026-03-09T15:53:48.259374",
+    "source": "BESCOM",
+    "sourceUrl": "https://bescom.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259377",
+    "department": "BESCOM",
+    "wardNumber": 16,
+    "contractor": "Transport Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 13.197976,
+      "longitude": 77.624479
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 57,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BESCOM_ADDITIONAL_19",
+    "projectName": "BESCOM Energy Efficiency Program",
+    "description": "Promotion of energy-efficient appliances and practices",
+    "budget": 35000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-10-22T15:53:48.259381",
+    "endDate": "2026-02-06T15:53:48.259383",
+    "source": "BESCOM",
+    "sourceUrl": "https://bescom.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259386",
+    "department": "BESCOM",
+    "wardNumber": 20,
+    "contractor": "Water Works Ltd.",
+    "geoPoint": {
+      "latitude": 13.167572,
+      "longitude": 77.423359
+    },
+    "categories": [
+      "general"
+    ],
+    "priority": "Low",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "KPWD_ADDITIONAL_14",
+    "projectName": "KPWD Peripheral Ring Road Phase 4",
+    "description": "Fourth phase of peripheral ring road construction",
+    "budget": 285000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-10-19T15:53:48.259391",
+    "endDate": "2026-04-26T15:53:48.259394",
+    "source": "KPWD",
+    "sourceUrl": "https://kpwd.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.259397",
+    "department": "KPWD",
+    "wardNumber": 6,
+    "contractor": "Metro Rail Contractors",
+    "geoPoint": {
+      "latitude": 13.161942,
+      "longitude": 77.439355
+    },
+    "categories": [
+      "infrastructure"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 60,
+    "riskAssessment": {
+      "level": "High",
+      "score": 5,
+      "factors": [
+        "High budget project",
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "KPWD_ADDITIONAL_15",
+    "projectName": "KPWD Elevated Corridor Project",
+    "description": "Construction of elevated corridors to reduce traffic congestion",
+    "budget": 195000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-05-01T15:53:48.260124",
+    "endDate": "2026-03-08T15:53:48.260129",
+    "source": "KPWD",
+    "sourceUrl": "https://kpwd.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260132",
+    "department": "KPWD",
+    "wardNumber": 28,
+    "contractor": "Infrastructure Solutions Inc.",
+    "geoPoint": {
+      "latitude": 12.83661,
+      "longitude": 77.628032
+    },
+    "categories": [
+      "infrastructure"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "Complex infrastructure project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "KPWD_ADDITIONAL_16",
+    "projectName": "KPWD Bridge Strengthening Program",
+    "description": "Strengthening and maintenance of existing bridges",
+    "budget": 75000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-01-25T15:53:48.260137",
+    "endDate": "2026-06-25T15:53:48.260141",
+    "source": "KPWD",
+    "sourceUrl": "https://kpwd.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260144",
+    "department": "KPWD",
+    "wardNumber": 10,
+    "contractor": "XYZ Builders",
+    "geoPoint": {
+      "latitude": 13.165213,
+      "longitude": 77.639226
+    },
+    "categories": [
+      "infrastructure"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 45,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "KPWD_ADDITIONAL_17",
+    "projectName": "KPWD Smart Highway Initiative",
+    "description": "Implementation of smart highway technology and monitoring",
+    "budget": 125000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-10-22T15:53:48.260147",
+    "endDate": "2026-05-27T15:53:48.260150",
+    "source": "KPWD",
+    "sourceUrl": "https://kpwd.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260153",
+    "department": "KPWD",
+    "wardNumber": 5,
+    "contractor": "Power Solutions Inc.",
+    "geoPoint": {
+      "latitude": 13.142865,
+      "longitude": 77.791368
+    },
+    "categories": [
+      "infrastructure",
+      "digital_governance"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "Complex infrastructure project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "KPWD_ADDITIONAL_18",
+    "projectName": "KPWD Public Building Renovation",
+    "description": "Renovation of government buildings and offices",
+    "budget": 85000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-09-24T15:53:48.260156",
+    "endDate": "2026-05-01T15:53:48.260159",
+    "source": "KPWD",
+    "sourceUrl": "https://kpwd.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260162",
+    "department": "KPWD",
+    "wardNumber": 6,
+    "contractor": "Karnataka Development Corp.",
+    "geoPoint": {
+      "latitude": 12.932723,
+      "longitude": 77.785839
+    },
+    "categories": [
+      "general"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 61,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "KPWD_ADDITIONAL_19",
+    "projectName": "KPWD Disaster-Resilient Infrastructure",
+    "description": "Development of disaster-resilient road infrastructure",
+    "budget": 155000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-10-07T15:53:48.260166",
+    "endDate": "2026-08-07T15:53:48.260169",
+    "source": "KPWD",
+    "sourceUrl": "https://kpwd.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260172",
+    "department": "KPWD",
+    "wardNumber": 30,
+    "contractor": "Public Works Contractors",
+    "geoPoint": {
+      "latitude": 12.957626,
+      "longitude": 77.680145
+    },
+    "categories": [
+      "infrastructure"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "Complex infrastructure project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "KUIDFC_ADDITIONAL_14",
+    "projectName": "KUIDFC Smart City Mission Phase 2",
+    "description": "Second phase of smart city development initiatives",
+    "budget": 325000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-11-28T15:53:48.260177",
+    "endDate": "2026-06-12T15:53:48.260181",
+    "source": "KUIDFC",
+    "sourceUrl": "https://kuidfc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260184",
+    "department": "KUIDFC",
+    "wardNumber": 8,
+    "contractor": "Transport Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 13.03969,
+      "longitude": 77.419528
+    },
+    "categories": [
+      "digital_governance"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 52,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "High budget project"
+      ]
+    }
+  },
+  {
+    "id": "KUIDFC_ADDITIONAL_15",
+    "projectName": "KUIDFC Urban Innovation Labs",
+    "description": "Establishment of innovation labs for urban solutions",
+    "budget": 65000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-03-20T15:53:48.260187",
+    "endDate": "2026-07-03T15:53:48.260190",
+    "source": "KUIDFC",
+    "sourceUrl": "https://kuidfc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260194",
+    "department": "KUIDFC",
+    "wardNumber": 10,
+    "contractor": "Bridge Builders Ltd.",
+    "geoPoint": {
+      "latitude": 13.157633,
+      "longitude": 77.742313
+    },
+    "categories": [
+      "general"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "KUIDFC_ADDITIONAL_16",
+    "projectName": "KUIDFC Sustainable Development Fund",
+    "description": "Fund for sustainable urban development projects",
+    "budget": 285000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-05-28T15:53:48.260197",
+    "endDate": "2026-07-12T15:53:48.260200",
+    "source": "KUIDFC",
+    "sourceUrl": "https://kuidfc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260202",
+    "department": "KUIDFC",
+    "wardNumber": 25,
+    "contractor": "Transport Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 13.133376,
+      "longitude": 77.500738
+    },
+    "categories": [
+      "general"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 27,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "High budget project"
+      ]
+    }
+  },
+  {
+    "id": "KUIDFC_ADDITIONAL_17",
+    "projectName": "KUIDFC Digital Infrastructure Backbone",
+    "description": "Development of digital infrastructure for smart city",
+    "budget": 155000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-07-05T15:53:48.260206",
+    "endDate": "2026-05-15T15:53:48.260209",
+    "source": "KUIDFC",
+    "sourceUrl": "https://kuidfc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260212",
+    "department": "KUIDFC",
+    "wardNumber": 27,
+    "contractor": "Metro Construction Co.",
+    "geoPoint": {
+      "latitude": 12.919849,
+      "longitude": 77.549675
+    },
+    "categories": [
+      "digital_governance"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "KUIDFC_ADDITIONAL_18",
+    "projectName": "KUIDFC Climate Resilience Program",
+    "description": "Programs to build climate resilience in urban areas",
+    "budget": 125000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-10-30T15:53:48.260215",
+    "endDate": "2026-02-09T15:53:48.260218",
+    "source": "KUIDFC",
+    "sourceUrl": "https://kuidfc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260221",
+    "department": "KUIDFC",
+    "wardNumber": 23,
+    "contractor": "Transport Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 12.974924,
+      "longitude": 77.737429
+    },
+    "categories": [
+      "general"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 68,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "KUIDFC_ADDITIONAL_19",
+    "projectName": "KUIDFC Public-Private Partnership Hub",
+    "description": "Platform for facilitating PPP projects",
+    "budget": 85000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-02-07T15:53:48.260224",
+    "endDate": "2026-04-04T15:53:48.260227",
+    "source": "KUIDFC",
+    "sourceUrl": "https://kuidfc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260230",
+    "department": "KUIDFC",
+    "wardNumber": 15,
+    "contractor": "City Builders Pvt Ltd.",
+    "geoPoint": {
+      "latitude": 12.896173,
+      "longitude": 77.507818
+    },
+    "categories": [
+      "general"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 1,
+      "factors": [
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BMTC_ADDITIONAL_14",
+    "projectName": "BMTC CNG Bus Fleet Expansion",
+    "description": "Addition of 300 CNG buses to reduce emissions",
+    "budget": 95000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-05-15T15:53:48.260234",
+    "endDate": "2025-11-15T15:53:48.260237",
+    "source": "BMTC",
+    "sourceUrl": "https://mybmtc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260240",
+    "department": "BMTC",
+    "wardNumber": 12,
+    "contractor": "Metro Construction Co.",
+    "geoPoint": {
+      "latitude": 12.966203,
+      "longitude": 77.427212
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 66,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BMTC_ADDITIONAL_15",
+    "projectName": "BMTC Bus Rapid Transit System",
+    "description": "Implementation of BRT corridors on major routes",
+    "budget": 185000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-01-12T15:53:48.260243",
+    "endDate": "2025-11-07T15:53:48.260246",
+    "source": "BMTC",
+    "sourceUrl": "https://mybmtc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260249",
+    "department": "BMTC",
+    "wardNumber": 18,
+    "contractor": "Metro Rail Contractors",
+    "geoPoint": {
+      "latitude": 12.877813,
+      "longitude": 77.597149
+    },
+    "categories": [
+      "infrastructure",
+      "transportation"
+    ],
+    "priority": "High",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "Complex infrastructure project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BMTC_ADDITIONAL_16",
+    "projectName": "BMTC Intelligent Transport System",
+    "description": "GPS tracking and real-time passenger information system",
+    "budget": 45000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2024-10-31T15:53:48.260253",
+    "endDate": "2026-05-16T15:53:48.260256",
+    "source": "BMTC",
+    "sourceUrl": "https://mybmtc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260259",
+    "department": "BMTC",
+    "wardNumber": 18,
+    "contractor": "ABC Construction Ltd.",
+    "geoPoint": {
+      "latitude": 13.017554,
+      "longitude": 77.45431
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 57,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 2,
+      "factors": [
+        "Complex infrastructure project"
+      ]
+    }
+  },
+  {
+    "id": "BMTC_ADDITIONAL_17",
+    "projectName": "BMTC Terminal Modernization Phase 2",
+    "description": "Second phase of bus terminal upgrades",
+    "budget": 65000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-05-14T15:53:48.260262",
+    "endDate": "2026-02-09T15:53:48.260265",
+    "source": "BMTC",
+    "sourceUrl": "https://mybmtc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260268",
+    "department": "BMTC",
+    "wardNumber": 3,
+    "contractor": "Bengaluru Infrastructure Ltd.",
+    "geoPoint": {
+      "latitude": 12.821548,
+      "longitude": 77.564779
+    },
+    "categories": [
+      "transportation"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Medium",
+      "score": 3,
+      "factors": [
+        "Complex infrastructure project",
+        "High-value pending project"
+      ]
+    }
+  },
+  {
+    "id": "BMTC_ADDITIONAL_18",
+    "projectName": "BMTC Driver Training and Welfare Center",
+    "description": "Comprehensive training and welfare facilities for drivers",
+    "budget": 35000000,
+    "status": "In Progress",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-07-21T15:53:48.260271",
+    "endDate": "2025-10-18T15:53:48.260274",
+    "source": "BMTC",
+    "sourceUrl": "https://mybmtc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260277",
+    "department": "BMTC",
+    "wardNumber": 2,
+    "contractor": "Water Supply Engineers",
+    "geoPoint": {
+      "latitude": 12.809203,
+      "longitude": 77.454339
+    },
+    "categories": [
+      "general"
+    ],
+    "priority": "Medium",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 62,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  },
+  {
+    "id": "BMTC_ADDITIONAL_19",
+    "projectName": "BMTC Digital Payment Integration",
+    "description": "Integration of multiple digital payment options",
+    "budget": 25000000,
+    "status": "Pending",
+    "location": "Bengaluru, Karnataka",
+    "startDate": "2025-02-05T15:53:48.260281",
+    "endDate": "2026-02-21T15:53:48.260284",
+    "source": "BMTC",
+    "sourceUrl": "https://mybmtc.karnataka.gov.in/",
+    "scrapedAt": "2025-09-14T15:53:48.260286",
+    "department": "BMTC",
+    "wardNumber": 17,
+    "contractor": "Infrastructure Solutions Inc.",
+    "geoPoint": {
+      "latitude": 13.052352,
+      "longitude": 77.527379
+    },
+    "categories": [
+      "digital_governance"
+    ],
+    "priority": "Low",
+    "dataQuality": {
+      "isValid": true,
+      "missingFields": [],
+      "qualityScore": 100
+    },
+    "estimatedCompletion": 0,
+    "riskAssessment": {
+      "level": "Low",
+      "score": 0,
+      "factors": []
+    }
+  }
+]

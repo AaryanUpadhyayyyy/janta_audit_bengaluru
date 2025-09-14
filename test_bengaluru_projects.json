@@ -6,17 +6,17 @@
     "budget": 15000000,
     "status": "In Progress",
     "location": "Bengaluru, Karnataka",
-    "startDate": "2024-10-08T06:52:05.089918",
-    "endDate": "2026-04-04T06:52:05.089918",
+    "startDate": "2025-01-18T17:59:46.257035",
+    "endDate": "2026-02-24T17:59:46.257085",
     "source": "BBMP",
     "sourceUrl": "https://bbmp.gov.in/",
-    "scrapedAt": "2025-09-14T06:52:05.089918",
+    "scrapedAt": "2025-09-14T17:59:46.257091",
     "department": "BBMP",
     "wardNumber": 15,
-    "contractor": "Transport Infrastructure Ltd.",
+    "contractor": "Power Solutions Inc.",
     "geoPoint": {
-      "latitude": 13.126133,
-      "longitude": 77.429225
+      "latitude": 13.003046,
+      "longitude": 77.55443
     }
   },
   {
@@ -26,17 +26,17 @@
     "budget": 30000000,
     "status": "Pending",
     "location": "Bengaluru, Karnataka",
-    "startDate": "2025-04-24T06:52:05.089918",
-    "endDate": "2025-12-04T06:52:05.089918",
+    "startDate": "2024-11-01T17:59:46.257109",
+    "endDate": "2025-11-23T17:59:46.257113",
     "source": "BBMP",
     "sourceUrl": "https://bbmp.gov.in/",
-    "scrapedAt": "2025-09-14T06:52:05.089918",
+    "scrapedAt": "2025-09-14T17:59:46.257116",
     "department": "BBMP",
-    "wardNumber": 8,
-    "contractor": "Water Supply Engineers",
+    "wardNumber": 9,
+    "contractor": "Public Works Contractors",
     "geoPoint": {
-      "latitude": 12.848556,
-      "longitude": 77.706977
+      "latitude": 12.932483,
+      "longitude": 77.590851
     }
   },
   {
@@ -46,17 +46,17 @@
     "budget": 8000000,
     "status": "Completed",
     "location": "Bengaluru, Karnataka",
-    "startDate": "2024-10-02T06:52:05.089918",
-    "endDate": "2026-07-21T06:52:05.090920",
+    "startDate": "2025-03-23T17:59:46.257122",
+    "endDate": "2026-07-24T17:59:46.257127",
     "source": "BBMP",
     "sourceUrl": "https://bbmp.gov.in/",
-    "scrapedAt": "2025-09-14T06:52:05.090920",
+    "scrapedAt": "2025-09-14T17:59:46.257131",
     "department": "BBMP",
     "wardNumber": 25,
-    "contractor": "Metro Construction Co.",
+    "contractor": "City Builders Pvt Ltd.",
     "geoPoint": {
-      "latitude": 13.161488,
-      "longitude": 77.525681
+      "latitude": 12.885203,
+      "longitude": 77.627171
     }
   },
   {
@@ -66,17 +66,17 @@
     "budget": 12000000,
     "status": "In Progress",
     "location": "Bengaluru, Karnataka",
-    "startDate": "2025-04-19T06:52:05.090920",
-    "endDate": "2025-11-13T06:52:05.090920",
+    "startDate": "2025-07-13T17:59:46.257141",
+    "endDate": "2026-07-25T17:59:46.257145",
     "source": "BBMP",
     "sourceUrl": "https://bbmp.gov.in/",
-    "scrapedAt": "2025-09-14T06:52:05.090920",
+    "scrapedAt": "2025-09-14T17:59:46.257148",
     "department": "BBMP",
-    "wardNumber": 4,
+    "wardNumber": 24,
     "contractor": "Karnataka Development Corp.",
     "geoPoint": {
-      "latitude": 13.162888,
-      "longitude": 77.59312
+      "latitude": 13.059987,
+      "longitude": 77.713746
     }
   },
   {
@@ -86,57 +86,77 @@
     "budget": 45000000,
     "status": "Pending",
     "location": "Bengaluru, Karnataka",
-    "startDate": "2024-11-20T06:52:05.090920",
-    "endDate": "2025-11-19T06:52:05.090920",
+    "startDate": "2024-10-27T17:59:46.257154",
+    "endDate": "2026-01-31T17:59:46.257157",
     "source": "BBMP",
     "sourceUrl": "https://bbmp.gov.in/",
-    "scrapedAt": "2025-09-14T06:52:05.090920",
+    "scrapedAt": "2025-09-14T17:59:46.257160",
     "department": "BBMP",
-    "wardNumber": 13,
-    "contractor": "Karnataka Development Corp.",
+    "wardNumber": 10,
+    "contractor": "Water Works Ltd.",
     "geoPoint": {
-      "latitude": 12.9579,
-      "longitude": 77.426136
+      "latitude": 12.862959,
+      "longitude": 77.4744
     }
   },
   {
-    "id": "BDA_-2086770490531998825",
+    "id": "BDA_-4887011343988893835",
     "projectName": "Housing (Flats &\r\n                        villas)",
-    "description": "HOUSING PROJECT AT SY.NO.95 OF KANIMINIKE VILLAGE, KENGERI HOBLI, BANGALORE SOUTH",
-    "budget": 250000000,
-    "status": "Completed",
-    "location": "1 KM FROM MYSORE ROAD",
-    "startDate": "2025-01-06T06:52:09.538788",
-    "endDate": "2025-10-24T06:52:09.541854",
-    "source": "BDA",
-    "sourceUrl": "https://housing.bdabangalore.org/",
-    "scrapedAt": "2025-09-14T06:52:09.541854",
-    "department": "BDA",
-    "wardNumber": 12,
-    "contractor": "XYZ Builders",
-    "geoPoint": {
-      "latitude": 13.151766,
-      "longitude": 77.469438
-    }
-  },
-  {
-    "id": "BDA_-2086770490531998825",
-    "projectName": "Housing (Flats &\r\n                          villas)",
     "description": "HOUSING PROJECT AT SY.NO.95 OF KANIMINIKE VILLAGE, KENGERI HOBLI, BANGALORE SOUTH",
     "budget": 250000000,
     "status": "Pending",
     "location": "1 KM FROM MYSORE ROAD",
-    "startDate": "2025-05-27T06:52:11.658576",
-    "endDate": "2025-11-07T06:52:11.658576",
+    "startDate": "2025-07-10T17:59:46.976063",
+    "endDate": "2026-01-12T17:59:46.976568",
     "source": "BDA",
     "sourceUrl": "https://housing.bdabangalore.org/",
-    "scrapedAt": "2025-09-14T06:52:11.658576",
+    "scrapedAt": "2025-09-14T17:59:46.976574",
     "department": "BDA",
-    "wardNumber": 10,
+    "wardNumber": 13,
     "contractor": "Bengaluru Infrastructure Ltd.",
     "geoPoint": {
-      "latitude": 13.153406,
-      "longitude": 77.445334
+      "latitude": 12.983563,
+      "longitude": 77.640138
+    }
+  },
+  {
+    "id": "BDA_-4887011343988893835",
+    "projectName": "Housing (Flats &\r\n                          villas)",
+    "description": "HOUSING PROJECT AT SY.NO.95 OF KANIMINIKE VILLAGE, KENGERI HOBLI, BANGALORE SOUTH",
+    "budget": 250000000,
+    "status": "Completed",
+    "location": "1 KM FROM MYSORE ROAD",
+    "startDate": "2025-04-09T17:59:49.083867",
+    "endDate": "2026-02-08T17:59:49.084207",
+    "source": "BDA",
+    "sourceUrl": "https://housing.bdabangalore.org/",
+    "scrapedAt": "2025-09-14T17:59:49.084213",
+    "department": "BDA",
+    "wardNumber": 21,
+    "contractor": "Water Supply Engineers",
+    "geoPoint": {
+      "latitude": 12.96372,
+      "longitude": 77.627729
+    }
+  },
+  {
+    "id": "BDA_7564929760642423473",
+    "projectName": "List of Unauthorized Layouts in BDA Jurisdiction, 06-04-2024.",
+    "description": "To transform Bengaluru to an ideal global destination with high quality infrastructure,better\r\n                  quality of life by ensuring sustainable and planned development based oneffective monitoring,\r\n                  regulation, through participatory and innovative approach.",
+    "budget": 98213122,
+    "status": "Pending",
+    "location": "s of the BDA.",
+    "startDate": "2025-05-31T17:59:52.563133",
+    "endDate": "2026-06-29T17:59:52.564050",
+    "source": "BDA",
+    "sourceUrl": "https://bdabangalore.org/images/Unauthorized_layout_List.pdf",
+    "scrapedAt": "2025-09-14T17:59:52.564056",
+    "department": "BDA",
+    "wardNumber": 25,
+    "contractor": "Water Supply Engineers",
+    "geoPoint": {
+      "latitude": 13.070014,
+      "longitude": 77.793151
     }
   }
 ]

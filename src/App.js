@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import ProjectDetailPage from './components/ProjectDetailPage';
 import ProjectTrackingPage from './pages/ProjectTrackingPage';
 import Login from './pages/Login';
+import ProjectHealthDashboard from './pages/ProjectHealthDashboard';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
               <Route path="/projects" element={<ProjectTrackingPage />} />
               <Route path="/project/:id" element={<ProjectDetailPage />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/health-dashboard" element={<ProjectHealthDashboard />} />
             </Routes>
           </div>
         </Router>

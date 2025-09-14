@@ -4,6 +4,7 @@ const admin = require('firebase-admin');
 const path = require('path');
 const satelliteAnalysisRouter = require('./satellite_analysis_api');
 const projectDetailsRouter = require('./project_details_api');
+const healthEngineRouter = require('./routes/healthEngineRouter');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -44,6 +45,7 @@ if (serviceAccount) {
 // Satellite Analysis API
 app.use('/api', satelliteAnalysisRouter);
 app.use('/api', projectDetailsRouter);
+app.use('/api', healthEngineRouter);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

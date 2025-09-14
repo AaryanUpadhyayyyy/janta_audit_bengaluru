@@ -1,0 +1,55 @@
+{
+  "summary": {
+    "totalProjects": 77,
+    "totalBudget": 6839340948,
+    "averageBudget": 88822609.71428572,
+    "dataQualityScore": 100.0
+  },
+  "byDepartment": {
+    "BBMP": 14,
+    "BDA": 12,
+    "BWSSB": 9,
+    "BMRCL": 9,
+    "BESCOM": 9,
+    "KPWD": 8,
+    "KUIDFC": 8,
+    "BMTC": 8
+  },
+  "byStatus": {
+    "Pending": 38,
+    "In Progress": 37,
+    "Completed": 2
+  },
+  "byCategory": {
+    "infrastructure": 9,
+    "housing": 13,
+    "water_management": 11,
+    "transportation": 18,
+    "utilities": 8,
+    "environment": 6,
+    "digital_governance": 15,
+    "civic_services": 5,
+    "general": 10
+  },
+  "byPriority": {
+    "Medium": 44,
+    "High": 23,
+    "Low": 10
+  },
+  "byRiskLevel": {
+    "Low": 61,
+    "Medium": 14,
+    "High": 2
+  },
+  "budgetDistribution": {
+    "small": 1,
+    "medium": 54,
+    "large": 22,
+    "mega": 0
+  },
+  "timelineAnalysis": {
+    "shortTerm": 33,
+    "mediumTerm": 44,
+    "longTerm": 0
+  }
+}

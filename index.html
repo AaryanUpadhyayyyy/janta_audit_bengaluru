@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Janata Audit Bengaluru - AI-Powered Project Analysis</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
     <style>
         * {
             margin: 0;
@@ -15,42 +21,41 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f8fafc;
-            color: #1a202c;
+            background-color: #f8fafc;
+            color: #2d3748;
             line-height: 1.6;
         }
 
         .header {
             background: white;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
         .nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.25rem;
+            font-weight: 700;
             color: #2d3748;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
             list-style: none;
+            gap: 2rem;
         }
 
         .nav-links a {
@@ -64,109 +69,15 @@
             color: #3182ce;
         }
 
-        #authButtons {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        #userMenu {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #1a202c;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: #4a5568;
-            margin-bottom: 2rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #3182ce;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #4a5568;
-            font-size: 0.875rem;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .map-container {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .map-header {
-            padding: 1rem;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .map-title {
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .map-controls {
-            display: flex;
-            gap: 0.5rem;
-        }
-
         .btn {
             padding: 0.5rem 1rem;
             border: none;
-            border-radius: 4px;
-            font-size: 0.875rem;
+            border-radius: 6px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-primary {
@@ -187,6 +98,90 @@
             background: #cbd5e0;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #3182ce;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .map-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .map-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
         #map {
             height: 400px;
             width: 100%;
@@ -194,43 +189,39 @@
 
         .projects-section {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
         }
 
         .projects-header {
-            padding: 1rem;
-            border-bottom: 1px solid #e2e8f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 1.5rem;
         }
 
         .projects-title {
+            font-size: 1.125rem;
             font-weight: 600;
-            color: #2d3748;
         }
 
         .projects-count {
             background: #3182ce;
             color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
         }
 
         .filter-section {
-            background: #f8fafc;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .filter-row {
             display: flex;
             gap: 1rem;
-            align-items: center;
             flex-wrap: wrap;
         }
 
@@ -238,7 +229,6 @@
             padding: 0.5rem;
             border: 1px solid #e2e8f0;
             border-radius: 6px;
-            background: white;
             font-size: 0.875rem;
         }
 
@@ -253,80 +243,38 @@
         }
 
         .project-card {
-            padding: 1.5rem;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
+            padding: 1rem;
             margin-bottom: 1rem;
-            background: white;
             cursor: pointer;
             transition: all 0.2s;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .project-card:hover {
-            background: #f7fafc;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-card:last-child {
-            margin-bottom: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
         }
 
         .project-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .project-name {
-            font-weight: 700;
-            color: #2d3748;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .project-description {
-            color: #4a5568;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .project-meta {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .meta-label {
-            font-size: 0.75rem;
-            color: #718096;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-
-        .meta-value {
-            font-size: 0.875rem;
-            color: #2d3748;
             font-weight: 600;
+            color: #2d3748;
+            flex: 1;
         }
 
         .project-status {
-            padding: 0.5rem 1rem;
+            padding: 0.25rem 0.75rem;
             border-radius: 20px;
-            font-weight: 600;
             font-size: 0.75rem;
-            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
         }
 
         .status-completed {
@@ -340,216 +288,73 @@
         }
 
         .status-pending {
-            background: #faf089;
+            background: #fef5e7;
             color: #744210;
+        }
+
+        .project-description {
+            color: #4a5568;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-item {
+            font-size: 0.75rem;
+        }
+
+        .meta-label {
+            color: #718096;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .meta-value {
+            color: #2d3748;
+            font-weight: 600;
         }
 
         .project-actions {
             display: flex;
             gap: 0.5rem;
-            margin-top: 1rem;
         }
 
         .btn-small {
-            padding: 0.5rem 1rem;
+            padding: 0.375rem 0.75rem;
             font-size: 0.75rem;
-            border-radius: 6px;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s;
         }
 
         .btn-view {
-            background: #3182ce;
-            color: white;
-        }
-
-        .btn-view:hover {
-            background: #2c5aa0;
+            background: #e2e8f0;
+            color: #4a5568;
         }
 
         .btn-analyze {
-            background: #38a169;
-            color: white;
-        }
-
-        .btn-analyze:hover {
-            background: #2f855a;
-        }
-
-        /* Authentication Styles */
-        .auth-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-header h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .modal-close {
-            background: #e2e8f0;
-            border: none;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            color: #4a5568;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 500;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #3182ce;
-            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .auth-switch {
-            text-align: center;
-            margin-top: 1rem;
-            color: #4a5568;
-        }
-
-        .auth-switch a {
-            color: #3182ce;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .auth-switch a:hover {
-            text-decoration: underline;
-        }
-
-        .user-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            margin-right: 1rem;
-        }
-
-        .user-name {
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .user-role {
-            font-size: 0.875rem;
-            color: #718096;
-            text-transform: capitalize;
-        }
-
-        .user-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        /* Notification Styles */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 10001;
-            max-width: 400px;
-        }
-
-        .notification-content {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-        }
-
-        .notification-message {
-            flex: 1;
-            color: #2d3748;
-        }
-
-        .notification-close {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            color: #718096;
-            margin-left: 1rem;
-        }
-
-        .notification-success {
-            border-left: 4px solid #38a169;
-        }
-
-        .notification-error {
-            border-left: 4px solid #e53e3e;
-        }
-
-        .notification-info {
-            border-left: 4px solid #3182ce;
+            background: #c6f6d5;
+            color: #22543d;
         }
 
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem;
             margin-bottom: 3rem;
         }
 
         .feature-card {
             background: white;
             padding: 1.5rem;
-            border-radius: 8px;
+            border-radius: 12px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
@@ -560,8 +365,8 @@
         }
 
         .feature-title {
+            font-size: 1.125rem;
             font-weight: 600;
-            color: #2d3748;
             margin-bottom: 0.5rem;
         }
 
@@ -571,19 +376,22 @@
         }
 
         .loading {
-            display: none;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             padding: 2rem;
+            color: #4a5568;
         }
 
         .spinner {
+            width: 32px;
+            height: 32px;
             border: 3px solid #e2e8f0;
             border-top: 3px solid #3182ce;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
             animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
+            margin-bottom: 1rem;
         }
 
         @keyframes spin {
@@ -591,33 +399,98 @@
             100% { transform: rotate(360deg); }
         }
 
-        .error {
-            background: #fed7d7;
-            color: #c53030;
-            padding: 1rem;
-            border-radius: 4px;
-            margin: 1rem 0;
+        .auth-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
         }
 
-        .success {
-            background: #c6f6d5;
-            color: #22543d;
-            padding: 1rem;
-            border-radius: 4px;
-            margin: 1rem 0;
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #4a5568;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .auth-switch a {
+            color: #3182ce;
+            text-decoration: none;
         }
 
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
             }
-
+            
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
-            }
-
-            .nav-links {
-                display: none;
             }
         }
     </style>
@@ -638,12 +511,14 @@
                 <li><a href="feedback.html">Feedback</a></li>
                 <li><a href="settings.html">Settings</a></li>
             </ul>
-            <div id="authButtons">
-                <a href="login.html" class="btn btn-secondary">Sign In</a>
-                <a href="login.html" class="btn btn-primary">Sign Up</a>
+            <div id="authButtons" style="display: flex; gap: 0.5rem;">
+                <button id="signInBtn" class="btn btn-secondary">Sign In</button>
+                <button id="signUpBtn" class="btn btn-primary">Sign Up</button>
             </div>
-            <div id="userMenu" style="display: none;">
-                <!-- User menu will be populated by auth system -->
+            <div id="userMenu" style="display: none; align-items: center; gap: 0.5rem;">
+                <img id="userPhoto" src="" alt="User" style="width: 32px; height: 32px; border-radius: 50%; display: none;">
+                <span id="userName">User</span>
+                <button id="signOutBtn" class="btn btn-secondary">Sign Out</button>
             </div>
         </nav>
     </div>
@@ -758,14 +633,12 @@
         </div>
     </div>
 
-    <!-- Authentication Modals -->
-    <div id="signInModal" class="auth-modal" style="display: none;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Sign In</h3>
-                <button onclick="authSystem.hideModals()" class="modal-close">×</button>
-            </div>
-            <form onsubmit="authSystem.handleSignIn(event)">
+    <!-- Sign In Modal -->
+    <div id="signInModal" class="auth-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div class="modal-content" style="background: white; padding: 2rem; border-radius: 8px; width: 100%; max-width: 400px; position: relative;">
+            <button id="closeModal" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">Sign In</h2>
+            <form id="signInForm">
                 <div class="form-group">
                     <label for="signInEmail">Email</label>
                     <input type="email" id="signInEmail" name="email" required>
@@ -815,45 +688,15 @@
         </div>
     </div>
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-        import { getFirestore, collection, addDoc, getDocs, query, where, orderBy } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyARzOykm2wdokL7qakHUe1UI8Vz7nVZFX8",
-            authDomain: "janata-audit-bengaluru.firebaseapp.com",
-            projectId: "janata-audit-bengaluru",
-            storageBucket: "janata-audit-bengaluru.appspot.com",
-            messagingSenderId: "123456789012",
-            appId: "1:123456789012:web:abcdef1234567890abcdef"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        // Make Firebase available globally
-        window.firebaseAuth = auth;
-        window.firebaseDb = db;
-        window.firebaseApp = app;
-    </script>
-    <script src="auth-system.js"></script>
-    <script src="feedback-system.js"></script>
-    <script src="database_migration.js"></script>
-    <script src="firebase_init.js"></script>
     <script>
         // Global variables
         let map;
-        let satelliteLayer;
         let osmLayer;
-        let projectMarkers = [];
-        let projects = [];
+        let satelliteLayer;
         let isSatelliteView = false;
-
+        let projects = [];
+        let projectMarkers = [];
+        
         // Initialize the application
         document.addEventListener('DOMContentLoaded', function() {
             initializeMap();
@@ -1418,6 +1261,111 @@
                 alert('Error scraping projects. Make sure the scraper is running.');
             });
         }
+
+        // Authentication system
+        const authSystem = {
+            showSignIn: function() {
+                document.getElementById('signInModal').style.display = 'flex';
+                document.getElementById('signUpModal').style.display = 'none';
+            },
+            
+            showSignUp: function() {
+                document.getElementById('signUpModal').style.display = 'flex';
+                document.getElementById('signInModal').style.display = 'none';
+            },
+            
+            hideModals: function() {
+                document.getElementById('signInModal').style.display = 'none';
+                document.getElementById('signUpModal').style.display = 'none';
+            },
+            
+            handleSignIn: function(event) {
+                event.preventDefault();
+                const email = document.getElementById('signInEmail').value;
+                const password = document.getElementById('signInPassword').value;
+                
+                // Simulate authentication
+                setTimeout(() => {
+                    alert('Sign in successful!');
+                    this.hideModals();
+                    this.updateUI(true, { email: email, name: email.split('@')[0] });
+                }, 1000);
+            },
+            
+            handleSignUp: function(event) {
+                event.preventDefault();
+                const name = document.getElementById('signUpName').value;
+                const email = document.getElementById('signUpEmail').value;
+                const password = document.getElementById('signUpPassword').value;
+                
+                // Simulate registration
+                setTimeout(() => {
+                    alert('Sign up successful!');
+                    this.hideModals();
+                    this.updateUI(true, { email: email, name: name });
+                }, 1000);
+            },
+            
+            signOut: function() {
+                this.updateUI(false);
+                alert('Signed out successfully!');
+            },
+            
+            updateUI: function(isSignedIn, user = null) {
+                const authButtons = document.getElementById('authButtons');
+                const userMenu = document.getElementById('userMenu');
+                
+                if (isSignedIn && user) {
+                    authButtons.style.display = 'none';
+                    userMenu.style.display = 'flex';
+                    document.getElementById('userName').textContent = user.name;
+                } else {
+                    authButtons.style.display = 'flex';
+                    userMenu.style.display = 'none';
+                }
+            }
+        };
+
+        // Event listeners for authentication
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sign in button
+            document.getElementById('signInBtn').addEventListener('click', () => {
+                authSystem.showSignIn();
+            });
+            
+            // Sign up button
+            document.getElementById('signUpBtn').addEventListener('click', () => {
+                authSystem.showSignUp();
+            });
+            
+            // Sign out button
+            document.getElementById('signOutBtn').addEventListener('click', () => {
+                authSystem.signOut();
+            });
+            
+            // Sign in form
+            document.getElementById('signInForm').addEventListener('submit', (e) => {
+                authSystem.handleSignIn(e);
+            });
+            
+            // Close modal button
+            document.getElementById('closeModal').addEventListener('click', () => {
+                authSystem.hideModals();
+            });
+            
+            // Close modal on background click
+            document.getElementById('signInModal').addEventListener('click', (e) => {
+                if (e.target === e.currentTarget) {
+                    authSystem.hideModals();
+                }
+            });
+            
+            document.getElementById('signUpModal').addEventListener('click', (e) => {
+                if (e.target === e.currentTarget) {
+                    authSystem.hideModals();
+                }
+            });
+        });
 
         // Start application function
         function startApplication() {

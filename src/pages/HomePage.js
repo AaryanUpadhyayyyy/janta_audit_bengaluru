@@ -91,7 +91,7 @@ const HomePage = () => {
 
   // Hero Section
   if (currentView === 'hero') {
-    return (
+  return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
         {/* Header */}
         <div className="bg-white shadow-sm">
@@ -161,7 +161,7 @@ const HomePage = () => {
                   <Brain className="h-8 w-8 text-purple-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 ml-4">AI Analysis</h3>
-              </div>
+                </div>
               <p className="text-gray-600 mb-4">
                 Automated anomaly detection and delay prediction using machine learning
               </p>
@@ -216,7 +216,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </div>
+              </div>
     );
   }
 
@@ -233,14 +233,14 @@ const HomePage = () => {
           analysisData={selectedProject?.satelliteAnalysis}
         />
 
-        {/* Filter Toggle Button */}
-        <button
-          onClick={() => setShowFilterPanel(!showFilterPanel)}
-          className="absolute top-4 left-4 z-10 bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2 transition-colors"
-        >
-          <Filter className="h-4 w-4" />
-          <span>Filters</span>
-        </button>
+      {/* Filter Toggle Button */}
+      <button
+        onClick={() => setShowFilterPanel(!showFilterPanel)}
+        className="absolute top-4 left-4 z-10 bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2 transition-colors"
+      >
+        <Filter className="h-4 w-4" />
+        <span>Filters</span>
+      </button>
 
         {/* Back to Hero Button */}
         <button
@@ -250,57 +250,57 @@ const HomePage = () => {
           Back to Home
         </button>
 
-        {/* Filter Panel */}
-        {showFilterPanel && (
-          <div className="absolute top-4 left-4 z-20">
-            <FilterPanel
-              filters={filters}
-              onFiltersChange={updateFilters}
+      {/* Filter Panel */}
+      {showFilterPanel && (
+        <div className="absolute top-4 left-4 z-20">
+          <FilterPanel
+            filters={filters}
+            onFiltersChange={updateFilters}
               projects={filteredProjects}
-            />
-          </div>
-        )}
+          />
+        </div>
+      )}
 
-        {/* Project List (Mobile) */}
-        <div className="md:hidden absolute bottom-0 left-0 right-0 bg-white max-h-64 overflow-y-auto">
-          <div className="p-4 border-t">
-            <h3 className="font-bold text-lg mb-3">Projects ({filteredProjects.length})</h3>
-            <div className="space-y-2">
-              {filteredProjects.slice(0, 5).map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  onClick={() => setSelectedProject(project)}
-                />
-              ))}
-              {filteredProjects.length > 5 && (
-                <p className="text-sm text-gray-500 text-center">
-                  +{filteredProjects.length - 5} more projects
-                </p>
-              )}
-            </div>
+      {/* Project List (Mobile) */}
+      <div className="md:hidden absolute bottom-0 left-0 right-0 bg-white max-h-64 overflow-y-auto">
+        <div className="p-4 border-t">
+          <h3 className="font-bold text-lg mb-3">Projects ({filteredProjects.length})</h3>
+          <div className="space-y-2">
+            {filteredProjects.slice(0, 5).map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onClick={() => setSelectedProject(project)}
+              />
+            ))}
+            {filteredProjects.length > 5 && (
+              <p className="text-sm text-gray-500 text-center">
+                +{filteredProjects.length - 5} more projects
+              </p>
+            )}
           </div>
         </div>
+      </div>
 
-        {/* Desktop Project List */}
-        <div className="hidden md:block absolute top-4 right-4 w-80 max-h-96 overflow-y-auto bg-white rounded-lg shadow-lg">
-          <div className="p-4">
-            <h3 className="font-bold text-lg mb-3">Projects ({filteredProjects.length})</h3>
-            <div className="space-y-2">
-              {filteredProjects.slice(0, 10).map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  onClick={() => setSelectedProject(project)}
-                />
-              ))}
-              {filteredProjects.length > 10 && (
-                <p className="text-sm text-gray-500 text-center">
-                  +{filteredProjects.length - 10} more projects
-                </p>
-              )}
-            </div>
+      {/* Desktop Project List */}
+      <div className="hidden md:block absolute top-4 right-4 w-80 max-h-96 overflow-y-auto bg-white rounded-lg shadow-lg">
+        <div className="p-4">
+          <h3 className="font-bold text-lg mb-3">Projects ({filteredProjects.length})</h3>
+          <div className="space-y-2">
+            {filteredProjects.slice(0, 10).map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onClick={() => setSelectedProject(project)}
+              />
+            ))}
+            {filteredProjects.length > 10 && (
+              <p className="text-sm text-gray-500 text-center">
+                +{filteredProjects.length - 10} more projects
+              </p>
+            )}
           </div>
+        </div>
         </div>
       </div>
     );
