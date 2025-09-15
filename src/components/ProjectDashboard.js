@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
-  MapPin, 
-  Calendar, 
   DollarSign, 
   TrendingUp, 
   AlertTriangle, 
   CheckCircle, 
-  Clock, 
-  XCircle,
-  BarChart3,
-  PieChart,
-  Activity
+  Clock,
+  BarChart3
 } from 'lucide-react';
 
 const ProjectDashboard = ({ projects = [] }) => {
@@ -22,9 +17,9 @@ const ProjectDashboard = ({ projects = [] }) => {
     if (projects.length > 0) {
       calculateDashboardData();
     }
-  }, [projects, selectedTimeRange, selectedDepartment]);
+  }, [projects, selectedTimeRange, selectedDepartment, calculateDashboardData]);
 
-  const calculateDashboardData = () => {
+  const calculateDashboardData = useCallback(() => {
     const now = new Date();
     const timeRanges = {
       '1month': 30,
@@ -70,7 +65,7 @@ const ProjectDashboard = ({ projects = [] }) => {
       performanceMetrics,
       filteredProjects
     });
-  };
+  }, [projects, selectedTimeRange, selectedDepartment]);
 
   const calculateBudgetStats = (projects) => {
     const budgets = projects.map(p => extractBudgetNumeric(p.budget)).filter(b => b > 0);

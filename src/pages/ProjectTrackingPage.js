@@ -6,7 +6,6 @@ import RealTimeUpdates from '../components/RealTimeUpdates';
 import { 
   BarChart3, 
   Map, 
-  Settings, 
   Bell, 
   Database,
   Activity
@@ -23,6 +22,16 @@ const ProjectTrackingPage = () => {
   useEffect(() => {
     loadProjects();
   }, []);
+
+  // Handle loading state
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <span className="ml-2 text-gray-600">Loading projects...</span>
+      </div>
+    );
+  }
 
   const loadProjects = async () => {
     try {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, MapPin, Building, DollarSign, Search, Calendar, Filter } from 'lucide-react';
+import { Building, DollarSign, Search, Calendar, Filter } from 'lucide-react';
 
 const FilterPanel = ({ filters, onFiltersChange, projects = [] }) => {
   const bengaluruWards = [

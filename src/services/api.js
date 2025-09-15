@@ -1,6 +1,7 @@
 // API service for communicating with Express.js backend on Render
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://janata-audit-backend.onrender.com/api';
+import { getAllProjects, getProjectById } from './dataScraper';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://janata-audit-backend.onrender.com/api';
 // Helper function to handle API responses
 const handleResponse = async (response) => {
   if (!response.ok) {
@@ -58,8 +59,10 @@ export const fetchProjects = async () => {
     const response = await fetch(`${API_BASE_URL}/projects`);
     return await handleResponse(response);
   } catch (error) {
-    console.error('Error fetching projects:', error);
-    throw error;
+    console.error('Error fetching projects from API:', error);
+    console.log('Using scraped Bengaluru project data...');
+    // Return scraped data as fallback
+    return getAllProjects();
   }
 };
 
@@ -69,8 +72,14 @@ export const fetchProject = async (projectId) => {
     const response = await fetch(`${API_BASE_URL}/projects/${projectId}`);
     return await handleResponse(response);
   } catch (error) {
-    console.error('Error fetching project:', error);
-    throw error;
+    console.error('Error fetching project from API:', error);
+    console.log('Using scraped Bengaluru project data...');
+    // Find project in scraped data
+    const project = getProjectById(projectId);
+    if (project) {
+      return project;
+    }
+    throw new Error('Project not found');
   }
 };
 

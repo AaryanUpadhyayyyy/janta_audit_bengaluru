@@ -19,8 +19,8 @@ import SatelliteAnalysis from '../components/SatelliteAnalysis';
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { getProjectById, getProjectFeedback, submitProjectFeedback } = useProjects();
-  const { currentUser } = useAuth();
+  const { getProjectById, getProjectFeedback, submitProjectFeedback, loading: projectsLoading } = useProjects();
+  const { currentUser, loading: authLoading } = useAuth();
   const [project, setProject] = useState(null);
   const [feedback, setFeedback] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -30,6 +30,16 @@ const ProjectDetail = () => {
     rating: '5',
     photoURL: ''
   });
+
+  // Handle loading state
+  if (authLoading || projectsLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <span className="ml-2 text-gray-600">Loading...</span>
+      </div>
+    );
+  }
 
   useEffect(() => {
     const fetchProjectData = async () => {

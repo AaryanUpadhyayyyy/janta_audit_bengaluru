@@ -23,6 +23,13 @@ from selenium.webdriver.chrome.service import Service
 import random
 import os
 
+# Import manual infrastructure data
+try:
+    from manual_infrastructure_data import get_manual_infrastructure_projects
+except ImportError:
+    def get_manual_infrastructure_projects():
+        return []
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -2119,6 +2126,24 @@ class BengaluruProjectScraper:
             })
         return projects
     
+    def add_manual_infrastructure_projects(self):
+        """Add manually curated infrastructure projects from detailed report"""
+        logger.info("Adding manual infrastructure projects...")
+        
+        try:
+            manual_projects = get_manual_infrastructure_projects()
+            
+            for project in manual_projects:
+                # Ensure project has all required fields
+                if 'id' in project and 'projectName' in project:
+                    self.projects.append(project)
+                    logger.info(f"Added manual project: {project['projectName']}")
+            
+            logger.info(f"Successfully added {len(manual_projects)} manual infrastructure projects")
+            
+        except Exception as e:
+            logger.error(f"Error adding manual infrastructure projects: {e}")
+    
     def process_and_enhance_projects(self):
         """Process and enhance all scraped projects with advanced analytics"""
         logger.info("Processing and enhancing project data...")
@@ -2283,6 +2308,9 @@ class BengaluruProjectScraper:
         
         # Generate comprehensive mock projects
         self.generate_comprehensive_mock_projects()
+        
+        # Add manual infrastructure projects
+        self.add_manual_infrastructure_projects()
         
         # Process and enhance all projects
         self.process_and_enhance_projects()

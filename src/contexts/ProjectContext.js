@@ -1,16 +1,17 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { 
-  collection, 
-  query, 
-  where, 
-  orderBy, 
-  onSnapshot, 
-  doc, 
-  getDoc,
-  addDoc,
-  serverTimestamp
-} from 'firebase/firestore';
-import { db } from '../firebase/config';
+// Firebase imports removed as they're not currently used
+// import { 
+//   collection, 
+//   query, 
+//   where, 
+//   orderBy, 
+//   onSnapshot, 
+//   doc, 
+//   getDoc,
+//   addDoc,
+//   serverTimestamp
+// } from 'firebase/firestore';
+// import { db } from '../firebase/config';
 import { fetchProjects, fetchProject, submitProject, submitFeedback, fetchProjectFeedback } from '../services/api';
 
 const ProjectContext = createContext();
@@ -36,6 +37,7 @@ export function ProjectProvider({ children }) {
       try {
         setLoading(true);
         const response = await fetchProjects();
+        console.log('Projects loaded:', response);
         setProjects(response.projects || []);
         setFilteredProjects(response.projects || []);
       } catch (error) {

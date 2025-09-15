@@ -100,6 +100,7 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser,
+    loading,
     signInWithPhone,
     verifyOTP,
     createUserProfile,
@@ -108,7 +109,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 }

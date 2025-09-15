@@ -1,17 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useProjects } from '../contexts/ProjectContext';
 import OpenStreetMapView from '../components/OpenStreetMapView';
 import FilterPanel from '../components/FilterPanel';
 import ProjectCard from '../components/ProjectCard';
-import { MapPin, Filter, X, BarChart3, Users, Brain, ArrowRight } from 'lucide-react';
+import { MapPin, Filter, Users, Brain, ArrowRight } from 'lucide-react';
 
 const HomePage = () => {
   const { filteredProjects, loading, filters, updateFilters } = useProjects();
   const [selectedProject, setSelectedProject] = useState(null);
   const [showFilterPanel, setShowFilterPanel] = useState(false);
-  const [mapCenter, setMapCenter] = useState([12.9716, 77.5946]);
+  const [mapCenter] = useState([12.9716, 77.5946]);
   const [currentView, setCurrentView] = useState('hero'); // 'hero', 'map', 'features'
+
+  // Handle loading state
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <span className="ml-2 text-gray-600">Loading projects...</span>
+      </div>
+    );
+  }
 
   const getMarkerColor = (status) => {
     switch (status) {
@@ -26,18 +36,18 @@ const HomePage = () => {
     }
   };
 
-  const getRiskColor = (risk) => {
-    switch (risk) {
-      case 'High':
-        return '#dc3545';
-      case 'Medium':
-        return '#ffc107';
-      case 'Low':
-        return '#28a745';
-      default:
-        return '#6c757d';
-    }
-  };
+  // const getRiskColor = (risk) => {
+  //   switch (risk) {
+  //     case 'High':
+  //       return '#dc3545';
+  //     case 'Medium':
+  //       return '#ffc107';
+  //     case 'Low':
+  //       return '#28a745';
+  //     default:
+  //       return '#6c757d';
+  //   }
+  // };
 
   const getProjectMarkers = () => {
     return filteredProjects.map(project => ({
@@ -79,15 +89,6 @@ const HomePage = () => {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     return R * c;
   };
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-        <span className="ml-2 text-gray-600">Loading projects...</span>
-      </div>
-    );
-  }
 
   // Hero Section
   if (currentView === 'hero') {

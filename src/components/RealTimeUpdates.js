@@ -14,7 +14,7 @@ import {
 
 const RealTimeUpdates = ({ projects = [], onProjectUpdate }) => {
   const [notifications, setNotifications] = useState([]);
-  const [isConnected, setIsConnected] = useState(false);
+  const [isConnected] = useState(false);
   const [lastUpdate, setLastUpdate] = useState(null);
   const [updateInterval, setUpdateInterval] = useState(30000); // 30 seconds
   const [isAutoRefresh, setIsAutoRefresh] = useState(true);
@@ -28,7 +28,7 @@ const RealTimeUpdates = ({ projects = [], onProjectUpdate }) => {
     }, updateInterval);
 
     return () => clearInterval(interval);
-  }, [isAutoRefresh, updateInterval, projects]);
+  }, [isAutoRefresh, updateInterval, projects, checkForUpdates]);
 
   const checkForUpdates = useCallback(async () => {
     try {
@@ -47,9 +47,9 @@ const RealTimeUpdates = ({ projects = [], onProjectUpdate }) => {
     } catch (error) {
       console.error('Error checking for updates:', error);
     }
-  }, [projects, onProjectUpdate]);
+  }, [projects, onProjectUpdate, simulateProjectUpdates]);
 
-  const simulateProjectUpdates = async (projects) => {
+  const simulateProjectUpdates = useCallback(async (projects) => {
     // Simulate random updates
     const updates = [];
     const updateTypes = [
@@ -77,7 +77,7 @@ const RealTimeUpdates = ({ projects = [], onProjectUpdate }) => {
     }
 
     return updates;
-  };
+  }, []);
 
   const generateUpdate = (project, updateType) => {
     const timestamp = new Date();

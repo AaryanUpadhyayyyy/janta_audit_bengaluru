@@ -29,7 +29,7 @@ const ProjectTracking = () => {
   // Filter projects when filters change
   useEffect(() => {
     filterProjects();
-  }, [projects, filters]);
+  }, [projects, filters, filterProjects]);
 
   const loadProjects = async () => {
     try {
@@ -48,7 +48,7 @@ const ProjectTracking = () => {
     }
   };
 
-  const filterProjects = () => {
+  const filterProjects = useCallback(() => {
     let filtered = [...projects];
 
     // Filter by status
@@ -106,7 +106,7 @@ const ProjectTracking = () => {
     }
 
     setFilteredProjects(filtered);
-  };
+  }, [projects, filters]);
 
   const extractBudgetNumeric = (budgetStr) => {
     if (!budgetStr) return 0;

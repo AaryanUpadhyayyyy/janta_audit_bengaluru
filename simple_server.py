@@ -13,6 +13,9 @@ import webbrowser
 import time
 from urllib.parse import urlparse, parse_qs
 
+# Define the projects file path
+projects_file = 'python_scripts/bengaluru_projects.json'
+
 class SimpleHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
         # Add CORS headers
@@ -53,11 +56,12 @@ class SimpleHandler(http.server.SimpleHTTPRequestHandler):
     
     def handle_projects_api(self):
         try:
-            if os.path.exists('bengaluru_projects.json'):
-                with open('bengaluru_projects.json', 'r', encoding='utf-8') as f:
+            if os.path.exists(projects_file):
+                with open(projects_file, 'r', encoding='utf-8') as f:
                     projects = json.load(f)
-                
-                self.send_json_response(projects)
+                # Wrap projects in expected format for frontend
+                response = {'projects': projects}
+                self.send_json_response(response)
             else:
                 self.send_json_response({'error': 'Projects file not found'}, status=404)
         except Exception as e:

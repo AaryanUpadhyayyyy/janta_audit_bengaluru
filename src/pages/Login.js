@@ -5,7 +5,7 @@ import { MapPin, Phone, ArrowRight } from 'lucide-react';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { currentUser, signInWithPhone, verifyOTP, createUserProfile } = useAuth();
+  const { currentUser, signInWithPhone, verifyOTP, createUserProfile, loading: authLoading } = useAuth();
   const [step, setStep] = useState('phone'); // 'phone', 'otp', 'profile'
   const [phoneNumber, setPhoneNumber] = useState('');
   const [otp, setOtp] = useState('');
@@ -22,6 +22,16 @@ const Login = () => {
       navigate('/');
     }
   }, [currentUser, navigate]);
+
+  // Handle loading state
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <span className="ml-2 text-gray-600">Loading...</span>
+      </div>
+    );
+  }
 
   const handlePhoneSubmit = async (e) => {
     e.preventDefault();

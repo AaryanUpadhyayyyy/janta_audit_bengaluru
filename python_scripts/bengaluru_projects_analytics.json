@@ -1,55 +1,64 @@
 {
   "summary": {
-    "totalProjects": 77,
-    "totalBudget": 6873263464,
-    "averageBudget": 89263161.87012987,
-    "dataQualityScore": 100.0
+    "totalProjects": 91,
+    "totalBudget": 19304760859076,
+    "averageBudget": 212140229220.6154,
+    "dataQualityScore": 85.71428571428571
   },
   "byDepartment": {
-    "BBMP": 14,
-    "BDA": 12,
+    "BBMP": 19,
+    "BDA": 13,
     "BWSSB": 9,
-    "BMRCL": 9,
+    "BMRCL": 12,
     "BESCOM": 9,
     "KPWD": 8,
     "KUIDFC": 8,
-    "BMTC": 8
+    "BMTC": 8,
+    "K-RIDE": 2,
+    "NHAI": 1,
+    "B-SMILE": 1,
+    "SCR": 1
   },
   "byStatus": {
-    "Pending": 37,
-    "In Progress": 37,
-    "Completed": 3
+    "Pending": 38,
+    "In Progress": 42,
+    "Completed": 2,
+    "Approved": 2,
+    "Delayed": 1,
+    "Stalled": 1,
+    "Tendering": 1,
+    "Planning": 4
   },
   "byCategory": {
-    "infrastructure": 9,
+    "infrastructure": 22,
     "housing": 13,
-    "water_management": 11,
-    "transportation": 18,
+    "water_management": 12,
+    "transportation": 25,
     "utilities": 8,
-    "environment": 6,
+    "environment": 8,
     "digital_governance": 15,
     "civic_services": 5,
     "general": 10
   },
   "byPriority": {
-    "Medium": 42,
-    "High": 24,
-    "Low": 11
+    "Medium": 52,
+    "High": 29,
+    "Low": 10
   },
   "byRiskLevel": {
     "Low": 61,
     "Medium": 14,
-    "High": 2
+    "High": 16
   },
   "budgetDistribution": {
     "small": 1,
     "medium": 54,
     "large": 22,
-    "mega": 0
+    "mega": 14
   },
   "timelineAnalysis": {
-    "shortTerm": 28,
+    "shortTerm": 29,
     "mediumTerm": 49,
-    "longTerm": 0
+    "longTerm": 12
   }
 }

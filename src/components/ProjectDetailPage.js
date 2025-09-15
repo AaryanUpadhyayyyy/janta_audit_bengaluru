@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { MapPin, Calendar, DollarSign, User, Building, AlertTriangle, CheckCircle, Clock, ArrowLeft, Satellite, BarChart3, Download, Share2 } from 'lucide-react';
 import OpenStreetMapView from './OpenStreetMapView';
@@ -13,11 +13,7 @@ const ProjectDetailPage = () => {
   const [satelliteAnalysis, setSatelliteAnalysis] = useState(null);
   const [analysisLoading, setAnalysisLoading] = useState(false);
 
-  useEffect(() => {
-    fetchProjectDetails();
-  }, [id]);
-
-  const fetchProjectDetails = async () => {
+  const fetchProjectDetails = useCallback(async () => {
     try {
       setLoading(true);
       const response = await fetch(`/api/projects/${id}`);
@@ -32,7 +28,21 @@ const ProjectDetailPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    fetchProjectDetails();
+  }, [fetchProjectDetails]);
+
+  // Handle loading state
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <span className="ml-2 text-gray-600">Loading project details...</span>
+      </div>
+    );
+  }
 
   const handleSatelliteAnalysis = async () => {
     if (!project) return;

@@ -4,14 +4,7 @@ import {
   Edit, 
   Trash2, 
   Save, 
-  X, 
-  MapPin, 
-  Calendar, 
-  DollarSign, 
-  Building, 
-  User,
-  AlertCircle,
-  CheckCircle
+  X
 } from 'lucide-react';
 
 const ProjectDataManager = ({ projects = [], onProjectCreate, onProjectUpdate, onProjectDelete }) => {

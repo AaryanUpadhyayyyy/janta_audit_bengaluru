@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { MapPin, User, LogOut, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const { currentUser, signOut } = useAuth();
+  const { currentUser, signOut, loading } = useAuth();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -20,6 +20,22 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  if (loading) {
+    return (
+      <nav className="bg-white shadow-lg sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <MapPin className="h-8 w-8 text-blue-600" />
+              <span className="text-xl font-bold text-gray-900 ml-2">Janata Audit Bengaluru</span>
+            </div>
+            <div className="animate-pulse bg-gray-200 h-8 w-24 rounded"></div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
