@@ -14,7 +14,7 @@ import time
 from urllib.parse import urlparse, parse_qs
 
 # Define the projects file path
-projects_file = 'python_scripts/bengaluru_projects.json'
+projects_file = 'bengaluru_projects_with_paths.json'
 
 class SimpleHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
@@ -29,14 +29,35 @@ class SimpleHandler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
     
     def do_GET(self):
+        print(f"🔍 GET request for: {self.path}")
+        
+        # Parse the path to remove query parameters for routing
+        parsed_path = self.path.split('?')[0]
+        
         if self.path == '/api/projects':
             self.handle_projects_api()
         elif self.path == '/api/health':
             self.handle_health_api()
-        elif self.path == '/':
-            self.path = '/index.html'
-            super().do_GET()
+        elif parsed_path == '/' or parsed_path == '/index.html':
+            print("✅ Root path accessed, serving index.html")
+            print(f"📄 Requested path: {parsed_path}")
+            # Read and serve index.html directly
+            try:
+                with open('index.html', 'r', encoding='utf-8') as f:
+                    content = f.read()
+                print(f"📊 Serving index.html ({len(content)} characters)")
+                self.send_response(200)
+                self.send_header('Content-type', 'text/html; charset=utf-8')
+                self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+                self.send_header('Pragma', 'no-cache')
+                self.send_header('Expires', '0')
+                self.end_headers()
+                self.wfile.write(content.encode('utf-8'))
+            except FileNotFoundError:
+                print("❌ index.html not found!")
+                self.send_error(404, "index.html not found")
         else:
+            print(f"📄 Serving file: {self.path}")
             super().do_GET()
     
     def do_POST(self):
@@ -59,6 +80,7 @@ class SimpleHandler(http.server.SimpleHTTPRequestHandler):
             if os.path.exists(projects_file):
                 with open(projects_file, 'r', encoding='utf-8') as f:
                     projects = json.load(f)
+                print(f"📊 API returning {len(projects)} projects from {projects_file}")
                 # Wrap projects in expected format for frontend
                 response = {'projects': projects}
                 self.send_json_response(response)
@@ -179,36 +201,53 @@ class SimpleHandler(http.server.SimpleHTTPRequestHandler):
     
     def handle_scrape_api(self):
         try:
-            result = subprocess.run([
-                sys.executable, 'python_scripts/bengaluru_project_scraper.py'
-            ], capture_output=True, text=True, timeout=600)
+            # Run the scraper script to fetch new data
+            print("🚀 Launching scraper...")
+            scraper_result = subprocess.run(
+                ['py', 'bengaluru_scraper.py'],
+                capture_output=True, text=True, check=True, encoding='utf-8'
+            )
+            print("✅ Scraper finished.")
+            print(scraper_result.stdout)
+
+            # After scraping, run the path generator to process the new data
+            print("🗺️ Generating paths for new projects...")
+            path_gen_result = subprocess.run(
+                ['py', 'path_generator_trainer.py'],
+                capture_output=True, text=True, check=True, encoding='utf-8'
+            )
+            print("✅ Path generation complete.")
+            print(path_gen_result.stdout)
+
+            # Respond with success
+            with open(projects_file, 'r', encoding='utf-8') as f:
+                projects = json.load(f)
             
-            if result.returncode == 0 and os.path.exists('bengaluru_projects.json'):
-                with open('bengaluru_projects.json', 'r', encoding='utf-8') as f:
-                    projects = json.load(f)
-                
-                response_data = {
-                    'success': True,
-                    'count': len(projects),
-                    'message': f'Successfully scraped {len(projects)} projects'
-                }
-            else:
-                response_data = {
-                    'success': False,
-                    'error': 'Scraper failed or no projects found'
-                }
-            
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps(response_data).encode())
-            
+            response_data = {
+                'success': True,
+                'count': len(projects),
+                'message': 'Successfully scraped new data and updated project paths.'
+            }
+            self.send_json_response(response_data)
+
+        except FileNotFoundError as e:
+            print(f"❌ Script not found: {e}")
+            self.send_json_response({
+                'success': False, 
+                'error': f"Scraper script not found: {e.filename}. Please ensure 'bengaluru_scraper.py' and 'path_generator_trainer.py' exist."
+            }, status=500)
+        except subprocess.CalledProcessError as e:
+            print(f"❌ Scraper script failed with exit code {e.returncode}")
+            print("stdout:", e.stdout)
+            print("stderr:", e.stderr)
+            self.send_json_response({
+                'success': False, 
+                'error': 'Scraper script failed to execute.',
+                'details': e.stderr
+            }, status=500)
         except Exception as e:
-            response_data = {'success': False, 'error': str(e)}
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps(response_data).encode())
+            print(f"❌ An unexpected error occurred during scraping: {e}")
+            self.send_json_response({'success': False, 'error': f'An unexpected error occurred: {str(e)}'}, status=500)
 
     def handle_ai_analysis_api(self):
         try:
@@ -700,7 +739,11 @@ def main():
             # Open browser after a short delay
             def open_browser():
                 time.sleep(2)
-                webbrowser.open(f'http://localhost:{port}')
+                url = f'http://localhost:{port}'
+                print(f"🌐 Opening browser to: {url}")
+                print(f"📋 If browser doesn't open automatically, copy and paste this URL:")
+                print(f"   {url}")
+                webbrowser.open(url, new=2)  # new=2 opens in new tab/window
             
             import threading
             browser_thread = threading.Thread(target=open_browser)
