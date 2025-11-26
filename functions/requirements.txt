@@ -1,0 +1,42 @@
+# Firebase and Google Cloud dependencies
+firebase-functions>=0.1.0
+google-cloud-firestore>=2.11.0
+google-cloud-storage>=2.10.0
+
+# Data processing and analysis
+pandas>=2.0.0
+numpy>=1.24.0
+
+# PDF processing (dual-method approach)
+pdfplumber>=0.9.0
+pdf2image>=3.1.0
+pytesseract>=0.3.10
+Pillow>=9.5.0
+
+# Web scraping and HTTP requests
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# OCR dependencies (system level - install via package manager)
+# tesseract-ocr (install system package)
+# poppler-utils (install system package)
+
+# Date and time handling
+python-dateutil>=2.8.0
+
+# Logging and monitoring
+structlog>=23.1.0
+
+# Data validation
+pydantic>=2.0.0
+
+# Utility libraries
+tqdm>=4.65.0
+retry>=0.9.2
+
+# Development and testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+flake8>=6.0.0

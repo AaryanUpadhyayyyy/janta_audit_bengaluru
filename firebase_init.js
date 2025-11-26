@@ -1,274 +1,244 @@
-// Firebase Initialization Script for Janata Audit Bengaluru
-// This script sets up the database and ensures proper connection
+// Firebase Data Setup Script for Jannat Audit
+// This script sets up initial Firestore collections and sample data
 
-class FirebaseInitializer {
-    constructor() {
-        this.isInitialized = false;
-        this.db = null;
-        this.auth = null;
-    }
-
-    // Initialize Firebase connection
-    async initialize() {
-        try {
-            console.log('🔥 Initializing Firebase...');
-            
-            // Check if Firebase is available
-            if (typeof window !== 'undefined' && window.firebaseDb && window.firebaseAuth) {
-                this.db = window.firebaseDb;
-                this.auth = window.firebaseAuth;
-                this.isInitialized = true;
-                console.log('✅ Firebase initialized successfully');
-                return true;
-            } else {
-                console.log('⚠️ Firebase not available, using mock data');
-                return false;
+async function setupFirestoreCollections() {
+    console.log('🏗️ Setting up Firestore collections for Jannat Audit...');
+    
+    try {
+        // 1. System Configuration Collection
+        await db.collection('system_config').doc('app_settings').set({
+            app_name: 'Jannat Audit',
+            version: '1.0.0',
+            initialized_at: new Date(),
+            data_sources: {
+                eci: { enabled: true, last_updated: null },
+                adr: { enabled: true, last_updated: null },
+                mca: { enabled: true, last_updated: null }
+            },
+            features: {
+                political_funding: true,
+                bengaluru_projects: true,
+                social_platform: true,
+                ai_analysis: true
             }
-        } catch (error) {
-            console.error('❌ Firebase initialization failed:', error);
-            return false;
-        }
-    }
-
-    // Create database collections and sample data
-    async setupDatabase() {
-        if (!this.isInitialized) {
-            console.log('⚠️ Firebase not initialized, skipping database setup');
-            return;
-        }
-
-        try {
-            console.log('🗄️ Setting up database collections...');
-            
-            // Import Firestore functions
-            const { collection, addDoc, getDocs, query, where } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
-            
-            // Check if collections exist and create sample data
-            await this.createSampleUsers();
-            await this.createSampleProjects();
-            await this.createSampleFeedback();
-            
-            console.log('✅ Database setup complete');
-        } catch (error) {
-            console.error('❌ Database setup failed:', error);
-        }
-    }
-
-    // Create sample users
-    async createSampleUsers() {
-        try {
-            const { collection, addDoc, getDocs, query, where } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
-            
-            // Check if users collection has data
-            const usersQuery = query(collection(this.db, 'users'));
-            const usersSnapshot = await getDocs(usersQuery);
-            
-            if (usersSnapshot.empty) {
-                console.log('👥 Creating sample users...');
-                
-                const sampleUsers = [
-                    {
-                        uid: 'demo-admin-123',
-                        email: 'admin@janataaudit.com',
-                        name: 'Admin User',
-                        role: 'admin',
-                        createdAt: new Date(),
-                        updatedAt: new Date()
-                    },
-                    {
-                        uid: 'demo-citizen-456',
-                        email: 'citizen@example.com',
-                        name: 'John Citizen',
-                        role: 'citizen',
-                        createdAt: new Date(),
-                        updatedAt: new Date()
-                    }
-                ];
-
-                for (const user of sampleUsers) {
-                    await addDoc(collection(this.db, 'users'), user);
-                    console.log(`✅ Created user: ${user.name}`);
-                }
-            } else {
-                console.log('👥 Users collection already has data');
-            }
-        } catch (error) {
-            console.error('❌ Error creating sample users:', error);
-        }
-    }
-
-    // Create sample projects
-    async createSampleProjects() {
-        try {
-            const { collection, addDoc, getDocs, query, where } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
-            
-            // Check if projects collection has data
-            const projectsQuery = query(collection(this.db, 'projects'));
-            const projectsSnapshot = await getDocs(projectsQuery);
-            
-            if (projectsSnapshot.empty) {
-                console.log('🏗️ Creating sample projects...');
-                
-                const sampleProjects = [
-                    {
-                        projectName: "BBMP Smart City Initiative",
-                        description: "Implementation of smart city technologies across Bengaluru",
-                        budget: 50000000,
-                        status: "In Progress",
-                        department: "BBMP",
-                        location: "Bengaluru",
-                        wardNumber: "Ward 1",
-                        startDate: new Date('2024-01-01'),
-                        endDate: new Date('2024-12-31'),
-                        geoPoint: { latitude: 12.9716, longitude: 77.5946 },
-                        createdAt: new Date(),
-                        updatedAt: new Date()
-                    },
-                    {
-                        projectName: "BMRCL Metro Phase 3",
-                        description: "Extension of metro lines to outer areas of Bengaluru",
-                        budget: 75000000,
-                        status: "Pending",
-                        department: "BMRCL",
-                        location: "Whitefield, Bengaluru",
-                        wardNumber: "Ward 5",
-                        startDate: new Date('2024-06-01'),
-                        endDate: new Date('2025-12-31'),
-                        geoPoint: { latitude: 12.9698, longitude: 77.7500 },
-                        createdAt: new Date(),
-                        updatedAt: new Date()
-                    },
-                    {
-                        projectName: "BWSSB Water Supply Network",
-                        description: "Upgradation of water supply infrastructure",
-                        budget: 30000000,
-                        status: "Completed",
-                        department: "BWSSB",
-                        location: "Electronic City, Bengaluru",
-                        wardNumber: "Ward 8",
-                        startDate: new Date('2023-06-01'),
-                        endDate: new Date('2024-05-31'),
-                        geoPoint: { latitude: 12.8456, longitude: 77.6603 },
-                        createdAt: new Date(),
-                        updatedAt: new Date()
-                    }
-                ];
-
-                for (const project of sampleProjects) {
-                    await addDoc(collection(this.db, 'projects'), project);
-                    console.log(`✅ Created project: ${project.projectName}`);
-                }
-            } else {
-                console.log('🏗️ Projects collection already has data');
-            }
-        } catch (error) {
-            console.error('❌ Error creating sample projects:', error);
-        }
-    }
-
-    // Create sample feedback
-    async createSampleFeedback() {
-        try {
-            const { collection, addDoc, getDocs, query, where } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
-            
-            // Check if feedback collection has data
-            const feedbackQuery = query(collection(this.db, 'feedback'));
-            const feedbackSnapshot = await getDocs(feedbackQuery);
-            
-            if (feedbackSnapshot.empty) {
-                console.log('💬 Creating sample feedback...');
-                
-                const sampleFeedback = [
-                    {
-                        projectId: "project-1",
-                        projectName: "BBMP Smart City Initiative",
-                        user: "John Citizen",
-                        email: "citizen@example.com",
-                        category: "Infrastructure",
-                        rating: 4,
-                        comment: "Great initiative! The smart city project is progressing well.",
-                        location: "Bengaluru",
-                        status: "approved",
-                        createdAt: new Date()
-                    },
-                    {
-                        projectId: "project-2",
-                        projectName: "BMRCL Metro Phase 3",
-                        user: "Sarah Kumar",
-                        email: "sarah@example.com",
-                        category: "Transport",
-                        rating: 5,
-                        comment: "Excellent metro connectivity. This will greatly improve our daily commute.",
-                        location: "Whitefield, Bengaluru",
-                        status: "pending",
-                        createdAt: new Date()
-                    }
-                ];
-
-                for (const feedback of sampleFeedback) {
-                    await addDoc(collection(this.db, 'feedback'), feedback);
-                    console.log(`✅ Created feedback: ${feedback.comment.substring(0, 50)}...`);
-                }
-            } else {
-                console.log('💬 Feedback collection already has data');
-            }
-        } catch (error) {
-            console.error('❌ Error creating sample feedback:', error);
-        }
-    }
-
-    // Test Firebase connection
-    async testConnection() {
-        if (!this.isInitialized) {
-            console.log('⚠️ Firebase not initialized, cannot test connection');
-            return false;
-        }
-
-        try {
-            console.log('🔍 Testing Firebase connection...');
-            
-            const { collection, getDocs } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
-            
-            // Test reading from users collection
-            const usersSnapshot = await getDocs(collection(this.db, 'users'));
-            console.log(`✅ Users collection: ${usersSnapshot.size} documents`);
-            
-            // Test reading from projects collection
-            const projectsSnapshot = await getDocs(collection(this.db, 'projects'));
-            console.log(`✅ Projects collection: ${projectsSnapshot.size} documents`);
-            
-            // Test reading from feedback collection
-            const feedbackSnapshot = await getDocs(collection(this.db, 'feedback'));
-            console.log(`✅ Feedback collection: ${feedbackSnapshot.size} documents`);
-            
-            console.log('🎉 Firebase connection test successful!');
-            return true;
-        } catch (error) {
-            console.error('❌ Firebase connection test failed:', error);
-            return false;
-        }
-    }
-
-    // Run complete initialization
-    async run() {
-        console.log('🚀 Starting Firebase initialization...');
+        });
         
-        const initialized = await this.initialize();
-        if (initialized) {
-            await this.setupDatabase();
-            await this.testConnection();
-            console.log('✅ Firebase initialization complete!');
+        // 2. Data Sources Status Collection
+        await db.collection('data_sources').doc('eci').set({
+            name: 'Election Commission of India',
+            status: 'active',
+            last_updated: new Date(),
+            record_count: 247,
+            data_type: 'political_funding'
+        });
+        
+        await db.collection('data_sources').doc('adr').set({
+            name: 'Association for Democratic Reforms',
+            status: 'active',
+            last_updated: new Date(),
+            record_count: 189,
+            data_type: 'political_analysis'
+        });
+        
+        await db.collection('data_sources').doc('mca').set({
+            name: 'Ministry of Corporate Affairs',
+            status: 'active',
+            last_updated: new Date(),
+            record_count: 16,
+            data_type: 'audit_reports'
+        });
+        
+        // 3. Analytics Collection
+        await db.collection('analytics').doc('platform_stats').set({
+            total_funding_records: 247,
+            total_audit_reports: 16,
+            total_users: 0,
+            total_interactions: 0,
+            last_updated: new Date()
+        });
+        
+        // 4. Sample Political Funding Data
+        const sampleFundingData = [
+            {
+                id: 'sample_001',
+                donor_name: 'Tech Solutions Pvt Ltd',
+                recipient_party: 'Bharatiya Janata Party',
+                amount: 25000000,
+                date_of_purchase: '2024-03-15',
+                data_type: 'electoral_bond',
+                is_karnataka_party: true,
+                is_karnataka_donor: true,
+                donor_sector: 'Information Technology',
+                donor_revenue: '500000000',
+                donor_employees: 250,
+                created_at: new Date()
+            },
+            {
+                id: 'sample_002',
+                donor_name: 'Karnataka Infrastructure Corp',
+                recipient_party: 'Indian National Congress',
+                amount: 15000000,
+                date_of_purchase: '2024-02-20',
+                data_type: 'electoral_bond',
+                is_karnataka_party: true,
+                is_karnataka_donor: true,
+                donor_sector: 'Infrastructure',
+                donor_revenue: '750000000',
+                donor_employees: 180,
+                created_at: new Date()
+            }
+        ];
+        
+        // Add sample funding data
+        for (const donation of sampleFundingData) {
+            await db.collection('political_funding').doc(donation.id).set(donation);
+        }
+        
+        // 5. Sample Audit Reports
+        const sampleAuditReports = [
+            {
+                id: 'audit_001',
+                donor_name: 'Suspicious Donors Pvt Ltd',
+                anomaly_type: 'Shell Company Risk',
+                risk_score: 85,
+                description: 'Company with minimal operations making large political donations',
+                findings: [
+                    'Low employee count relative to donation amount',
+                    'Registered address is virtual office',
+                    'Minimal business operations detected'
+                ],
+                created_at: new Date()
+            },
+            {
+                id: 'audit_002',
+                donor_name: 'Quick Money Ltd',
+                anomaly_type: 'Timing Anomaly',
+                risk_score: 72,
+                description: 'Donation made immediately before major policy announcement',
+                findings: [
+                    'Donation timing correlates with policy decisions',
+                    'No prior political donation history',
+                    'Benefited from subsequent government contracts'
+                ],
+                created_at: new Date()
+            }
+        ];
+        
+        // Add sample audit reports
+        for (const report of sampleAuditReports) {
+            await db.collection('audit_reports').doc(report.id).set(report);
+        }
+        
+        // 6. Connection Test Document
+        await db.collection('system_config').doc('connection_test').set({
+            status: 'active',
+            message: 'Firebase connection is working properly',
+            tested_at: new Date()
+        });
+        
+        console.log('✅ Firestore collections setup complete!');
+        console.log('📊 Created collections: system_config, data_sources, analytics, political_funding, audit_reports');
+        
+        return true;
+        
+    } catch (error) {
+        console.warn('⚠️ Error setting up Firestore collections (insufficient permissions):', error.message);
+        console.log('📱 App will continue in local-only mode with sample data');
+        
+        // Show user-friendly banner about Firebase status
+        setTimeout(() => {
+            if (typeof showFirebaseStatusBanner === 'function') {
+                showFirebaseStatusBanner();
+            }
+        }, 2000); // Delay to ensure DOM is ready
+        
+        // Don't throw error - let app continue
+        return false;
+    }
+}
+
+// Function to verify collections are set up correctly
+async function verifyFirestoreSetup() {
+    try {
+        console.log('🔍 Verifying Firestore setup...');
+        
+        // Check each collection
+        const collections = ['system_config', 'data_sources', 'analytics', 'political_funding', 'audit_reports'];
+        
+        for (const collectionName of collections) {
+            const snapshot = await db.collection(collectionName).limit(1).get();
+            console.log(`✅ ${collectionName}: ${snapshot.size} documents found`);
+        }
+        
+        console.log('✅ Firestore setup verification complete!');
+        return true;
+        
+    } catch (error) {
+        console.error('❌ Error verifying Firestore setup:', error);
+        return false;
+    }
+}
+
+// Auto-setup function (call this after Firebase is initialized)
+async function autoSetupFirestore() {
+    try {
+        // Check if already setup
+        const testDoc = await db.collection('system_config').doc('app_settings').get();
+        
+        if (!testDoc.exists) {
+            console.log('🚀 First time setup detected. Setting up Firestore collections...');
+            try {
+                const setupResult = await setupFirestoreCollections();
+                if (setupResult) {
+                    console.log('✅ Firestore collections setup completed');
+                } else {
+                    console.log('📱 Running in local-only mode due to Firebase permissions');
+                }
+            } catch (setupError) {
+                console.warn('⚠️ Firestore setup failed, but app will continue with local data:', setupError.message);
+                // App continues to work with local/sample data
+            }
         } else {
-            console.log('⚠️ Firebase initialization skipped, using mock data');
+            console.log('✅ Firestore already configured');
+        }
+        
+        // Try to verify setup, but don't fail if it doesn't work
+        try {
+            await verifyFirestoreSetup();
+        } catch (verifyError) {
+            console.warn('⚠️ Firestore verification failed, using local data mode:', verifyError.message);
+        }
+        
+    } catch (error) {
+        console.log('📱 Firebase auto-setup failed due to permissions, continuing in local mode');
+        console.log('💡 This is normal - the app will work with sample data for demonstration');
+        // Ensure the app continues to work even if Firebase fails completely
+        initializeLocalDataMode();
+    }
+}
+
+// Initialize local data mode when Firebase is unavailable
+function initializeLocalDataMode() {
+    console.log('🔧 Initializing local data mode...');
+    
+    // Set a flag to indicate we're in local mode
+    if (typeof window !== 'undefined') {
+        window.FIREBASE_AVAILABLE = false;
+        window.LOCAL_DATA_MODE = true;
+        
+        // Trigger initialization of funding audit with local data
+        if (typeof initializeFundingAudit === 'function') {
+            setTimeout(() => {
+                console.log('🚀 Starting funding audit in local mode...');
+                initializeFundingAudit();
+            }, 1000);
         }
     }
 }
 
-// Auto-initialize when page loads
-document.addEventListener('DOMContentLoaded', async () => {
-    const firebaseInit = new FirebaseInitializer();
-    await firebaseInit.run();
-});
-
-// Make available globally
-window.FirebaseInitializer = FirebaseInitializer;
+// Export functions for manual use
+if (typeof window !== 'undefined') {
+    window.setupFirestoreCollections = setupFirestoreCollections;
+    window.verifyFirestoreSetup = verifyFirestoreSetup;
+    window.autoSetupFirestore = autoSetupFirestore;
+}

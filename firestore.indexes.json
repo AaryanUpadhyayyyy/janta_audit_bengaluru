@@ -1,43 +1,29 @@
 {
   "indexes": [
     {
-      "collectionGroup": "projects",
+      "collectionGroup": "issues",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "wardNumber",
+          "fieldPath": "reporterId",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "status",
-          "order": "ASCENDING"
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "projects",
+      "collectionGroup": "social_posts",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "department",
+          "fieldPath": "userId",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "status",
-          "order": "ASCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "userFeedback",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "projectId",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "timestamp",
+          "fieldPath": "createdAt",
           "order": "DESCENDING"
         }
       ]

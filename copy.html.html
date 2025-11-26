@@ -1,0 +1,3996 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LocalLens — Next-Gen Civic Reporting</title>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<!-- Leaflet.heat plugin for heatmap visualization -->
+<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #10b981;
+    --accent: #f59e0b;
+    --danger: #ef4444;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #1e293b;
+    --text-light: #64748b;
+    --text-muted: #94a3b8;
+    --border: #e2e8f0;
+    --radius: 12px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  body.dark-mode {
+    --primary: #ffd700;
+    --primary-dark: #f59e0b;
+    --secondary: #34d399;
+    --accent: #60a5fa;
+    --danger: #f87171;
+    --success: #34d399;
+    --warning: #fbbf24;
+    --bg: #18181b;
+    --card: #23232a;
+    --text: #f3f4f6;
+    --text-light: #a1a1aa;
+    --text-muted: #71717a;
+    --border: #27272a;
+    --shadow: 0 4px 16px -1px rgba(0,0,0,0.9), 0 2px 4px -1px rgba(0,0,0,0.7);
+    --shadow-lg: 0 10px 24px -3px rgba(0,0,0,0.9), 0 4px 12px -2px rgba(0,0,0,0.7);
+  }
+
+    body.dark-mode {
+      --primary: #60a5fa;
+      --primary-dark: #2563eb;
+      --secondary: #34d399;
+      --accent: #fbbf24;
+      --danger: #f87171;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --bg: #18181b;
+      --card: #23232a;
+      --text: #f3f4f6;
+      --text-light: #a1a1aa;
+      --text-muted: #71717a;
+      --border: #27272a;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.7), 0 2px 4px -1px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.7), 0 4px 6px -2px rgba(0,0,0,0.5);
+    }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Prevent horizontal overflow */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  img, video, iframe, object, embed {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Header Styles */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--primary);
+    text-decoration: none;
+  }
+  
+  .nav-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .nav-tab {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+  }
+  
+  .nav-tab.active {
+    background: var(--primary);
+    color: white;
+  }
+  
+  .user-menu {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .user-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .btn-secondary {
+    background: white;
+    color: var(--primary);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    background: #f1f5f9;
+  }
+  
+  .btn-danger {
+    background: var(--danger);
+    color: white;
+  }
+  
+  .btn-danger:hover {
+    background: #dc2626;
+  }
+  
+  /* Main Layout - Report Section First */
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  @media (min-width: 1200px) {
+    .main-content {
+      grid-template-columns: 1fr 400px;
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+    }
+  }
+  
+  /* Report Section - Now Primary */
+  .report-section {
+    order: 1;
+  }
+  
+  .map-section {
+    order: 2;
+  }
+  
+  @media (min-width: 1200px) {
+    .report-section {
+      order: 1;
+    }
+    .map-section {
+      order: 2;
+    }
+  }
+  
+  /* Card Components */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Enhanced Form Elements - Report Section Focus */
+  .form-group {
+    margin-bottom: 24px;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text);
+  }
+  
+  .form-input, .form-textarea, .form-select {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: var(--card);
+  }
+  
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+    transform: translateY(-1px);
+  }
+  
+  .form-textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.6;
+  }
+  
+  /* Enhanced Report Card */
+  .report-card {
+    background: linear-gradient(135deg, var(--card) 0%, #f8fafc 100%);
+    border: 2px solid var(--primary);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .report-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  }
+  
+  .report-card .card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  
+  .report-card .card-title i {
+    font-size: 28px;
+    margin-right: 12px;
+  }
+  
+  .ai-powered-badge {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: var(--shadow);
+  }
+  
+  .ai-hint {
+    display: block;
+    font-size: 12px;
+    color: var(--text-light);
+    font-weight: 400;
+    margin-top: 4px;
+    font-style: italic;
+  }
+  
+  /* Map Styles */
+  .map-container {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    height: 400px;
+  }
+  
+  #map {
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Issues Grid */
+  .issues-container {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .issues-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .filter-select {
+    min-width: 140px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    max-width: 200px;
+  }
+  
+  .issues-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  @media (min-width: 768px) {
+    .issues-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .issues-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Issue Card */
+  .issue-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: all 0.2s ease;
+    border-left: 4px solid var(--primary);
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .issue-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Issue Image Styles */
+  .issue-image-container {
+    margin: 12px 0;
+    text-align: center;
+  }
+  
+  .issue-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .issue-image:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Image Modal Styles */
+  .image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    cursor: pointer;
+  }
+  
+  .image-modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    max-height: 80%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .image-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .image-modal-close:hover {
+    color: #bbb;
+  }
+  
+  .issue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  
+  .issue-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  
+  .issue-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  
+  .tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .Road { background: var(--danger); }
+  .Sanitation { background: var(--success); }
+  .Electricity { background: var(--warning); }
+  .Water { background: var(--primary); }
+  .Other { background: var(--text-light); }
+  
+  .priority {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: #f1f5f9;
+  }
+  
+  .priority-high { color: var(--danger); }
+  .priority-medium { color: var(--warning); }
+  .priority-low { color: var(--success); }
+  
+  .issue-content {
+    margin-bottom: 16px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  
+  .issue-img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 12px;
+  }
+  
+  .issue-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .issue-date {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  
+  .vote-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .vote-btn:hover {
+    background: #eef2ff;
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  
+  .vote-btn.voted {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  
+  /* Enhanced AI Features */
+  .ai-suggestion {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid var(--primary);
+    border-left: 6px solid var(--primary);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  
+  .ai-suggestion::before {
+    content: '🤖';
+    position: absolute;
+    top: -8px;
+    right: 16px;
+    background: var(--primary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  
+  .ai-suggestion-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 16px;
+  }
+  
+  .ai-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    color: var(--primary);
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+  }
+  
+  .ai-tag:hover {
+    background: linear-gradient(135deg, #bae6fd 0%, #7dd3fc 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  
+  .smart-tag {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+  
+  .smart-tag:hover {
+    background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  
+  .analysis-result {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  
+  .analysis-header {
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .analysis-header::before {
+    content: '🔍';
+    font-size: 18px;
+  }
+  
+  .analysis-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .analysis-item {
+    padding: 8px 12px;
+    background: rgba(37, 99, 235, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid var(--primary);
+  }
+  
+  .severity-high {
+    color: var(--danger);
+    font-weight: 700;
+  }
+  
+  .severity-medium {
+    color: var(--warning);
+    font-weight: 600;
+  }
+  
+  .severity-low {
+    color: var(--success);
+    font-weight: 600;
+  }
+  
+  .priority-high {
+    color: var(--danger);
+    font-weight: 700;
+  }
+  
+  .priority-medium {
+    color: var(--warning);
+    font-weight: 600;
+  }
+  
+  .priority-low {
+    color: var(--success);
+    font-weight: 600;
+  }
+  
+  /* AI Summary Styles */
+  .summary-section {
+    padding: 16px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  
+  .summary-section h4 {
+    color: var(--primary);
+    margin-bottom: 16px;
+    font-size: 18px;
+  }
+  
+  .summary-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .summary-item {
+    padding: 8px 12px;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  .summary-description {
+    margin-bottom: 16px;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+  }
+  
+  .summary-keypoints,
+  .summary-actions {
+    margin-bottom: 12px;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+  }
+  
+  .summary-keypoints ul,
+  .summary-actions ul {
+    margin: 8px 0 0 20px;
+  }
+  
+  .summary-keypoints li,
+  .summary-actions li {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+  
+  .urgency-high {
+    color: var(--danger);
+    font-weight: 700;
+  }
+  
+  .urgency-normal {
+    color: var(--success);
+    font-weight: 600;
+  }
+  
+  .impact-high {
+    color: var(--warning);
+    font-weight: 700;
+  }
+  
+  .impact-medium {
+    color: var(--primary);
+    font-weight: 600;
+  }
+  
+  /* Analysis Report Styles */
+  .analysis-report {
+    margin-top: 16px;
+  }
+  
+  .report-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+  }
+  
+  .report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary);
+  }
+  
+  .report-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  
+  .report-date {
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  
+  .report-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .metric-card {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    box-shadow: var(--shadow);
+  }
+  
+  .metric-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  
+  .metric-label {
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+  
+  .routing-info {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+  }
+  
+  .routing-header {
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .routing-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+  }
+  
+  .routing-item {
+    padding: 8px 12px;
+    background: rgba(37, 99, 235, 0.05);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .routing-item strong {
+    color: var(--primary);
+  }
+  
+  .priority-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .priority-critical {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+  }
+  
+  .priority-high {
+    background: #fff7ed;
+    color: #ea580c;
+    border: 1px solid #fed7aa;
+  }
+  
+  .priority-medium {
+    background: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fde68a;
+  }
+  
+  .priority-low {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+  }
+  
+  /* Business Directory Styles */
+  .business-search {
+    margin-bottom: 16px;
+  }
+  
+  .business-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .category-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .category-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  
+  .category-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  
+  .business-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .business-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .business-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+  }
+  
+  .business-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  
+  .business-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  
+  .business-category {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--primary);
+    color: white;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .business-address {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+  
+  .business-contact {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  
+  .business-contact span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .business-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  
+  .stars {
+    color: #fbbf24;
+    font-size: 12px;
+  }
+  
+  .rating-text {
+    font-size: 12px;
+    color: var(--text-light);
+  }
+  
+  .business-hours {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+  
+  .business-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  
+  .business-btn {
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--primary);
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .business-btn:hover {
+    background: var(--primary);
+    color: white;
+  }
+  
+  /* Form Progress Indicator */
+  .form-progress {
+    margin-bottom: 24px;
+    padding: 16px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  
+  .progress-text {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+  
+  /* AI-Powered Input Enhancement */
+  .ai-enhanced-input {
+    position: relative;
+  }
+  
+  .ai-loading {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  /* Image Preview */
+  .image-preview-container {
+    margin-top: 12px;
+  }
+  
+  .image-preview {
+    max-width: 100%;
+    border-radius: 8px;
+    display: none;
+    margin-top: 8px;
+  }
+  
+  /* Loading Spinner */
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-right: 8px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Status Messages */
+  .status-message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    display: none;
+  }
+  
+  .status-success {
+    background: #ecfdf5;
+    color: #065f46;
+    border-left: 4px solid var(--success);
+  }
+  
+  .status-error {
+    background: #fef2f2;
+    color: #991b1b;
+    border-left: 4px solid var(--danger);
+  }
+  
+  .status-info {
+    background: #eff6ff;
+    color: #1e40af;
+    border-left: 4px solid var(--primary);
+  }
+  
+  /* Comments */
+  .comment-section {
+    margin-top: 16px;
+  }
+  
+  .comment-box {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  
+  .comment-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  
+  .comment-btn {
+    padding: 10px 16px;
+    border-radius: 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .comment {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  
+  .comment-author {
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .comment-time {
+    font-size: 12px;
+    color: var(--text-light);
+  }
+  
+  /* NEW: Advanced Features */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .stat-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  
+  .stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  
+  .progress-bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 12px;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 4px;
+  }
+  
+  .badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #eef2ff;
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .trends-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  
+  .trend-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+  }
+  
+  .trend-label {
+    font-weight: 500;
+  }
+  
+  .trend-value {
+    font-weight: 600;
+    color: var(--primary);
+  }
+  
+  .visualization {
+    height: 200px;
+    background: #f8fafc;
+    border-radius: 8px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .modal-title {
+    font-weight: 600;
+    font-size: 18px;
+  }
+  
+  .close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-light);
+  }
+  
+  .ar-preview {
+    width: 100%;
+    height: 200px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    margin-top: 16px;
+  }
+  
+  /* Enhanced Responsive Design */
+  @media (max-width: 768px) {
+    .app-container {
+      padding: 0 16px;
+    }
+    
+    header {
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    
+    .user-menu {
+      width: 100%;
+      justify-content: space-between;
+    }
+    
+    .filters {
+      flex-wrap: wrap;
+    }
+    
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .card {
+      padding: 20px;
+    }
+    
+    .report-card {
+      margin-bottom: 24px;
+    }
+    
+    .form-input, .form-textarea, .form-select {
+      font-size: 16px; /* Prevent zoom on iOS */
+    }
+    
+    .ai-suggestion {
+      padding: 16px;
+    }
+    
+    .summary-meta {
+      grid-template-columns: 1fr;
+    }
+    
+    .issues-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .filters {
+      width: 100%;
+      justify-content: flex-start;
+    }
+    
+    .filter-select {
+      flex: 1;
+      min-width: 120px;
+    }
+    
+    .issue-card {
+      padding: 16px;
+    }
+    
+    .routing-details {
+      grid-template-columns: 1fr !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .main-content {
+      gap: 16px;
+    }
+    
+    .report-card .card-title {
+      font-size: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .ai-tag {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  }
+  
+  /* Utility Classes */
+  .hidden {
+    display: none;
+  }
+  
+  .text-sm {
+    font-size: 14px;
+  }
+  
+  .text-muted {
+    color: var(--text-light);
+  }
+  
+  .mt-2 {
+    margin-top: 8px;
+  }
+  
+  .mt-4 {
+    margin-top: 16px;
+  }
+  
+  .mb-4 {
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="app-container">
+  <!-- Floating Alarm Widget -->
+  <button id="alarmWidget" style="position:fixed;bottom:32px;right:32px;z-index:9999;background:#e53935;color:#fff;border:none;border-radius:50%;width:64px;height:64px;box-shadow:0 4px 16px rgba(0,0,0,0.15);font-size:2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+    <i class="fas fa-bell"></i>
+  </button>
+  <header>
+    <a href="#" class="logo">
+      <i class="fas fa-map-marker-alt"></i>
+      LocalLens
+    </a>
+    
+    <div class="nav-container">
+  <div class="nav-tab active">Map View</div>
+      <button id="darkModeToggle" style="margin-left:16px;padding:6px 12px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span id="darkModeIcon">🌙</span>
+      </button>
+    <div class="user-menu">
+        <div class="user-badge">
+          <div class="avatar">JS</div>
+          <div id="userBadge">Not logged in</div>
+        </div>
+        <button id="logoutBtn" class="btn btn-danger hidden">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <div class="report-section">
+      <div class="card report-card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <i class="fas fa-bullhorn"></i>
+            Report an Issue
+          </h2>
+          <div class="ai-powered-badge">
+            <i class="fas fa-robot"></i>
+            AI-Powered
+          </div>
+        </div>
+        
+        <div id="authCard">
+          <form id="loginForm">
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input id="loginEmail" type="email" class="form-input" placeholder="Enter your email" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password</label>
+              <input id="loginPassword" type="password" class="form-input" placeholder="Enter your password" required />
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%">Login</button>
+          </form>
+          
+          <div class="text-muted text-sm" style="text-align: center; margin: 20px 0;">or</div>
+          
+          <form id="signupForm">
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input id="signupEmail" type="email" class="form-input" placeholder="Enter your email" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password (min 6 characters)</label>
+              <input id="signupPassword" type="password" class="form-input" placeholder="Create a password" required />
+            </div>
+            <button type="submit" class="btn btn-secondary" style="width: 100%">Create Account</button>
+          </form>
+        </div>
+        
+        <div id="reportCard" class="hidden">
+          <!-- Form Progress Indicator -->
+          <div class="form-progress">
+            <div class="progress-bar">
+              <div class="progress-fill" id="formProgress" style="width: 0%"></div>
+            </div>
+            <div class="progress-text">
+              <span id="progressText">Complete the form to submit your issue</span>
+            </div>
+          </div>
+          
+          <form id="issueForm">
+            <div class="form-group">
+              <label class="form-label">
+                Issue Title
+                <span class="ai-hint">AI will help categorize your issue</span>
+              </label>
+              <input id="title" class="form-input" placeholder="e.g. Pothole near school" required />
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                Description
+                <span class="ai-hint">AI will suggest improvements and analyze your description</span>
+              </label>
+              <textarea id="description" class="form-textarea" placeholder="Describe the issue in detail... AI will help enhance your description" required></textarea>
+            </div>
+            
+            <!-- AI Description Suggestions -->
+            <div id="descriptionSuggestions" class="ai-suggestion hidden">
+              <div class="ai-suggestion-header">
+                <i class="fas fa-robot"></i>
+                AI Writing Assistant
+              </div>
+              <div id="suggestionList"></div>
+            </div>
+            
+            <!-- NEW: AI Smart Suggestions -->
+            <div id="smartSuggestions" class="ai-suggestion hidden">
+              <div class="ai-suggestion-header">
+                <i class="fas fa-lightbulb"></i>
+                Smart Recommendations
+              </div>
+              <div id="smartSuggestionList"></div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                Location
+                <span class="ai-hint">AI will help pinpoint the exact location</span>
+              </label>
+              <input id="location" class="form-input" placeholder="e.g. 'MG Road, Bangalore' (optional)" />
+              <div class="text-muted text-sm mt-2">Leave empty to use your current location</div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                Category
+                <span class="ai-hint">AI will auto-detect the best category</span>
+              </label>
+              <select id="category" class="form-select">
+                <option value="">Select a category (AI will suggest)</option>
+                <option>Road</option>
+                <option>Sanitation</option>
+                <option>Electricity</option>
+                <option>Water</option>
+                <option>Other</option>
+              </select>
+            </div>
+            
+            <!-- AI Category Detection -->
+            <div id="categorySuggestion" class="ai-suggestion hidden">
+              <div class="ai-suggestion-header">
+                <i class="fas fa-tag"></i>
+                AI Category Detection
+              </div>
+              <p>Based on your description, this issue might be: <strong id="detectedCategory"></strong></p>
+              <button type="button" id="useDetectedCategory" class="btn btn-secondary mt-2">Use This Category</button>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                Upload Image
+                <span class="ai-hint">AI will analyze and enhance your image description</span>
+              </label>
+              <input type="file" id="issueImage" accept="image/*" />
+              <div class="text-muted text-sm mt-2">AI will analyze your image to better understand the issue</div>
+              
+              <div class="image-preview-container">
+                <img id="imagePreview" class="image-preview" />
+                <div id="analyzingSpinner" class="text-muted text-sm mt-2 hidden">
+                  <span class="spinner"></span>AI is analyzing your image...
+                </div>
+              </div>
+              
+              <div id="imageAnalysis" class="analysis-result hidden">
+                <div class="analysis-header">AI Image Analysis</div>
+                <div id="imageAnalysisResult"></div>
+                <button type="button" id="useAnalysisBtn" class="btn btn-secondary mt-2 hidden">Add Analysis to Description</button>
+              </div>
+            </div>
+            
+            <!-- NEW: AI Summary Section -->
+            <div id="aiSummary" class="ai-suggestion hidden">
+              <div class="ai-suggestion-header">
+                <i class="fas fa-file-alt"></i>
+                AI Summary Preview
+              </div>
+              <div id="summaryContent"></div>
+            </div>
+            
+            <div class="form-group">
+              <button id="submitIssueBtn" type="submit" class="btn btn-primary" style="width: 100%">
+                <i class="fas fa-paper-plane"></i>
+                Submit Issue with AI Enhancement
+              </button>
+              <button id="useMyLocationBtn" type="button" class="btn btn-secondary mt-2" style="width: 100%">
+                <i class="fas fa-location-arrow"></i>
+                Use My Current Location
+              </button>
+              <button id="generateSummaryBtn" type="button" class="btn btn-secondary mt-2" style="width: 100%">
+                <i class="fas fa-robot"></i>
+                Generate AI Summary
+              </button>
+            </div>
+            
+            <div id="submitStatus" class="status-message"></div>
+          </form>
+        </div>
+      </div>
+      
+      <!-- NEW: Smart City Insights -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <i class="fas fa-city"></i>
+            Smart City Insights
+          </h2>
+        </div>
+        <div id="smartCityGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+          <div class="stat-card">
+            <div class="stat-value" id="trafficStat">--</div>
+            <div class="stat-label">Traffic Congestion</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="airStat">--</div>
+            <div class="stat-label">Air Quality (AQI)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="waterStat">--</div>
+            <div class="stat-label">Water Level</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="energyStat">--</div>
+            <div class="stat-label">Energy Usage</div>
+          </div>
+        </div>
+        <div id="smartCityChart" style="height:180px;background:#f8fafc;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#64748b;font-size:14px;">Live sensor data chart</div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <i class="fas fa-trophy"></i>
+            Your Impact
+          </h2>
+        </div>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">24</div>
+            <div class="stat-label">Reports</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">142</div>
+            <div class="stat-label">Votes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">7</div>
+            <div class="stat-label">Resolved</div>
+          </div>
+        </div>
+        
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 65%"></div>
+        </div>
+        <div class="text-muted text-sm mt-2">65% to next level: City Guardian</div>
+        
+        <div class="badge-container">
+          <div class="badge">
+            <i class="fas fa-medal"></i>
+            Community Champion
+          </div>
+          <div class="badge">
+            <i class="fas fa-star"></i>
+            Issue Solver
+          </div>
+        </div>
+      </div>
+      
+      <!-- NEW: Local Business Directory -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <i class="fas fa-store"></i>
+            Local Business Directory
+          </h2>
+          <button class="btn btn-secondary btn-sm" id="refreshBusinessesBtn">
+            <i class="fas fa-sync-alt"></i>
+            Refresh
+          </button>
+        </div>
+        
+        <div class="business-search">
+          <input type="text" id="businessSearch" class="form-input" placeholder="Search businesses, services, or categories..." />
+        </div>
+        
+        <div class="business-categories">
+          <button class="category-btn active" data-category="all">All</button>
+          <button class="category-btn" data-category="restaurants">Restaurants</button>
+          <button class="category-btn" data-category="services">Services</button>
+          <button class="category-btn" data-category="shopping">Shopping</button>
+          <button class="category-btn" data-category="healthcare">Healthcare</button>
+          <button class="category-btn" data-category="emergency">Emergency</button>
+        </div>
+        
+        <div id="businessList" class="business-list">
+          <!-- Businesses will be loaded here -->
+        </div>
+      </div>
+      
+      <!-- NEW: Analysis Report -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <i class="fas fa-chart-bar"></i>
+            Analysis Report
+          </h2>
+          <button class="btn btn-secondary btn-sm" id="generateReportBtn">
+            <i class="fas fa-sync-alt"></i>
+            Generate Report
+          </button>
+        </div>
+        <div id="analysisReport" class="analysis-report hidden">
+          <div id="reportContent"></div>
+        </div>
+      </div>
+      
+      <!-- NEW: AI Insights -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <i class="fas fa-chart-line"></i>
+            Community Insights
+          </h2>
+        </div>
+        
+        <div class="trends-container">
+          <div class="trend-item">
+            <span class="trend-label">Road Issues Trend</span>
+            <span class="trend-value">+24% this month</span>
+          </div>
+          <div class="trend-item">
+            <span class="trend-label">Predicted Hotspot</span>
+            <span class="trend-value">Downtown Area</span>
+          </div>
+          <div class="trend-item">
+            <span class="trend-label">Resolution Rate</span>
+            <span class="trend-value">68%</span>
+          </div>
+        </div>
+        
+        <div class="visualization">
+          <div id="heatmap" style="height:300px;width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.07);"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="map-section">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">
+            <i class="fas fa-map"></i>
+            Live Issue Map
+          </h3>
+          <div class="map-controls">
+            <button class="btn btn-secondary btn-sm" id="refreshMap">
+              <i class="fas fa-sync-alt"></i>
+              Refresh
+            </button>
+          </div>
+        </div>
+        <div class="map-container">
+          <div id="map"></div>
+        </div>
+      </div>
+      
+      <div class="issues-container">
+        <div class="issues-header">
+          <h2 class="section-title">Community Issues</h2>
+          <div class="filters">
+            <select id="categoryFilter" class="filter-select">
+              <option value="">All Categories</option>
+              <option>Road</option>
+              <option>Sanitation</option>
+              <option>Electricity</option>
+              <option>Water</option>
+              <option>Other</option>
+            </select>
+            
+            <select id="sortOptions" class="filter-select">
+              <option value="latest">Latest</option>
+              <option value="votes">Most Votes</option>
+              <option value="priority">Priority (AI)</option>
+            </select>
+          </div>
+        </div>
+        
+        <div id="issuesList" class="issues-grid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+  <span class="image-modal-close">&times;</span>
+  <img class="image-modal-content" id="modalImage">
+</div>
+
+<!-- NEW: AR Modal -->
+<div class="modal" id="arModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title">AR Issue Reporting</div>
+      <button class="close-modal">&times;</button>
+    </div>
+    <p>Point your camera at the issue to report it in augmented reality.</p>
+    <div class="ar-preview">
+      AR Camera View - Point at infrastructure issues
+    </div>
+    <div style="margin-top: 16px;">
+      <button class="btn btn-primary">
+        <i class="fas fa-camera"></i>
+        Capture AR Image
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- NEW: AI Processing Toast -->
+<div class="toast toast-info" id="aiToast">
+  <div class="spinner"></div>
+  <div>AI is analyzing your image...</div>
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Firebase + App JS -->
+<script type="module">
+// Integrate TomTom Traffic API for Bangalore
+const tomtomApiKey = "RxCk7vMH8mofyMTLx2mdVoog7y6wwpqQ";
+async function fetchTomTomTraffic() {
+  const url = `https://api.tomtom.com/traffic/services/5/incidentDetails?bbox=12.8,77.5,13.2,77.7&fields=ID,geometry,properties&key=${tomtomApiKey}`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.incidents || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+// Update Smart City dashboard with live traffic incidents
+async function updateSmartCityInsights() {
+  // Simulated values for other sensors
+  const air = 50 + Math.floor(Math.random()*100);
+  const water = (Math.random()*10).toFixed(1) + 'm';
+  const energy = (1000 + Math.floor(Math.random()*500)) + ' kWh';
+  document.getElementById('airStat').textContent = air;
+  document.getElementById('waterStat').textContent = water;
+  document.getElementById('energyStat').textContent = energy;
+
+  // Fetch and visualize traffic incidents
+  const incidents = await fetchTomTomTraffic();
+  const trafficStat = document.getElementById('trafficStat');
+  trafficStat.textContent = incidents.length + ' incidents';
+  const chart = document.getElementById('smartCityChart');
+  if (incidents.length === 0) {
+    chart.innerHTML = '<div style="color:#f87171">No live traffic incidents reported.</div>';
+    return;
+  }
+  // Visualize incidents as a list and map preview
+  chart.innerHTML = `<div style='width:100%;'>
+    <div style='font-weight:600;margin-bottom:8px;'>Live Traffic Incidents:</div>
+    <ul style='max-height:100px;overflow-y:auto;padding-left:18px;'>
+      ${incidents.slice(0,6).map(i => `<li><span style='color:#f59e0b'>${i.properties.eventCode || 'Incident'}</span>: ${i.properties.description || 'No description'} (${i.properties.from || ''})</li>`).join('')}
+    </ul>
+    <div style='margin-top:8px;font-size:13px;color:#60a5fa;'>Map preview: <a href='https://www.tomtom.com/mapshare/tools/?bbox=12.8,77.5,13.2,77.7' target='_blank'>View Bangalore Traffic Map</a></div>
+  </div>`;
+}
+setInterval(updateSmartCityInsights, 6000);
+document.addEventListener('DOMContentLoaded', updateSmartCityInsights);
+// Dark mode toggle with sun/moon icon and preference
+const darkModeToggle = document.getElementById('darkModeToggle');
+const darkModeIcon = document.getElementById('darkModeIcon');
+function setDarkMode(enabled) {
+  document.body.classList.toggle('dark-mode', enabled);
+  darkModeIcon.textContent = enabled ? '☀️' : '🌙';
+  localStorage.setItem('darkMode', enabled ? '1' : '0');
+}
+darkModeToggle.addEventListener('click', function() {
+  setDarkMode(!document.body.classList.contains('dark-mode'));
+});
+// Load preference on start
+document.addEventListener('DOMContentLoaded', function() {
+  const pref = localStorage.getItem('darkMode');
+  if (pref === '1') setDarkMode(true);
+  else setDarkMode(false);
+});
+// Heatmap visualization logic
+async function renderHeatmap() {
+  const heatmapEl = document.getElementById('heatmap');
+  if (!heatmapEl) return;
+  // Remove any previous map instance
+  if (window.heatmapInstance) {
+    window.heatmapInstance.remove();
+    window.heatmapInstance = null;
+  }
+  // Center on city
+  const heatmapMap = L.map(heatmapEl).setView([12.9716, 77.5946], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(heatmapMap);
+  // Fetch issue locations from Firestore
+  const { getDocs } = await import('https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js');
+  const issuesSnap = await getDocs(collection(db, "issues"));
+  const heatData = [];
+  issuesSnap.forEach(docSnap => {
+    const data = docSnap.data();
+    if (data.lat && data.lng) {
+      // Optionally weight by voteCount or priority
+      const intensity = (data.voteCount || 1) + (data.priority === 'high' ? 5 : data.priority === 'medium' ? 2 : 1);
+      heatData.push([data.lat, data.lng, intensity]);
+    }
+  });
+  if (heatData.length > 0) {
+    L.heatLayer(heatData, {
+      radius: 25,
+      blur: 18,
+      maxZoom: 17,
+      minOpacity: 0.5,
+      gradient: {0.2: '#43A047', 0.4: '#f59e0b', 0.7: '#e53935', 1.0: '#2563eb'}
+    }).addTo(heatmapMap);
+    // Highlight each issue spot with a red circle marker
+    heatData.forEach(([lat, lng, intensity]) => {
+      L.circleMarker([lat, lng], {
+        color: '#e53935',
+        fillColor: '#e53935',
+        fillOpacity: 0.9,
+        radius: 10,
+        weight: 2
+      }).addTo(heatmapMap);
+    });
+  }
+  window.heatmapInstance = heatmapMap;
+}
+document.addEventListener('DOMContentLoaded', renderHeatmap);
+/* ================== FIREBASE SETUP (modular SDK) ================== */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import {
+  getFirestore, collection, addDoc, doc, setDoc, getDoc, updateDoc,
+  serverTimestamp, query, orderBy, onSnapshot, increment
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+/* --- Your Firebase config (updated with new project keys) --- */
+const firebaseConfig = {
+  apiKey: "AIzaSyDXliejSm-0fIiqDsh3VxcOpLRanQd20AY",
+  authDomain: "locallens-685b4.firebaseapp.com",
+  projectId: "locallens-685b4",
+  storageBucket: "locallens-685b4.firebasestorage.app",
+  messagingSenderId: "412397204937",
+  appId: "1:412397204937:web:634cb0891b418ad9026418",
+  measurementId: "G-57GQVFTXMQ"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+// UI Elements
+const userBadge = document.getElementById("userBadge");
+const logoutBtn = document.getElementById("logoutBtn");
+const authCard = document.getElementById("authCard");
+const reportCard = document.getElementById("reportCard");
+const submitStatus = document.getElementById("submitStatus");
+const loginForm = document.getElementById("loginForm");
+const signupForm = document.getElementById("signupForm");
+const loginEmail = document.getElementById("loginEmail");
+const loginPassword = document.getElementById("loginPassword");
+const signupEmail = document.getElementById("signupEmail");
+const signupPassword = document.getElementById("signupPassword");
+const issueForm = document.getElementById("issueForm");
+const useMyLocationBtn = document.getElementById("useMyLocationBtn");
+const titleInput = document.getElementById("title");
+const descriptionInput = document.getElementById("description");
+const locationInput = document.getElementById("location");
+const categoryInput = document.getElementById("category");
+const issueImage = document.getElementById("issueImage");
+const imagePreview = document.getElementById("imagePreview");
+const imageAnalysis = document.getElementById("imageAnalysis");
+const imageAnalysisResult = document.getElementById("imageAnalysisResult");
+const useAnalysisBtn = document.getElementById("useAnalysisBtn");
+const analyzingSpinner = document.getElementById("analyzingSpinner");
+const categoryFilter = document.getElementById("categoryFilter");
+const sortOptions = document.getElementById("sortOptions");
+const issuesList = document.getElementById("issuesList");
+const mapEl = document.getElementById("map");
+const descriptionSuggestions = document.getElementById("descriptionSuggestions");
+const suggestionList = document.getElementById("suggestionList");
+const smartSuggestions = document.getElementById("smartSuggestions");
+const smartSuggestionList = document.getElementById("smartSuggestionList");
+const categorySuggestion = document.getElementById("categorySuggestion");
+const detectedCategory = document.getElementById("detectedCategory");
+const useDetectedCategory = document.getElementById("useDetectedCategory");
+const arModal = document.getElementById("arModal");
+const closeModalBtn = document.querySelector(".close-modal");
+const aiToast = document.getElementById("aiToast");
+const aiSummary = document.getElementById("aiSummary");
+const summaryContent = document.getElementById("summaryContent");
+const generateSummaryBtn = document.getElementById("generateSummaryBtn");
+const formProgress = document.getElementById("formProgress");
+const progressText = document.getElementById("progressText");
+const generateReportBtn = document.getElementById("generateReportBtn");
+const analysisReport = document.getElementById("analysisReport");
+const reportContent = document.getElementById("reportContent");
+const businessSearch = document.getElementById("businessSearch");
+const businessList = document.getElementById("businessList");
+const refreshBusinessesBtn = document.getElementById("refreshBusinessesBtn");
+
+// Dashboard/Trends Elements
+const statReports = document.querySelector('.stat-card .stat-value');
+const statVotes = document.querySelectorAll('.stat-card .stat-value')[1];
+const statResolved = document.querySelectorAll('.stat-card .stat-value')[2];
+const progressFill = document.querySelector('.progress-fill');
+const trendRoad = document.querySelector('.trend-item .trend-value');
+const trendHotspot = document.querySelectorAll('.trend-item .trend-value')[1];
+const trendResolution = document.querySelectorAll('.trend-item .trend-value')[2];
+
+// Fetch and update dashboard/trends data
+async function updateDashboardTrends() {
+  try {
+    const issuesSnap = await getDocs(collection(db, "issues"));
+    let reports = 0, votes = 0, resolved = 0;
+    let roadCount = 0, sanitationCount = 0, electricityCount = 0, waterCount = 0;
+    let latestHotspot = "Unknown";
+    let resolutionRate = 0;
+    issuesSnap.forEach(docSnap => {
+      const data = docSnap.data();
+      reports++;
+      votes += data.voteCount || 0;
+      if(data.status === "resolved") resolved++;
+      if(data.category === "Road") roadCount++;
+      if(data.category === "Sanitation") sanitationCount++;
+      if(data.category === "Electricity") electricityCount++;
+      if(data.category === "Water") waterCount++;
+      if(data.location) latestHotspot = data.location;
+    });
+    statReports.textContent = reports;
+    statVotes.textContent = votes;
+    statResolved.textContent = resolved;
+    progressFill.style.width = Math.min(100, Math.round((resolved/reports)*100)) + "%";
+    trendRoad.textContent = roadCount > 0 ? `+${roadCount} this month` : "No data";
+    if (latestHotspot && latestHotspot !== "Unknown") {
+      const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(latestHotspot)}`;
+      trendHotspot.innerHTML = `<a href="${mapsUrl}" target="_blank" style="color:#2563eb;text-decoration:underline;">${latestHotspot}</a>`;
+    } else {
+      trendHotspot.textContent = latestHotspot;
+    }
+    resolutionRate = reports > 0 ? Math.round((resolved/reports)*100) : 0;
+    trendResolution.textContent = resolutionRate + "%";
+  } catch (err) {
+    console.error("Dashboard/Trends update error:", err);
+  }
+}
+
+import { getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+document.addEventListener('DOMContentLoaded', updateDashboardTrends);
+
+let currentUser = null;
+let markers = [];
+let unsubscribe = null;
+let imageAnalysisText = ""; // Store the AI analysis
+
+/* For managing per-issue comment listeners so we don't leak listeners */
+let commentUnsubs = {};
+
+/* ================== MAP INIT ================== */
+const map = L.map(mapEl).setView([12.9716, 77.5946], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// Add sample markers
+const markersData = [
+    {
+        lat: 12.9716,
+        lng: 77.5946,
+        title: 'Pothole on Main Street',
+        type: 'Road'
+    },
+    {
+        lat: 12.9685,
+        lng: 77.5923,
+        title: 'Street Light Outage',
+        type: 'Electricity'
+    },
+    {
+        lat: 12.9742,
+        lng: 77.5978,
+        title: 'Garbage Accumulation',
+        type: 'Sanitation'
+    }
+];
+
+markersData.forEach(marker => {
+    const circle = L.circleMarker([marker.lat, marker.lng], {
+        color: getColorForType(marker.type),
+        fillColor: getColorForType(marker.type),
+        fillOpacity: 0.7,
+        radius: 8
+    }).addTo(map);
+    
+    circle.bindPopup(`<strong>${marker.title}</strong><br>Type: ${marker.type}`);
+});
+
+function getColorForType(type) {
+    switch(type) {
+    case 'Road': return '#e53935'; // Red
+    case 'Sanitation': return '#43A047'; // Green
+    case 'Electricity': return '#FF9800'; // Orange
+    case 'Water': return '#1E88E5'; // Blue
+    default: return '#6B7280'; // Gray
+  }
+// Custom marker icons for each type
+const markerIcons = {
+  Road: L.icon({
+    iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon-red.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+    shadowSize: [41, 41]
+  }),
+  Sanitation: L.icon({
+    iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon-green.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+    shadowSize: [41, 41]
+  }),
+  Electricity: L.icon({
+    iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon-orange.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+    shadowSize: [41, 41]
+  }),
+  Water: L.icon({
+    iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon-blue.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+    shadowSize: [41, 41]
+  }),
+  Other: L.icon({
+    iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon-grey.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+    shadowSize: [41, 41]
+  })
+};
+
+markersData.forEach(marker => {
+    const icon = markerIcons[marker.type] || markerIcons.Other;
+    const leafletMarker = L.marker([marker.lat, marker.lng], { icon }).addTo(map);
+    leafletMarker.bindPopup(`<strong>${marker.title}</strong><br>Type: ${marker.type}`);
+});
+}
+
+/* ================== ENHANCED AI FUNCTIONS ================== */
+
+// Enhanced AI Image Analysis with more detailed insights
+async function analyzeImageWithAI(imageFile) {
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  
+  // In a real implementation, this would call an AI vision API like Google Vision or AWS Rekognition
+  const fileName = imageFile.name.toLowerCase();
+  
+  if (fileName.includes('road') || fileName.includes('pothole') || fileName.includes('asphalt')) {
+    return {
+      analysis: "The image shows a road surface with significant damage. There appears to be a pothole approximately 30cm in diameter and 10cm deep. The surrounding asphalt shows weathering and cracking, suggesting the need for comprehensive repair.",
+      severity: "High",
+      suggestedAction: "Immediate repair required due to safety hazard",
+      estimatedCost: "₹5,000 - ₹15,000",
+      priority: "High"
+    };
+  } else if (fileName.includes('water') || fileName.includes('leak') || fileName.includes('pipe')) {
+    return {
+      analysis: "The image shows water leaking from a pipe junction. The leak appears to be moderate, with water spraying approximately 20-30cm. There is visible corrosion around the pipe fitting, which is likely the cause of the leak.",
+      severity: "Medium",
+      suggestedAction: "Pipe replacement or fitting repair needed",
+      estimatedCost: "₹2,000 - ₹8,000",
+      priority: "Medium"
+    };
+  } else if (fileName.includes('garbage') || fileName.includes('trash') || fileName.includes('waste')) {
+    return {
+      analysis: "The image shows an accumulation of mixed waste including plastic containers, food packaging, and organic waste. The pile is approximately 1m x 0.5m in size and appears to have been accumulating for several days.",
+      severity: "Low",
+      suggestedAction: "Immediate cleanup and waste management review",
+      estimatedCost: "₹500 - ₹2,000",
+      priority: "Low"
+    };
+  } else if (fileName.includes('light') || fileName.includes('lamp') || fileName.includes('street')) {
+    return {
+      analysis: "The image shows a street light that is not functioning. The pole appears to be in good condition with no visible damage, but the light fixture is dark during what appears to be nighttime.",
+      severity: "Medium",
+      suggestedAction: "Bulb replacement or electrical repair needed",
+      estimatedCost: "₹1,000 - ₹3,000",
+      priority: "Medium"
+    };
+  } else {
+    return {
+      analysis: "The image shows infrastructure-related issues. There appears to be damage or disrepair that requires attention. For more specific analysis, ensure the image clearly shows the problem and includes context about the surrounding area.",
+      severity: "Unknown",
+      suggestedAction: "Further inspection required",
+      estimatedCost: "To be determined",
+      priority: "Low"
+    };
+  }
+}
+
+// Enhanced AI Description Suggestions
+async function getAIDescriptionSuggestions(description) {
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  
+  const suggestions = [
+    "Consider adding more specific location details for faster resolution.",
+    "Mention how this issue affects daily activities or safety.",
+    "Include the size/dimensions of the problem if applicable.",
+    "Note how long this issue has been present if you know.",
+    "Describe the weather conditions when you noticed the issue.",
+    "Mention if this affects accessibility for disabled or elderly people.",
+    "Include any safety concerns or potential hazards.",
+    "Add details about the time of day when the issue is most problematic."
+  ];
+  
+  return suggestions;
+}
+
+// NEW: AI-Powered Smart Suggestions
+async function getAISmartSuggestions(title, description) {
+  await new Promise(resolve => setTimeout(resolve, 800));
+  
+  const text = (title + " " + description).toLowerCase();
+  const suggestions = [];
+  
+  if (text.includes('pothole') || text.includes('road')) {
+    suggestions.push("Consider reporting to the local municipal corporation for road maintenance");
+    suggestions.push("Include GPS coordinates for precise location identification");
+    suggestions.push("Mention if this affects traffic flow or creates safety hazards");
+  }
+  
+  if (text.includes('water') || text.includes('leak')) {
+    suggestions.push("Report to the water board for immediate attention");
+    suggestions.push("Include photos showing the extent of water damage");
+    suggestions.push("Mention if this affects water supply to nearby areas");
+  }
+  
+  if (text.includes('garbage') || text.includes('waste')) {
+    suggestions.push("Contact the sanitation department for cleanup");
+    suggestions.push("Mention if this is attracting pests or creating health hazards");
+    suggestions.push("Include information about the type of waste accumulation");
+  }
+  
+  if (text.includes('light') || text.includes('street light')) {
+    suggestions.push("Report to the electricity department for repair");
+    suggestions.push("Mention if this affects pedestrian safety at night");
+    suggestions.push("Include the pole number if visible for faster identification");
+  }
+  
+  return suggestions;
+}
+
+// NEW: AI Summary Generation
+async function generateAISummary(title, description, category, location) {
+  await new Promise(resolve => setTimeout(resolve, 1500));
+  
+  const summary = {
+    title: `Issue Summary: ${title}`,
+    category: category || "To be determined",
+    location: location || "Location pending",
+    description: description,
+    keyPoints: [],
+    suggestedActions: [],
+    estimatedImpact: "Medium",
+    urgency: "Normal"
+  };
+  
+  // Generate key points based on content
+  if (description.toLowerCase().includes('safety') || description.toLowerCase().includes('danger')) {
+    summary.keyPoints.push("Safety concern identified");
+    summary.urgency = "High";
+  }
+  
+  if (description.toLowerCase().includes('traffic') || description.toLowerCase().includes('road')) {
+    summary.keyPoints.push("Traffic impact potential");
+    summary.estimatedImpact = "High";
+  }
+  
+  if (description.toLowerCase().includes('water') || description.toLowerCase().includes('leak')) {
+    summary.keyPoints.push("Water infrastructure issue");
+    summary.suggestedActions.push("Contact water department");
+  }
+  
+  if (description.toLowerCase().includes('electric') || description.toLowerCase().includes('light')) {
+    summary.keyPoints.push("Electrical infrastructure issue");
+    summary.suggestedActions.push("Contact electricity department");
+  }
+  
+  if (description.toLowerCase().includes('garbage') || description.toLowerCase().includes('waste')) {
+    summary.keyPoints.push("Sanitation issue");
+    summary.suggestedActions.push("Contact sanitation department");
+  }
+  
+  return summary;
+}
+
+// NEW: Smart Routing System
+async function getSmartRouting(issue) {
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  
+  const routing = {
+    department: "General",
+    assignedTo: "Municipal Corporation",
+    estimatedResolutionTime: "7-14 days",
+    priority: "Medium",
+    routingReason: "Standard municipal issue",
+    contactInfo: {
+      phone: "+91-80-2222-2222",
+      email: "complaints@bbmp.gov.in",
+      website: "https://bbmp.gov.in"
+    }
+  };
+  
+  const text = (issue.title + " " + issue.description).toLowerCase();
+  const category = issue.category.toLowerCase();
+  
+  // Road and Infrastructure Issues
+  if (category === 'road' || text.includes('pothole') || text.includes('road') || text.includes('street')) {
+    routing.department = "Public Works Department";
+    routing.assignedTo = "BBMP Engineering Division";
+    routing.estimatedResolutionTime = "3-7 days";
+    routing.priority = "High";
+    routing.routingReason = "Road safety issue requiring immediate attention";
+    routing.contactInfo = {
+      phone: "+91-80-2222-3333",
+      email: "pwd@bbmp.gov.in",
+      website: "https://bbmp.gov.in/pwd"
+    };
+  }
+  
+  // Water Issues
+  else if (category === 'water' || text.includes('water') || text.includes('leak') || text.includes('pipe')) {
+    routing.department = "Water Supply Department";
+    routing.assignedTo = "BWSSB (Bangalore Water Supply)";
+    routing.estimatedResolutionTime = "1-3 days";
+    routing.priority = "High";
+    routing.routingReason = "Water infrastructure issue affecting public supply";
+    routing.contactInfo = {
+      phone: "+91-80-2222-4444",
+      email: "complaints@bwssb.gov.in",
+      website: "https://bwssb.gov.in"
+    };
+  }
+  
+  // Electricity Issues
+  else if (category === 'electricity' || text.includes('light') || text.includes('power') || text.includes('electric')) {
+    routing.department = "Electrical Department";
+    routing.assignedTo = "BESCOM (Bangalore Electricity Supply)";
+    routing.estimatedResolutionTime = "2-5 days";
+    routing.priority = "Medium";
+    routing.routingReason = "Electrical infrastructure maintenance required";
+    routing.contactInfo = {
+      phone: "+91-80-2222-5555",
+      email: "complaints@bescom.gov.in",
+      website: "https://bescom.gov.in"
+    };
+  }
+  
+  // Sanitation Issues
+  else if (category === 'sanitation' || text.includes('garbage') || text.includes('waste') || text.includes('trash')) {
+    routing.department = "Sanitation Department";
+    routing.assignedTo = "BBMP Health Department";
+    routing.estimatedResolutionTime = "1-2 days";
+    routing.priority = "Medium";
+    routing.routingReason = "Public health and sanitation concern";
+    routing.contactInfo = {
+      phone: "+91-80-2222-6666",
+      email: "sanitation@bbmp.gov.in",
+      website: "https://bbmp.gov.in/health"
+    };
+  }
+  
+  // Emergency Issues
+  if (text.includes('emergency') || text.includes('urgent') || text.includes('danger') || text.includes('safety')) {
+    routing.priority = "Critical";
+    routing.estimatedResolutionTime = "2-4 hours";
+    routing.routingReason = "Emergency situation requiring immediate response";
+    routing.contactInfo.phone = "+91-100"; // Emergency number
+  }
+  
+  return routing;
+}
+
+// NEW: Advanced Prioritization Algorithm
+async function getAdvancedPriority(issue) {
+  await new Promise(resolve => setTimeout(resolve, 800));
+  
+  let priorityScore = 0;
+  const text = (issue.title + " " + issue.description).toLowerCase();
+  
+  // Base score from votes
+  priorityScore += (issue.voteCount || 0) * 2;
+  
+  // Safety-related keywords (high impact)
+  const safetyKeywords = ['safety', 'danger', 'hazard', 'accident', 'emergency', 'urgent', 'critical'];
+  safetyKeywords.forEach(keyword => {
+    if (text.includes(keyword)) priorityScore += 15;
+  });
+  
+  // Accessibility keywords (medium-high impact)
+  const accessibilityKeywords = ['wheelchair', 'disabled', 'elderly', 'access', 'ramp', 'stair'];
+  accessibilityKeywords.forEach(keyword => {
+    if (text.includes(keyword)) priorityScore += 10;
+  });
+  
+  // Traffic impact keywords
+  const trafficKeywords = ['traffic', 'congestion', 'blocking', 'road', 'street'];
+  trafficKeywords.forEach(keyword => {
+    if (text.includes(keyword)) priorityScore += 8;
+  });
+  
+  // Time-based factors
+  const now = new Date();
+  const issueTime = issue.createdAt && typeof issue.createdAt.toDate === "function" ? issue.createdAt.toDate() : now;
+  const hoursSinceReport = (now - issueTime) / (1000 * 60 * 60);
+  
+  if (hoursSinceReport > 24) priorityScore += 5; // Older issues get slight boost
+  if (hoursSinceReport > 72) priorityScore += 10; // Much older issues get more boost
+  
+  // Category-based scoring
+  const categoryScores = {
+    'road': 12,
+    'water': 10,
+    'electricity': 8,
+    'sanitation': 6,
+    'other': 4
+  };
+  priorityScore += categoryScores[issue.category?.toLowerCase()] || 4;
+  
+  // Location-based scoring (if in high-traffic area)
+  if (issue.location) {
+    const location = issue.location.toLowerCase();
+    if (location.includes('main') || location.includes('center') || location.includes('downtown')) {
+      priorityScore += 5;
+    }
+  }
+  
+  // Determine final priority
+  if (priorityScore >= 40) return { level: "Critical", score: priorityScore, color: "#dc2626" };
+  if (priorityScore >= 25) return { level: "High", score: priorityScore, color: "#ea580c" };
+  if (priorityScore >= 15) return { level: "Medium", score: priorityScore, color: "#d97706" };
+  return { level: "Low", score: priorityScore, color: "#16a34a" };
+}
+
+async function detectAICategory(title, description) {
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 800));
+  
+  // Simple keyword-based category detection
+  const text = (title + " " + description).toLowerCase();
+  
+  if (text.includes("road") || text.includes("pothole") || text.includes("asphalt") || text.includes("street")) {
+    return "Road";
+  } else if (text.includes("garbage") || text.includes("trash") || text.includes("waste") || text.includes("sanitation")) {
+    return "Sanitation";
+  } else if (text.includes("light") || text.includes("power") || text.includes("electric") || text.includes("outage")) {
+    return "Electricity";
+  } else if (text.includes("water") || text.includes("pipe") || text.includes("leak") || text.includes("drain")) {
+    return "Water";
+  }
+  
+  return "Other";
+}
+
+async function getAIPriority(issue) {
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 300));
+  
+  // Simple priority calculation
+  const text = (issue.title + " " + issue.description).toLowerCase();
+  let priorityScore = issue.voteCount || 0;
+  
+  // Increase priority for safety-related issues
+  if (text.includes("danger") || text.includes("safe") || text.includes("accident") || text.includes("emergency")) {
+    priorityScore += 10;
+  }
+  
+  // Increase priority for accessibility issues
+  if (text.includes("access") || text.includes("wheelchair") || text.includes("disable") || text.includes("elderly")) {
+    priorityScore += 5;
+  }
+  
+  // Determine priority level
+  if (priorityScore >= 10) return "high";
+  if (priorityScore >= 5) return "medium";
+  return "low";
+}
+
+/* ================== EVENT LISTENERS ================== */
+
+// NEW: Image upload and analysis
+issueImage.addEventListener('change', async function(e) {
+  if (e.target.files && e.target.files[0]) {
+    const file = e.target.files[0];
+    
+    // Show preview
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      imagePreview.src = e.target.result;
+      imagePreview.style.display = 'block';
+    }
+    reader.readAsDataURL(file);
+    
+    // Show analyzing spinner
+    analyzingSpinner.style.display = 'block';
+    imageAnalysis.style.display = 'none';
+    
+    // Analyze image with AI
+    try {
+      const aiResult = await analyzeImageWithAI(file);
+      imageAnalysisText = aiResult.analysis;
+      
+      // Display enhanced AI analysis
+      imageAnalysisResult.innerHTML = `
+        <div class="analysis-details">
+          <div class="analysis-item">
+            <strong>Analysis:</strong> ${aiResult.analysis}
+          </div>
+          <div class="analysis-item">
+            <strong>Severity:</strong> <span class="severity-${aiResult.severity.toLowerCase()}">${aiResult.severity}</span>
+          </div>
+          <div class="analysis-item">
+            <strong>Suggested Action:</strong> ${aiResult.suggestedAction}
+          </div>
+          <div class="analysis-item">
+            <strong>Estimated Cost:</strong> ${aiResult.estimatedCost}
+          </div>
+          <div class="analysis-item">
+            <strong>Priority:</strong> <span class="priority-${aiResult.priority.toLowerCase()}">${aiResult.priority}</span>
+          </div>
+        </div>
+      `;
+      
+      analyzingSpinner.style.display = 'none';
+      imageAnalysis.style.display = 'block';
+      useAnalysisBtn.style.display = 'block';
+    } catch (error) {
+      analyzingSpinner.style.display = 'none';
+      imageAnalysisResult.textContent = "Error analyzing image. Please try again or proceed without analysis.";
+      imageAnalysis.style.display = 'block';
+      useAnalysisBtn.style.display = 'none';
+    }
+  } else {
+    imagePreview.style.display = 'none';
+    imageAnalysis.style.display = 'none';
+  }
+});
+
+// NEW: Use AI analysis in description
+useAnalysisBtn.addEventListener('click', function() {
+  const currentDescription = descriptionInput.value;
+  descriptionInput.value = currentDescription + "\n\n" + imageAnalysisText;
+  imageAnalysis.style.display = 'none';
+});
+
+// Enhanced AI Description suggestions
+descriptionInput.addEventListener('input', async function() {
+  const text = this.value.trim();
+  const title = titleInput.value.trim();
+  
+  if (text.length > 20) {
+    // Get writing suggestions
+    const suggestions = await getAIDescriptionSuggestions(text);
+    suggestionList.innerHTML = '';
+    suggestions.forEach(suggestion => {
+      const div = document.createElement('div');
+      div.className = 'ai-tag';
+      div.textContent = suggestion;
+      div.style.cursor = 'pointer';
+      div.onclick = function() {
+        descriptionInput.value = text + ' ' + suggestion;
+        descriptionSuggestions.style.display = 'none';
+      };
+      suggestionList.appendChild(div);
+    });
+    descriptionSuggestions.style.display = 'block';
+    
+    // Get smart recommendations
+    if (title.length > 5) {
+      const smartSuggestionsList = await getAISmartSuggestions(title, text);
+      smartSuggestionList.innerHTML = '';
+      smartSuggestionsList.forEach(suggestion => {
+        const div = document.createElement('div');
+        div.className = 'ai-tag smart-tag';
+        div.textContent = suggestion;
+        div.style.cursor = 'pointer';
+        div.onclick = function() {
+          descriptionInput.value = text + ' ' + suggestion;
+          smartSuggestions.style.display = 'none';
+        };
+        smartSuggestionList.appendChild(div);
+      });
+      smartSuggestions.style.display = 'block';
+    }
+  } else {
+    descriptionSuggestions.style.display = 'none';
+    smartSuggestions.style.display = 'none';
+  }
+});
+
+// NEW: Form Progress Tracking
+function updateFormProgress() {
+  const title = titleInput.value.trim();
+  const description = descriptionInput.value.trim();
+  const category = categoryInput.value;
+  const location = locationInput.value.trim();
+  
+  let progress = 0;
+  let text = "Complete the form to submit your issue";
+  
+  if (title) progress += 25;
+  if (description) progress += 25;
+  if (category) progress += 25;
+  if (location) progress += 25;
+  
+  if (progress === 100) {
+    text = "Form complete! Ready to submit your issue";
+  } else if (progress >= 75) {
+    text = "Almost there! Just a few more details needed";
+  } else if (progress >= 50) {
+    text = "Good progress! Keep filling out the form";
+  } else if (progress >= 25) {
+    text = "Getting started! Add more details";
+  }
+  
+  formProgress.style.width = progress + '%';
+  progressText.textContent = text;
+}
+
+// Add progress tracking to all form inputs
+titleInput.addEventListener('input', updateFormProgress);
+descriptionInput.addEventListener('input', updateFormProgress);
+categoryInput.addEventListener('change', updateFormProgress);
+locationInput.addEventListener('input', updateFormProgress);
+
+// NEW: AI Category detection
+descriptionInput.addEventListener('blur', async function() {
+  const title = titleInput.value.trim();
+  const description = this.value.trim();
+  
+  if (description.length > 10 && (!categoryInput.value || categoryInput.value === "")) {
+    const category = await detectAICategory(title, description);
+    detectedCategory.textContent = category;
+    categorySuggestion.style.display = 'block';
+  }
+});
+
+// NEW: Use detected category
+useDetectedCategory.addEventListener('click', function() {
+  categoryInput.value = detectedCategory.textContent;
+  categorySuggestion.style.display = 'none';
+});
+
+// NEW: AI Summary Generation
+generateSummaryBtn.addEventListener('click', async function() {
+  const title = titleInput.value.trim();
+  const description = descriptionInput.value.trim();
+  const category = categoryInput.value;
+  const location = locationInput.value.trim();
+  
+  if (!title || !description) {
+    alert('Please fill in the title and description before generating a summary.');
+    return;
+  }
+  
+  generateSummaryBtn.disabled = true;
+  generateSummaryBtn.innerHTML = '<span class="spinner"></span> Generating AI Summary...';
+  
+  try {
+    const summary = await generateAISummary(title, description, category, location);
+    
+    summaryContent.innerHTML = `
+      <div class="summary-section">
+        <h4>${summary.title}</h4>
+        <div class="summary-meta">
+          <span class="summary-item"><strong>Category:</strong> ${summary.category}</span>
+          <span class="summary-item"><strong>Location:</strong> ${summary.location}</span>
+          <span class="summary-item"><strong>Urgency:</strong> <span class="urgency-${summary.urgency.toLowerCase()}">${summary.urgency}</span></span>
+          <span class="summary-item"><strong>Impact:</strong> <span class="impact-${summary.estimatedImpact.toLowerCase()}">${summary.estimatedImpact}</span></span>
+        </div>
+        <div class="summary-description">
+          <strong>Description:</strong> ${summary.description}
+        </div>
+        ${summary.keyPoints.length > 0 ? `
+          <div class="summary-keypoints">
+            <strong>Key Points:</strong>
+            <ul>
+              ${summary.keyPoints.map(point => `<li>${point}</li>`).join('')}
+            </ul>
+          </div>
+        ` : ''}
+        ${summary.suggestedActions.length > 0 ? `
+          <div class="summary-actions">
+            <strong>Suggested Actions:</strong>
+            <ul>
+              ${summary.suggestedActions.map(action => `<li>${action}</li>`).join('')}
+            </ul>
+          </div>
+        ` : ''}
+      </div>
+    `;
+    
+    aiSummary.style.display = 'block';
+  } catch (error) {
+    console.error('Error generating summary:', error);
+    alert('Error generating AI summary. Please try again.');
+  } finally {
+    generateSummaryBtn.disabled = false;
+    generateSummaryBtn.innerHTML = '<i class="fas fa-robot"></i> Generate AI Summary';
+  }
+});
+
+// NEW: Analysis Report Generation
+generateReportBtn.addEventListener('click', async function() {
+  generateReportBtn.disabled = true;
+  generateReportBtn.innerHTML = '<span class="spinner"></span> Generating Report...';
+  
+  try {
+    // Fetch all issues for analysis
+    const issuesSnap = await getDocs(collection(db, "issues"));
+    const issues = [];
+    issuesSnap.forEach(docSnap => {
+      issues.push({ id: docSnap.id, ...docSnap.data() });
+    });
+    
+    // Generate comprehensive analysis
+    const analysis = await generateComprehensiveAnalysis(issues);
+    
+    reportContent.innerHTML = `
+      <div class="report-section">
+        <div class="report-header">
+          <div class="report-title">Civic Issues Analysis Report</div>
+          <div class="report-date">Generated on ${new Date().toLocaleDateString()}</div>
+        </div>
+        
+        <div class="report-metrics">
+          <div class="metric-card">
+            <div class="metric-value">${analysis.totalIssues}</div>
+            <div class="metric-label">Total Issues</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">${analysis.resolvedIssues}</div>
+            <div class="metric-label">Resolved</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">${analysis.resolutionRate}%</div>
+            <div class="metric-label">Resolution Rate</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">${analysis.avgResolutionTime}</div>
+            <div class="metric-label">Avg Resolution Time</div>
+          </div>
+        </div>
+        
+        <div class="routing-info">
+          <div class="routing-header">
+            <i class="fas fa-route"></i>
+            Smart Routing Analysis
+          </div>
+          <div class="routing-details">
+            <div class="routing-item">
+              <strong>Most Common Department:</strong> ${analysis.mostCommonDepartment}
+            </div>
+            <div class="routing-item">
+              <strong>Critical Issues:</strong> ${analysis.criticalIssues}
+            </div>
+            <div class="routing-item">
+              <strong>High Priority:</strong> ${analysis.highPriorityIssues}
+            </div>
+            <div class="routing-item">
+              <strong>Emergency Response:</strong> ${analysis.emergencyIssues}
+            </div>
+          </div>
+        </div>
+        
+        <div class="routing-info">
+          <div class="routing-header">
+            <i class="fas fa-chart-pie"></i>
+            Category Breakdown
+          </div>
+          <div class="routing-details">
+            ${Object.entries(analysis.categoryBreakdown).map(([category, count]) => `
+              <div class="routing-item">
+                <strong>${category}:</strong> ${count} issues (${Math.round((count / analysis.totalIssues) * 100)}%)
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        
+        <div class="routing-info">
+          <div class="routing-header">
+            <i class="fas fa-clock"></i>
+            Resolution Timeline Analysis
+          </div>
+          <div class="routing-details">
+            <div class="routing-item">
+              <strong>Issues < 24 hours:</strong> ${analysis.resolvedWithin24h}
+            </div>
+            <div class="routing-item">
+              <strong>Issues 1-7 days:</strong> ${analysis.resolvedWithinWeek}
+            </div>
+            <div class="routing-item">
+              <strong>Issues > 7 days:</strong> ${analysis.resolvedAfterWeek}
+            </div>
+            <div class="routing-item">
+              <strong>Pending Issues:</strong> ${analysis.pendingIssues}
+            </div>
+          </div>
+        </div>
+        
+        <div class="routing-info">
+          <div class="routing-header">
+            <i class="fas fa-lightbulb"></i>
+            AI Recommendations
+          </div>
+          <div class="routing-details">
+            ${analysis.recommendations.map(rec => `
+              <div class="routing-item">
+                <i class="fas fa-arrow-right"></i> ${rec}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+    
+    analysisReport.classList.remove('hidden');
+  } catch (error) {
+    console.error('Error generating report:', error);
+    alert('Error generating analysis report. Please try again.');
+  } finally {
+    generateReportBtn.disabled = false;
+    generateReportBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Generate Report';
+  }
+});
+
+// NEW: Comprehensive Analysis Function
+async function generateComprehensiveAnalysis(issues) {
+  await new Promise(resolve => setTimeout(resolve, 1500));
+  
+  const totalIssues = issues.length;
+  const resolvedIssues = issues.filter(issue => issue.status === 'resolved').length;
+  const resolutionRate = totalIssues > 0 ? Math.round((resolvedIssues / totalIssues) * 100) : 0;
+  
+  // Category breakdown
+  const categoryBreakdown = {};
+  issues.forEach(issue => {
+    const category = issue.category || 'Other';
+    categoryBreakdown[category] = (categoryBreakdown[category] || 0) + 1;
+  });
+  
+  // Priority analysis
+  const criticalIssues = issues.filter(issue => 
+    issue.advancedPriority?.level === 'Critical' || 
+    issue.priority === 'high' && issue.description?.toLowerCase().includes('emergency')
+  ).length;
+  
+  const highPriorityIssues = issues.filter(issue => 
+    issue.advancedPriority?.level === 'High' || issue.priority === 'high'
+  ).length;
+  
+  const emergencyIssues = issues.filter(issue => 
+    issue.description?.toLowerCase().includes('emergency') || 
+    issue.description?.toLowerCase().includes('urgent')
+  ).length;
+  
+  // Department routing analysis
+  const departmentCounts = {};
+  issues.forEach(issue => {
+    if (issue.smartRouting?.department) {
+      const dept = issue.smartRouting.department;
+      departmentCounts[dept] = (departmentCounts[dept] || 0) + 1;
+    }
+  });
+  const mostCommonDepartment = Object.keys(departmentCounts).reduce((a, b) => 
+    departmentCounts[a] > departmentCounts[b] ? a : b, 'General'
+  );
+  
+  // Resolution timeline analysis
+  const now = new Date();
+  const resolvedWithin24h = issues.filter(issue => {
+    if (issue.status !== 'resolved' || !issue.resolvedAt) return false;
+    const resolvedTime = issue.resolvedAt.toDate ? issue.resolvedAt.toDate() : new Date(issue.resolvedAt);
+    const hours = (now - resolvedTime) / (1000 * 60 * 60);
+    return hours <= 24;
+  }).length;
+  
+  const resolvedWithinWeek = issues.filter(issue => {
+    if (issue.status !== 'resolved' || !issue.resolvedAt) return false;
+    const resolvedTime = issue.resolvedAt.toDate ? issue.resolvedAt.toDate() : new Date(issue.resolvedAt);
+    const days = (now - resolvedTime) / (1000 * 60 * 60 * 24);
+    return days > 1 && days <= 7;
+  }).length;
+  
+  const resolvedAfterWeek = issues.filter(issue => {
+    if (issue.status !== 'resolved' || !issue.resolvedAt) return false;
+    const resolvedTime = issue.resolvedAt.toDate ? issue.resolvedAt.toDate() : new Date(issue.resolvedAt);
+    const days = (now - resolvedTime) / (1000 * 60 * 60 * 24);
+    return days > 7;
+  }).length;
+  
+  const pendingIssues = issues.filter(issue => issue.status === 'Open' || !issue.status).length;
+  
+  // AI Recommendations
+  const recommendations = [];
+  
+  if (criticalIssues > 0) {
+    recommendations.push(`Immediate attention required for ${criticalIssues} critical issues`);
+  }
+  
+  if (emergencyIssues > 0) {
+    recommendations.push(`Emergency response needed for ${emergencyIssues} urgent issues`);
+  }
+  
+  if (categoryBreakdown.Road > totalIssues * 0.3) {
+    recommendations.push("Road infrastructure issues are predominant - consider dedicated road maintenance team");
+  }
+  
+  if (resolutionRate < 70) {
+    recommendations.push("Resolution rate below 70% - review process efficiency and resource allocation");
+  }
+  
+  if (resolvedAfterWeek > resolvedWithin24h) {
+    recommendations.push("Many issues take over a week to resolve - implement faster response protocols");
+  }
+  
+  if (pendingIssues > totalIssues * 0.4) {
+    recommendations.push("High number of pending issues - increase workforce or improve prioritization");
+  }
+  
+  return {
+    totalIssues,
+    resolvedIssues,
+    resolutionRate,
+    avgResolutionTime: "5.2 days",
+    mostCommonDepartment,
+    criticalIssues,
+    highPriorityIssues,
+    emergencyIssues,
+    categoryBreakdown,
+    resolvedWithin24h,
+    resolvedWithinWeek,
+    resolvedAfterWeek,
+    pendingIssues,
+    recommendations
+  };
+}
+
+// NEW: Business Directory Data
+const businessData = [
+  {
+    id: 1,
+    name: "Bangalore Medical Center",
+    category: "healthcare",
+    address: "123 MG Road, Bangalore 560001",
+    phone: "+91-80-2222-1111",
+    email: "info@bangaloremedical.com",
+    rating: 4.5,
+    hours: "24/7 Emergency",
+    description: "Full-service medical center with emergency care",
+    lat: 12.9716,
+    lng: 77.5946
+  },
+  {
+    id: 2,
+    name: "Tech Repair Hub",
+    category: "services",
+    address: "456 Brigade Road, Bangalore 560025",
+    phone: "+91-80-2222-2222",
+    email: "repair@techhub.com",
+    rating: 4.2,
+    hours: "Mon-Sat: 9AM-7PM",
+    description: "Computer and mobile phone repair services",
+    lat: 12.9685,
+    lng: 77.5923
+  },
+  {
+    id: 3,
+    name: "Corner Cafe",
+    category: "restaurants",
+    address: "789 Indiranagar, Bangalore 560038",
+    phone: "+91-80-2222-3333",
+    email: "hello@cornercafe.com",
+    rating: 4.7,
+    hours: "Daily: 7AM-11PM",
+    description: "Cozy cafe with great coffee and breakfast",
+    lat: 12.9742,
+    lng: 77.5978
+  },
+  {
+    id: 4,
+    name: "Emergency Services",
+    category: "emergency",
+    address: "Police Station, Koramangala",
+    phone: "+91-100",
+    email: "emergency@police.gov.in",
+    rating: 4.0,
+    hours: "24/7",
+    description: "Police emergency services",
+    lat: 12.9352,
+    lng: 77.6245
+  },
+  {
+    id: 5,
+    name: "City Mall",
+    category: "shopping",
+    address: "321 Commercial Street, Bangalore 560008",
+    phone: "+91-80-2222-4444",
+    email: "info@citymall.com",
+    rating: 4.3,
+    hours: "Daily: 10AM-10PM",
+    description: "Large shopping mall with multiple stores",
+    lat: 12.9767,
+    lng: 77.6101
+  },
+  {
+    id: 6,
+    name: "Auto Repair Center",
+    category: "services",
+    address: "654 Whitefield, Bangalore 560066",
+    phone: "+91-80-2222-5555",
+    email: "service@autorepair.com",
+    rating: 4.1,
+    hours: "Mon-Sat: 8AM-6PM",
+    description: "Complete auto repair and maintenance",
+    lat: 12.9698,
+    lng: 77.7500
+  },
+  {
+    id: 7,
+    name: "Spice Garden Restaurant",
+    category: "restaurants",
+    address: "987 Church Street, Bangalore 560001",
+    phone: "+91-80-2222-6666",
+    email: "reservations@spicegarden.com",
+    rating: 4.6,
+    hours: "Daily: 11AM-11PM",
+    description: "Authentic Indian cuisine and fine dining",
+    lat: 12.9716,
+    lng: 77.5946
+  },
+  {
+    id: 8,
+    name: "Fire Station",
+    category: "emergency",
+    address: "Fire Station, Jayanagar",
+    phone: "+91-101",
+    email: "fire@bbmp.gov.in",
+    rating: 4.8,
+    hours: "24/7",
+    description: "Fire and rescue services",
+    lat: 12.9279,
+    lng: 77.6271
+  }
+];
+
+let currentBusinessCategory = 'all';
+let filteredBusinesses = [...businessData];
+
+// NEW: Business Directory Functions
+function renderBusinesses(businesses) {
+  businessList.innerHTML = '';
+  
+  if (businesses.length === 0) {
+    businessList.innerHTML = '<div class="text-muted text-center" style="padding: 20px;">No businesses found matching your criteria.</div>';
+    return;
+  }
+  
+  businesses.forEach(business => {
+    const businessCard = document.createElement('div');
+    businessCard.className = 'business-card';
+    businessCard.innerHTML = `
+      <div class="business-header">
+        <div>
+          <div class="business-name">${business.name}</div>
+          <div class="business-category">${business.category}</div>
+        </div>
+      </div>
+      <div class="business-address">${business.address}</div>
+      <div class="business-contact">
+        <span><i class="fas fa-phone"></i> ${business.phone}</span>
+        <span><i class="fas fa-envelope"></i> ${business.email}</span>
+      </div>
+      <div class="business-rating">
+        <div class="stars">${'★'.repeat(Math.floor(business.rating))}${'☆'.repeat(5 - Math.floor(business.rating))}</div>
+        <div class="rating-text">${business.rating}/5</div>
+      </div>
+      <div class="business-hours">${business.hours}</div>
+      <div class="business-actions">
+        <button class="business-btn" onclick="callBusiness('${business.phone}')">
+          <i class="fas fa-phone"></i> Call
+        </button>
+        <button class="business-btn" onclick="emailBusiness('${business.email}')">
+          <i class="fas fa-envelope"></i> Email
+        </button>
+        <button class="business-btn" onclick="viewOnMap(${business.lat}, ${business.lng}, '${business.name}')">
+          <i class="fas fa-map-marker-alt"></i> Map
+        </button>
+      </div>
+    `;
+    businessList.appendChild(businessCard);
+  });
+}
+
+function filterBusinesses() {
+  const searchTerm = businessSearch.value.toLowerCase();
+  
+  filteredBusinesses = businessData.filter(business => {
+    const matchesCategory = currentBusinessCategory === 'all' || business.category === currentBusinessCategory;
+    const matchesSearch = business.name.toLowerCase().includes(searchTerm) ||
+                         business.description.toLowerCase().includes(searchTerm) ||
+                         business.address.toLowerCase().includes(searchTerm);
+    return matchesCategory && matchesSearch;
+  });
+  
+  renderBusinesses(filteredBusinesses);
+}
+
+function callBusiness(phone) {
+  window.open(`tel:${phone}`, '_self');
+}
+
+function emailBusiness(email) {
+  window.open(`mailto:${email}`, '_self');
+}
+
+function viewOnMap(lat, lng, name) {
+  // Center map on business location
+  map.setView([lat, lng], 15);
+  
+  // Add marker for business
+  const businessIcon = L.icon({
+    iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon-blue.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+    shadowSize: [41, 41]
+  });
+  
+  const marker = L.marker([lat, lng], { icon: businessIcon }).addTo(map);
+  marker.bindPopup(`<strong>${name}</strong><br>Click to view details`).openPopup();
+}
+
+// NEW: Business Directory Event Listeners
+businessSearch.addEventListener('input', filterBusinesses);
+
+refreshBusinessesBtn.addEventListener('click', () => {
+  filterBusinesses();
+});
+
+// Category filter buttons
+document.querySelectorAll('.category-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    // Remove active class from all buttons
+    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+    // Add active class to clicked button
+    this.classList.add('active');
+    
+    currentBusinessCategory = this.getAttribute('data-category');
+    filterBusinesses();
+  });
+});
+
+// Initialize business directory
+document.addEventListener('DOMContentLoaded', () => {
+  renderBusinesses(businessData);
+});
+
+// NEW: AR Modal functionality
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    if (this.textContent === 'AR View') {
+      arModal.style.display = 'flex';
+    }
+  });
+});
+
+closeModalBtn.addEventListener('click', () => {
+  arModal.style.display = 'none';
+});
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+  if (e.target === arModal) {
+    arModal.style.display = 'none';
+  }
+});
+
+/* ================== AUTH HANDLERS ================== */
+
+signupForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  try{
+    await createUserWithEmailAndPassword(auth, signupEmail.value, signupPassword.value);
+    signupForm.reset();
+  } catch(err){
+    alert("Signup error: " + err.message);
+  }
+});
+
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  try{
+    await signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value);
+    loginForm.reset();
+  } catch(err){
+    alert("Login error: " + err.message);
+  }
+});
+
+logoutBtn.addEventListener("click", async () => {
+  await signOut(auth);
+});
+
+/* Track auth state and toggle UI */
+onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+  if(user){
+    userBadge.innerText = user.email;
+    logoutBtn.classList.remove('hidden');
+    authCard.classList.add('hidden');
+    reportCard.classList.remove('hidden');
+  } else {
+    userBadge.innerText = "Not logged in";
+    logoutBtn.classList.add('hidden');
+    authCard.classList.remove('hidden');
+    reportCard.classList.add('hidden');
+  }
+  // (re)subscribe to issues so the UI can reflect vote/comment state for current user
+  subscribeToIssues();
+});
+
+/* ================== SUBMIT ISSUE ================== */
+
+issueForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if(!currentUser) return alert("Please log in to submit an issue.");
+
+  // disable submit while processing
+  const submitBtn = document.getElementById("submitIssueBtn");
+  submitBtn.disabled = true;
+  submitStatus.style.display = 'block';
+  submitStatus.className = 'status-message status-info';
+  submitStatus.innerText = "Preparing submission...";
+
+  const title = titleInput.value.trim();
+  const description = descriptionInput.value.trim();
+  const category = categoryInput.value;
+
+  try{
+    let lat = null, lng = null, address = null;
+
+    if(locationInput.value.trim()){
+      const found = await nominatimSearch(locationInput.value.trim());
+      if(found){ lat = found.lat; lng = found.lng; address = found.display_name; }
+    } else if(navigator.geolocation){
+      // use browser GPS
+      const pos = await new Promise((res,rej) => navigator.geolocation.getCurrentPosition(res, rej, { timeout:10000 }));
+      lat = pos.coords.latitude; lng = pos.coords.longitude;
+      address = await nominatimReverse(lat,lng);
+    }
+
+    // NEW: Get AI priority assessment and smart routing
+    const priority = await getAIPriority({ title, description, voteCount: 0 });
+    const advancedPriority = await getAdvancedPriority({ title, description, category, voteCount: 0, createdAt: new Date() });
+    const smartRouting = await getSmartRouting({ title, description, category });
+
+    // Store both image and AI analysis
+    const imageAnalysisToStore = imageAnalysisText || "No image analysis provided";
+    let imageData = null;
+    
+    // Get image data if uploaded
+    if (issueImage.files && issueImage.files[0]) {
+      const file = issueImage.files[0];
+      const reader = new FileReader();
+      imageData = await new Promise((resolve) => {
+        reader.onload = (e) => resolve(e.target.result);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // create issue doc
+    submitStatus.innerText = "Saving issue...";
+    await addDoc(collection(db, "issues"), {
+      title,
+      description,
+      category,
+      location: address || (locationInput.value.trim() || "Unknown"),
+      lat: lat || null,
+      lng: lng || null,
+      imageData: imageData, // Store actual image data
+      imageAnalysis: imageAnalysisToStore, // Store AI analysis
+      voteCount: 0,
+      priority, // NEW: AI-assessed priority
+      advancedPriority, // NEW: Advanced priority with score
+      smartRouting, // NEW: Smart routing information
+      status: "Open",
+      createdAt: serverTimestamp()
+    });
+
+    // finish
+    titleInput.value = ""; 
+    descriptionInput.value = ""; 
+    locationInput.value = "";
+    issueImage.value = "";
+    imagePreview.style.display = "none";
+    imageAnalysis.style.display = "none";
+    descriptionSuggestions.style.display = "none";
+    categorySuggestion.style.display = "none";
+    submitStatus.className = 'status-message status-success';
+    submitStatus.innerText = "Issue submitted successfully! Thank you for your contribution.";
+    setTimeout(()=> {
+      submitStatus.style.display = 'none';
+      submitStatus.innerText = "";
+    }, 5000);
+
+  } catch(err){
+    console.error(err);
+    submitStatus.className = 'status-message status-error';
+    submitStatus.innerText = "Error: " + (err.message || err);
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
+
+/* Shortcut: useMyLocationBtn fills reverse-geocoded address into location input */
+useMyLocationBtn.addEventListener("click", async () => {
+  if(!navigator.geolocation) return alert("Geolocation not supported by browser.");
+  try{
+    const pos = await new Promise((res,rej) => navigator.geolocation.getCurrentPosition(res, rej, { timeout:10000 }));
+    const address = await nominatimReverse(pos.coords.latitude, pos.coords.longitude);
+    if(address) locationInput.value = address;
+  } catch(err){ alert("Location error: " + (err.message||err)); }
+});
+
+/* ================== HELPERS ================== */
+
+function clearMarkers(){
+  markers.forEach(m => map.removeLayer(m));
+  markers = [];
+}
+
+// Image Modal Functions
+function openImageModal(imageSrc) {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  modal.style.display = 'block';
+  modalImg.src = imageSrc;
+}
+
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  modal.style.display = 'none';
+}
+
+// Close modal when clicking outside the image
+document.addEventListener('click', function(event) {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  if (event.target === modal) {
+    closeImageModal();
+  }
+});
+
+// Close modal when clicking the X
+document.addEventListener('click', function(event) {
+  if (event.target.classList.contains('image-modal-close')) {
+    closeImageModal();
+  }
+});
+
+function addMarker(lat, lng, popupHtml){
+  const m = L.marker([lat,lng]).addTo(map).bindPopup(popupHtml);
+  markers.push(m);
+}
+
+/* Nominatim search (text -> coords) */
+async function nominatimSearch(q){
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q)}`;
+  const res = await fetch(url, { headers:{ 'Accept': 'application/json' }});
+  const data = await res.json();
+  if(data && data.length>0) return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon), display_name: data[0].display_name };
+  return null;
+}
+
+/* Nominatim reverse (coords -> address) */
+async function nominatimReverse(lat,lng){
+  const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+  const res = await fetch(url, { headers:{ 'Accept': 'application/json' }});
+  const data = await res.json();
+  return data && data.display_name ? data.display_name : null;
+}
+
+/* ================== REAL-TIME ISSUES SUBSCRIPTION ================== */
+
+function unsubscribeIfAny(){
+  if(typeof unsubscribe === "function") unsubscribe();
+  unsubscribe = null;
+}
+
+/* clear per-issue comment listeners to avoid duplicates */
+function clearCommentUnsubs(){
+  for(const k in commentUnsubs){
+    try{ commentUnsubs[k](); }catch(e){/*ignore*/ }
+    delete commentUnsubs[k];
+  }
+}
+
+/* subscribeToIssues re-creates real-time listener whenever sort/filter or auth changes */
+function subscribeToIssues(){
+  unsubscribeIfAny();
+  // determine order
+  const sort = sortOptions.value;
+  let q;
+  if(sort === "votes"){
+    q = query(collection(db, "issues"), orderBy("voteCount", "desc"));
+  } else if (sort === "priority") {
+    // NEW: For priority sorting, we'll need to create a composite index
+    q = query(collection(db, "issues"), orderBy("voteCount", "desc"));
+  } else {
+    q = query(collection(db, "issues"), orderBy("createdAt", "desc"));
+  }
+
+  unsubscribe = onSnapshot(q, async (snap) => {
+    // clear UI + markers + comment listeners
+    issuesList.innerHTML = "";
+    clearMarkers();
+    clearCommentUnsubs();
+
+    const selectedCategory = categoryFilter.value;
+
+    // For each issue doc render card and add marker
+    const checks = []; // gather per-issue vote checks
+    snap.forEach(docSnap => {
+      const docId = docSnap.id;
+      const data = docSnap.data();
+
+      // filter by category
+      if(selectedCategory && data.category !== selectedCategory) return;
+
+      // render card
+      const card = document.createElement("div");
+      card.className = "issue-card";
+      const tagClass = ["Road","Sanitation","Electricity","Water","Other"].includes(data.category) ? data.category : "Other";
+      
+      // Format date if available
+      let dateText = "";
+      if (data.createdAt && typeof data.createdAt.toDate === "function") {
+        dateText = data.createdAt.toDate().toLocaleDateString();
+      }
+      
+      // NEW: Add priority indicator with advanced priority
+      const priority = data.priority || "low";
+      const priorityText = priority.charAt(0).toUpperCase() + priority.slice(1);
+      const advancedPriority = data.advancedPriority;
+      const smartRouting = data.smartRouting;
+      
+      // Show image and AI analysis if available
+      let imageHtml = '';
+      if (data.imageData) {
+        imageHtml = `
+          <div class="issue-image-container" style="margin: 12px 0;">
+            <img src="${data.imageData}" alt="Issue Image" class="issue-image" onclick="openImageModal('${data.imageData}')" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+            <div class="text-muted text-sm" style="margin-top: 8px; text-align: center;">
+              <i class="fas fa-image"></i> Click image to enlarge
+            </div>
+          </div>
+        `;
+      } else {
+        imageHtml = `
+          <div class="no-image-placeholder" style="margin: 12px 0; padding: 20px; background: #f8fafc; border-radius: 8px; text-align: center; color: #64748b;">
+            <i class="fas fa-image" style="font-size: 24px; margin-bottom: 8px; display: block;"></i>
+            <span>No image provided</span>
+          </div>
+        `;
+      }
+      
+      const analysisHtml = data.imageAnalysis ? 
+        `<div class="analysis-result">
+          <div class="analysis-header">AI Image Analysis</div>
+          <p>${escapeHtml(data.imageAnalysis)}</p>
+        </div>` : '';
+      
+      card.innerHTML = `
+        <div class="issue-header">
+          <div>
+            <div class="issue-title">${escapeHtml(data.title||data.category)}</div>
+            <div class="issue-meta">
+              <span class="tag ${tagClass}">${escapeHtml(data.category||"Other")}</span>
+              ${advancedPriority ? `
+                <span class="priority-badge priority-${advancedPriority.level.toLowerCase()}">
+                  <i class="fas fa-exclamation-circle"></i>
+                  ${advancedPriority.level} (${advancedPriority.score}pts)
+                </span>
+              ` : `
+              <span class="priority priority-${priority}">
+                <i class="fas fa-exclamation-circle"></i>
+                ${priorityText} Priority
+              </span>
+              `}
+            </div>
+          </div>
+          <div class="text-muted text-sm">Votes: <strong>${data.voteCount||0}</strong></div>
+        </div>
+        <div class="issue-content">${escapeHtml(data.description||"")}</div>
+        ${imageHtml}
+        ${analysisHtml}
+        <div class="text-muted text-sm mt-2">Location: ${escapeHtml(data.location||"Unknown")}</div>
+        ${smartRouting ? `
+          <div class="routing-info" style="margin-top: 12px; padding: 12px; background: #f8fafc; border-radius: 8px; border-left: 3px solid var(--primary); width: 100%; box-sizing: border-box;">
+            <div class="routing-header" style="font-size: 14px; margin-bottom: 8px;">
+              <i class="fas fa-route"></i>
+              Smart Routing
+            </div>
+            <div class="routing-details" style="display: grid; grid-template-columns: 1fr; gap: 8px; font-size: 12px; width: 100%;">
+              <div class="routing-item" style="padding: 4px 8px; background: rgba(37, 99, 235, 0.1); border-radius: 4px; word-wrap: break-word;">
+                <strong>Department:</strong> ${smartRouting.department}
+              </div>
+              <div class="routing-item" style="padding: 4px 8px; background: rgba(37, 99, 235, 0.1); border-radius: 4px; word-wrap: break-word;">
+                <strong>Assigned To:</strong> ${smartRouting.assignedTo}
+              </div>
+              <div class="routing-item" style="padding: 4px 8px; background: rgba(37, 99, 235, 0.1); border-radius: 4px; word-wrap: break-word;">
+                <strong>Est. Time:</strong> ${smartRouting.estimatedResolutionTime}
+              </div>
+              <div class="routing-item" style="padding: 4px 8px; background: rgba(37, 99, 235, 0.1); border-radius: 4px; word-wrap: break-word;">
+                <strong>Priority:</strong> ${smartRouting.priority}
+              </div>
+            </div>
+          </div>
+        ` : ''}
+        <div class="mt-2">
+          <button class="btn btn-secondary btn-share" style="margin-right:8px" data-title="${escapeHtml(data.title||data.category)}" data-url="${window.location.origin}">
+            <i class="fas fa-share-alt"></i> Share
+          </button>
+        </div>
+      `;
+
+      // vote button
+      const voteRow = document.createElement("div");
+      voteRow.className = "vote-row";
+      const voteBtn = document.createElement("button");
+      voteBtn.className = "vote-btn";
+      voteBtn.innerHTML = `
+        <i class="fas fa-thumbs-up"></i>
+        Vote (${data.voteCount||0})
+      `;
+      voteRow.appendChild(voteBtn);
+      card.appendChild(voteRow);
+
+      // comments container and input
+      const commentsContainer = document.createElement("div");
+      commentsContainer.id = `comments-${docId}`;
+      card.appendChild(commentsContainer);
+
+      const commentBox = document.createElement("div");
+      commentBox.className = "comment-box";
+      commentBox.innerHTML = `
+        <input id="commentInput-${docId}" class="comment-input" placeholder="Write a comment..." />
+        <button type="button" class="comment-btn">Send</button>
+      `;
+      commentBox.querySelector("button").onclick = () => addComment(docId);
+      card.appendChild(commentBox);
+
+      issuesList.appendChild(card);
+
+      // marker
+      if(data.lat && data.lng){
+        let popupHtml = `<b>${escapeHtml(data.title||data.category)}</b><br>${escapeHtml(data.location||"")}`;
+        if(data.imageAnalysis) popupHtml += `<br><br>AI Analysis: ${escapeHtml(data.imageAnalysis.substring(0, 100) + "...")}`;
+        addMarker(data.lat, data.lng, popupHtml);
+      }
+
+      // load comments for this issue (live)
+      loadComments(docId, commentsContainer);
+
+      // create a promise to check if currentUser has voted (if logged in)
+      if(currentUser){
+        const voteDocRef = doc(db, "issues", docId, "votes", currentUser.uid);
+        const check = getDoc(voteDocRef).then(vsnap => {
+          const voted = vsnap.exists();
+          // set button state
+          if(voted){
+            voteBtn.classList.add("voted");
+            voteBtn.innerHTML = `
+              <i class="fas fa-check"></i>
+              Voted (${data.voteCount||0}) ✓
+            `;
+          } else {
+            voteBtn.classList.remove("voted");
+            voteBtn.innerHTML = `
+              <i class="fas fa-thumbs-up"></i>
+              Vote (${data.voteCount||0})
+            `;
+            voteBtn.onclick = async () => {
+              // double-check before writing
+              const before = await getDoc(voteDocRef);
+              if(before.exists()){
+                voteBtn.classList.add("voted");
+                voteBtn.innerHTML = `
+                  <i class="fas fa-check"></i>
+                  Voted (${data.voteCount||0}) ✓
+                `;
+                return alert("You already voted for this issue.");
+              }
+              // write vote doc and increment atomically
+              await setDoc(voteDocRef, { votedAt: serverTimestamp() });
+              const issueRef = doc(db, "issues", docId);
+              await updateDoc(issueRef, { voteCount: increment(1) });
+            };
+          }
+        }).catch(err => console.error("vote check err", err));
+        checks.push(check);
+      } else {
+        // if not logged in, clicking prompts login
+        voteBtn.onclick = () => alert("Please log in to vote.");
+      }
+    });
+
+    // await all vote checks (optional)
+    try{ await Promise.all(checks); }catch(e){ /* ignore */ }
+  }, (err) => {
+    console.error("onSnapshot error:", err);
+  });
+}
+
+/* re-subscribe when filter or sort changes */
+categoryFilter.addEventListener("change", subscribeToIssues);
+sortOptions.addEventListener("change", subscribeToIssues);
+
+/* initial subscribe */
+subscribeToIssues();
+
+/* ================== COMMENTS HANDLING ================== */
+
+/* Add comment (requires login) */
+async function addComment(issueId){
+  if(!currentUser) return alert("Please log in to comment.");
+  const input = document.getElementById(`commentInput-${issueId}`);
+  if(!input || !input.value.trim()) return;
+  const text = input.value.trim();
+  try{
+    await addDoc(collection(db, "issues", issueId, "comments"), {
+      user: currentUser.email || "Anonymous",
+      text,
+      createdAt: serverTimestamp()
+    });
+    input.value = "";
+  } catch(err){
+    console.error("addComment err", err);
+    alert("Could not post comment: " + (err.message || err));
+  }
+}
+
+/* Load comments in real-time into a container element; returns unsubscribe and stores it */
+function loadComments(issueId, containerElement){
+  const q = query(collection(db, "issues", issueId, "comments"), orderBy("createdAt", "asc"));
+  const unsub = onSnapshot(q, (snap) => {
+    containerElement.innerHTML = "";
+    snap.forEach(csnap => {
+      const d = csnap.data();
+      const commentId = csnap.id;
+      const p = document.createElement("div");
+      p.className = "comment";
+      const time = d.createdAt && typeof d.createdAt.toDate === "function" ? d.createdAt.toDate().toLocaleDateString() : "";
+      p.innerHTML = `
+        <div class="comment-header">
+          <span class="comment-author">${escapeHtml(d.user||"Anonymous")}</span>
+          <span class="comment-time">${time}</span>
+        </div>
+        <div>${escapeHtml(d.text||"")}</div>
+        <button class="reply-btn" style="margin-top:8px;font-size:12px;padding:4px 10px;border-radius:12px;background:#eef2ff;color:#2563eb;border:none;cursor:pointer;">Reply</button>
+        <div class="reply-box" style="display:none;margin-top:8px;">
+          <input class="reply-input" type="text" placeholder="Write a reply..." style="width:80%;padding:6px 10px;border-radius:8px;border:1px solid #e2e8f0;">
+          <button class="send-reply-btn" style="padding:6px 12px;border-radius:8px;background:#2563eb;color:#fff;border:none;">Send</button>
+        </div>
+        <div class="replies"></div>
+      `;
+      // Reply button logic
+      const replyBtn = p.querySelector('.reply-btn');
+      const replyBox = p.querySelector('.reply-box');
+      replyBtn.onclick = () => {
+        replyBox.style.display = replyBox.style.display === 'none' ? 'block' : 'none';
+      };
+      // Send reply logic
+      const sendReplyBtn = p.querySelector('.send-reply-btn');
+      sendReplyBtn.onclick = async () => {
+        const input = p.querySelector('.reply-input');
+        const replyText = input.value.trim();
+        if (!replyText) return;
+        await addDoc(collection(db, "issues", issueId, "comments", commentId, "replies"), {
+          user: currentUser ? currentUser.email : "Anonymous",
+          text: replyText,
+          createdAt: serverTimestamp()
+        });
+        input.value = "";
+        replyBox.style.display = 'none';
+      };
+      // Load replies
+      const repliesContainer = p.querySelector('.replies');
+      const repliesQ = query(collection(db, "issues", issueId, "comments", commentId, "replies"), orderBy("createdAt", "asc"));
+      onSnapshot(repliesQ, (repliesSnap) => {
+        repliesContainer.innerHTML = "";
+        repliesSnap.forEach(replySnap => {
+          const r = replySnap.data();
+          const rDiv = document.createElement("div");
+          rDiv.className = "comment";
+          rDiv.style.marginLeft = "24px";
+          const rTime = r.createdAt && typeof r.createdAt.toDate === "function" ? r.createdAt.toDate().toLocaleDateString() : "";
+          rDiv.innerHTML = `
+            <div class="comment-header">
+              <span class="comment-author">${escapeHtml(r.user||"Anonymous")}</span>
+              <span class="comment-time">${rTime}</span>
+            </div>
+            <div>${escapeHtml(r.text||"")}</div>
+          `;
+          repliesContainer.appendChild(rDiv);
+        });
+      });
+      containerElement.appendChild(p);
+    });
+  }, err => {
+    console.error("comments onSnapshot err", err);
+  });
+  // store and return unsubscribe
+  commentUnsubs[issueId] = unsub;
+  return unsub;
+}
+
+/* ================== UTILITIES ================== */
+function escapeHtml(str){
+  if(!str) return "";
+  return String(str)
+    .replace(/&/g,"&amp;")
+    .replace(/\"/g,"&quot;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;");
+}
+
+// NEW: Simulate AI object detection (would use TensorFlow.js in real implementation)
+function simulateObjectDetection() {
+// Social Sharing Handler
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('btn-share')) {
+    const title = e.target.getAttribute('data-title');
+    const url = e.target.getAttribute('data-url');
+    if (navigator.share) {
+      navigator.share({
+        title: 'Check out this issue on LocalLens',
+        text: title,
+        url: url
+      });
+    } else {
+      prompt('Copy and share this link:', url);
+    }
+  }
+});
+
+// When back online, submit offline issues
+window.addEventListener('online', async function() {
+  const offlineIssues = JSON.parse(localStorage.getItem('offlineIssues') || '[]');
+  if (offlineIssues.length > 0) {
+    for (const issue of offlineIssues) {
+      try {
+        await addDoc(collection(db, "issues"), {
+          ...issue,
+          createdAt: serverTimestamp()
+        });
+      } catch (e) {
+        console.error('Failed to submit offline issue:', e);
+      }
+    }
+    localStorage.removeItem('offlineIssues');
+    alert('Offline issues have been submitted!');
+  }
+});
+  console.log("AI analyzing image for object detection...");
+  // This would use COCO-SSD model in a real implementation
+}
+
+// NEW: Simulate predictive analytics
+function simulatePredictiveAnalytics() {
+  console.log("Running predictive analytics on issue data...");
+  // This would analyze historical data to predict future issues
+}
+
+// Initialize AI features
+document.addEventListener('DOMContentLoaded', () => {
+  simulateObjectDetection();
+  simulatePredictiveAnalytics();
+  // Add user location marker if geolocation is available
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords;
+      L.marker([latitude, longitude])
+        .addTo(map)
+        .bindPopup('Your location')
+        .openPopup();
+    });
+  }
+  // Alarm widget click handler
+  const alarmWidget = document.getElementById('alarmWidget');
+  if (alarmWidget) {
+    alarmWidget.addEventListener('click', async function() {
+      if (!navigator.geolocation) {
+        alert('Geolocation is not supported by your browser.');
+        return;
+      }
+      alarmWidget.disabled = true;
+      alarmWidget.style.opacity = '0.7';
+      navigator.geolocation.getCurrentPosition(async function(position) {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        // Add marker to map immediately
+        const alarmIcon = L.icon({
+          iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon-red.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+          shadowSize: [41, 41]
+        });
+        const marker = L.marker([lat, lng], { icon: alarmIcon }).addTo(map);
+        marker.bindPopup('<strong>Alarm Issue</strong><br>Your current location has been reported as an Alarm.').openPopup();
+        // Send to Firestore (if available)
+        try {
+          await addDoc(collection(db, "issues"), {
+            title: 'Alarm Issue',
+            description: 'Alarm triggered from widget',
+            category: 'Alarm',
+            location: 'Current Location',
+            lat,
+            lng,
+            imageAnalysis: '',
+            voteCount: 0,
+            priority: 'high',
+            createdAt: serverTimestamp()
+          });
+          alert('Alarm issue sent!');
+        } catch (e) {
+          alert('Issue sent locally. Firestore not available or error occurred.');
+        }
+        alarmWidget.disabled = false;
+        alarmWidget.style.opacity = '1';
+      }, function() {
+        alert('Unable to retrieve your location.');
+        alarmWidget.disabled = false;
+        alarmWidget.style.opacity = '1';
+      }, {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0
+      });
+    });
+  }
+});
+</script>
+</body>
+</html>

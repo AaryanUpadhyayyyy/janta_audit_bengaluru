@@ -12,9 +12,17 @@ import sys
 import webbrowser
 import time
 from urllib.parse import urlparse, parse_qs
+from imagekitio import ImageKit
 
 # Define the projects file path
 projects_file = 'bengaluru_projects_with_paths.json'
+
+# Initialize ImageKit
+imagekit = ImageKit(
+    private_key='private_eynTB11akoPri5uYnuHqdiaskpU=',
+    public_key='public_R1N9HfkrW2JCAR+zPI3OjKZZ234=',
+    url_endpoint='https://ik.imagekit.io/jkersjuspu/'
+)
 
 class SimpleHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
@@ -36,6 +44,8 @@ class SimpleHandler(http.server.SimpleHTTPRequestHandler):
         
         if self.path == '/api/projects':
             self.handle_projects_api()
+        elif self.path == '/api/imagekit-auth':
+            self.handle_imagekit_auth()
         elif self.path == '/api/health':
             self.handle_health_api()
         elif parsed_path == '/' or parsed_path == '/index.html':
@@ -198,6 +208,13 @@ class SimpleHandler(http.server.SimpleHTTPRequestHandler):
                 ]
             }
             self.send_json_response(metrics)
+    
+    def handle_imagekit_auth(self):
+        try:
+            auth_params = imagekit.get_authentication_parameters()
+            self.send_json_response(auth_params)
+        except Exception as e:
+            self.send_json_response({'error': str(e)}, status=500)
     
     def handle_scrape_api(self):
         try:

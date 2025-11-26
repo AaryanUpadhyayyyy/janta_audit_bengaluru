@@ -1,0 +1,168 @@
+{
+  "last_updated": "2025-09-30T21:43:45.326603",
+  "data": {
+    "bbmp": {
+      "news": [],
+      "schemes": [],
+      "helplines": [],
+      "leaders": [
+        {
+          "name": "Shri R. Gopalkrishna",
+          "position": "Mayor of Bengaluru",
+          "department": "BBMP",
+          "contact": "+91-80-2266-0001",
+          "email": "mayor@bbmp.gov.in",
+          "office": "BBMP Head Office, KR Circle",
+          "tenure": "2023-2024"
+        },
+        {
+          "name": "Dr. Tushar Giri Nath",
+          "position": "BBMP Commissioner",
+          "department": "BBMP",
+          "contact": "+91-80-2266-0000",
+          "email": "commissioner@bbmp.gov.in",
+          "office": "BBMP Head Office, KR Circle",
+          "tenure": "Since June 2023"
+        }
+      ],
+      "tenders": []
+    },
+    "bda": {
+      "news": [
+        {
+          "title": "07  FebSumanahalli FlyoverExcellent response from public to flat fair organized by Bangalore Development Authority...Read More",
+          "date": "2025-09-30",
+          "source": "BDA Official",
+          "category": "Development"
+        },
+        {
+          "title": "07  FebBird view ofDr Shivaram karanth layoutDr Shivaram karanth layout is a prestigious project in North Bangalore...Read More",
+          "date": "2025-09-30",
+          "source": "BDA Official",
+          "category": "Development"
+        },
+        {
+          "title": "07  FebKonadasapura Phase IIKonadasapura Phase II is a 2BHK, ready-to-move Housing project consisting of 630 units..Read More",
+          "date": "2025-09-30",
+          "source": "BDA Official",
+          "category": "Development"
+        },
+        {
+          "title": "Last Updated: 02-06-2025 , 1.10PMVisitor Count: 50,534Development Version : CeG/KRN 3.0",
+          "date": "2025-09-30",
+          "source": "BDA Official",
+          "category": "Development"
+        }
+      ],
+      "schemes": [
+        {
+          "name": "Affordable Housing Scheme",
+          "description": "Housing schemes for economically weaker sections",
+          "status": "Active",
+          "category": "Housing"
+        },
+        {
+          "name": "Layout Development Program",
+          "description": "Systematic layout development across Bengaluru",
+          "status": "Ongoing",
+          "category": "Urban Development"
+        }
+      ],
+      "helplines": [
+        {
+          "service": "BDA Main Office",
+          "number": "080-2223-4567",
+          "description": "BDA main helpline for all development queries"
+        },
+        {
+          "service": "Layout Approval",
+          "number": "080-2223-4568",
+          "description": "Layout approval and BMRDA related services"
+        },
+        {
+          "service": "Site Allotment",
+          "number": "080-2223-4569",
+          "description": "Site allotment and housing scheme queries"
+        }
+      ],
+      "leaders": [
+        {
+          "name": "Dr. Rajesh Surana",
+          "position": "BDA Chairman",
+          "department": "BDA",
+          "contact": "+91-80-2223-4567",
+          "email": "chairman@bda.gov.in",
+          "office": "BDA Head Office, Kumara Krupa",
+          "tenure": "Current"
+        }
+      ],
+      "services": []
+    },
+    "bangalore_one": {
+      "services": [],
+      "helplines": [],
+      "locations": []
+    },
+    "seva_sindhu": {
+      "schemes": [
+        {
+          "name": "Aadhaar Services",
+          "department": "UIDAI",
+          "description": "Aadhaar enrollment, update, and correction services",
+          "eligibility": "All residents",
+          "category": "Identity Services"
+        },
+        {
+          "name": "Ration Card Services",
+          "department": "Food & Civil Supplies",
+          "description": "New ration card, corrections, and transfers",
+          "eligibility": "All families",
+          "category": "Food Security"
+        },
+        {
+          "name": "Income Certificate",
+          "department": "Revenue Department",
+          "description": "Income certificate for various purposes",
+          "eligibility": "All residents",
+          "category": "Certificates"
+        },
+        {
+          "name": "Caste Certificate",
+          "department": "Revenue Department",
+          "description": "Caste certificate for reserved category benefits",
+          "eligibility": "Reserved category citizens",
+          "category": "Certificates"
+        },
+        {
+          "name": "Senior Citizen Pension",
+          "department": "Social Welfare",
+          "description": "Pension scheme for senior citizens",
+          "eligibility": "Citizens above 60 years",
+          "category": "Social Welfare"
+        }
+      ],
+      "services": [],
+      "helplines": [
+        {
+          "service": "Seva Sindhu Helpline",
+          "number": "080-4615-4615",
+          "description": "General queries about Karnataka government services"
+        },
+        {
+          "service": "Technical Support",
+          "number": "1912",
+          "description": "Technical issues with Seva Sindhu portal"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "bbmp_news": 0,
+    "bbmp_schemes": 0,
+    "bbmp_helplines": 0,
+    "bda_news": 4,
+    "bda_schemes": 2,
+    "bangalore_one_services": 0,
+    "seva_sindhu_schemes": 5
+  }
+}

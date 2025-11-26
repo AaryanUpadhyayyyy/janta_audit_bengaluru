@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Error Handler Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 10px 10px 0;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success { background: #d4edda; color: #155724; }
+        .status.error { background: #f8d7da; color: #721c24; }
+        .status.warning { background: #fff3cd; color: #856404; }
+        .status.info { background: #d1ecf1; color: #0c5460; }
+        
+        .log {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>🛡️ Firebase Error Handler Test</h1>
+    
+    <div class="test-section">
+        <h2>Connection Status</h2>
+        <div id="connectionStatus" class="status info">Testing...</div>
+        <button class="test-button" onclick="testFirebaseConnection()">Test Firebase Connection</button>
+        <button class="test-button" onclick="simulateBlockedConnection()">Simulate Blocked Connection</button>
+        <button class="test-button" onclick="testFallbackMode()">Test Fallback Mode</button>
+        <button class="test-button" onclick="clearLog()">Clear Log</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Error Handler Features</h2>
+        <button class="test-button" onclick="showConnectionHelp()">Show Connection Help</button>
+        <button class="test-button" onclick="showOfflineBanner()">Show Offline Banner</button>
+        <button class="test-button" onclick="testLocalDataLoading()">Test Local Data Loading</button>
+        <button class="test-button" onclick="testRetryConnection()">Test Retry Connection</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Log</h2>
+        <div id="testLog" class="log"></div>
+    </div>
+
+    <!-- Load Firebase Error Handler -->
+    <script src="firebase-error-handler.js"></script>
+    
+    <script>
+        let testLog = document.getElementById('testLog');
+        let connectionStatus = document.getElementById('connectionStatus');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${message}\n`;
+            testLog.textContent += logEntry;
+            testLog.scrollTop = testLog.scrollHeight;
+            
+            // Update connection status
+            connectionStatus.textContent = message;
+            connectionStatus.className = `status ${type}`;
+        }
+        
+        function clearLog() {
+            testLog.textContent = '';
+            log('Log cleared', 'info');
+        }
+        
+        function testFirebaseConnection() {
+            log('🔥 Testing Firebase connection...', 'info');
+            
+            // Simulate Firebase configuration
+            window.firebaseConfig = {
+                apiKey: "test-api-key",
+                authDomain: "test-project.firebaseapp.com",
+                projectId: "test-project",
+                storageBucket: "test-project.appspot.com",
+                messagingSenderId: "123456789",
+                appId: "1:123456789:web:test-app"
+            };
+            
+            // Test if error handler exists
+            if (window.firebaseErrorHandler) {
+                log('✅ Firebase Error Handler loaded successfully', 'success');
+                
+                // Test connection status
+                const status = window.firebaseErrorHandler.getConnectionStatus();
+                log(`📊 Connection Status: Online: ${status.online}, Fallback: ${status.fallbackMode}`, 'info');
+                
+            } else {
+                log('❌ Firebase Error Handler not found', 'error');
+            }
+        }
+        
+        function simulateBlockedConnection() {
+            log('🚫 Simulating blocked connection...', 'warning');
+            
+            if (window.firebaseErrorHandler) {
+                // Trigger error handling
+                window.firebaseErrorHandler.handleConsoleError(['ERR_BLOCKED_BY_CLIENT', 'firestore connection failed']);
+                log('✅ Blocked connection simulation triggered', 'success');
+            } else {
+                log('❌ Error handler not available', 'error');
+            }
+        }
+        
+        function testFallbackMode() {
+            log('📁 Testing fallback mode...', 'info');
+            
+            if (window.firebaseErrorHandler) {
+                window.firebaseErrorHandler.enableFallbackMode();
+                log('✅ Fallback mode enabled', 'success');
+                
+                // Test local data access
+                const projects = window.firebaseErrorHandler.getLocalData('projects');
+                const funding = window.firebaseErrorHandler.getLocalData('funding_data');
+                
+                log(`📊 Local data cache: Projects: ${projects ? 'Available' : 'Not loaded'}, Funding: ${funding ? 'Available' : 'Not loaded'}`, 'info');
+            } else {
+                log('❌ Error handler not available', 'error');
+            }
+        }
+        
+        function showConnectionHelp() {
+            log('❓ Showing connection help dialog...', 'info');
+            
+            if (window.firebaseErrorHandler) {
+                window.firebaseErrorHandler.showConnectionHelp();
+                log('✅ Connection help dialog opened', 'success');
+            } else {
+                log('❌ Error handler not available', 'error');
+            }
+        }
+        
+        function showOfflineBanner() {
+            log('📢 Showing offline banner...', 'info');
+            
+            if (window.firebaseErrorHandler) {
+                window.firebaseErrorHandler.showOfflineBanner();
+                log('✅ Offline banner displayed', 'success');
+            } else {
+                log('❌ Error handler not available', 'error');
+            }
+        }
+        
+        function testLocalDataLoading() {
+            log('📁 Testing local data loading...', 'info');
+            
+            if (window.firebaseErrorHandler) {
+                window.firebaseErrorHandler.loadLocalData().then(() => {
+                    log('✅ Local data loading completed', 'success');
+                }).catch(error => {
+                    log(`❌ Local data loading failed: ${error.message}`, 'error');
+                });
+            } else {
+                log('❌ Error handler not available', 'error');
+            }
+        }
+        
+        function testRetryConnection() {
+            log('🔄 Testing connection retry...', 'info');
+            
+            if (window.firebaseErrorHandler) {
+                window.firebaseErrorHandler.retryConnection().then(() => {
+                    log('✅ Connection retry completed', 'success');
+                }).catch(error => {
+                    log(`❌ Connection retry failed: ${error.message}`, 'error');
+                });
+            } else {
+                log('❌ Error handler not available', 'error');
+            }
+        }
+        
+        // Initialize test when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            log('🚀 Firebase Error Handler Test initialized', 'info');
+            
+            // Wait a moment for error handler to load
+            setTimeout(() => {
+                testFirebaseConnection();
+            }, 1000);
+        });
+        
+        // Monitor console for Firebase errors
+        const originalConsoleError = console.error;
+        console.error = (...args) => {
+            const message = args.join(' ');
+            if (message.toLowerCase().includes('firebase') || 
+                message.toLowerCase().includes('firestore') ||
+                message.includes('ERR_BLOCKED_BY_CLIENT')) {
+                log(`🔥 Firebase Error Detected: ${message}`, 'error');
+            }
+            originalConsoleError.apply(console, args);
+        };
+        
+        // Monitor network connectivity
+        window.addEventListener('online', () => {
+            log('🌐 Internet connection restored', 'success');
+        });
+        
+        window.addEventListener('offline', () => {
+            log('📡 Internet connection lost', 'warning');
+        });
+    </script>
+</body>
+</html>

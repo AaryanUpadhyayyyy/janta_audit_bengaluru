@@ -28174,5 +28174,2985 @@
         "source": "Scraped from Mock Data Portal",
         "sourceUrl": "http://mock.example.com/projects",
         "scrapedAt": "2025-10-01T11:00:45.931014"
+    },
+    {
+        "id": "proj_1759501761_0",
+        "projectName": "Pedestrian Skywalk - Marathahalli",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Pending",
+        "budget": 161342740,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 109,
+        "geoPoint": {
+            "latitude": 12.821499,
+            "longitude": 77.635035
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-10-26",
+        "endDate": "2026-03-05",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T19:59:21.902148"
+    },
+    {
+        "id": "proj_1759501761_1",
+        "projectName": "Public Park Development - HSR Layout",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "In Progress",
+        "budget": 116716706,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 20,
+        "geoPoint": {
+            "latitude": 12.992005,
+            "longitude": 77.762608
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-12-29",
+        "endDate": "2026-12-11",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T19:59:21.902148"
+    },
+    {
+        "id": "proj_1759501761_2",
+        "projectName": "Community Hall Renovation - Marathahalli",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Completed",
+        "budget": 258223665,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 31,
+        "geoPoint": {
+            "latitude": 12.806762,
+            "longitude": 77.614981
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-02-08",
+        "endDate": "2027-01-21",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T19:59:21.902148"
+    },
+    {
+        "id": "proj_1759501761_3",
+        "projectName": "Flyover Construction - Indiranagar",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Pending",
+        "budget": 292694595,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 126,
+        "geoPoint": {
+            "latitude": 12.975531,
+            "longitude": 77.777294
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-04-09",
+        "endDate": "2026-07-17",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T19:59:21.902148"
+    },
+    {
+        "id": "proj_1759501761_4",
+        "projectName": "Smart Parking System - Indiranagar",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "Pending",
+        "budget": 2039513,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 132,
+        "geoPoint": {
+            "latitude": 12.896755,
+            "longitude": 77.623449
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-02-02",
+        "endDate": "2026-12-31",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T19:59:21.902148"
+    },
+    {
+        "id": "proj_1759503911_0",
+        "projectName": "Urban Forest Initiative - Marathahalli",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Completed",
+        "budget": 216292110,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 162,
+        "geoPoint": {
+            "latitude": 12.804201,
+            "longitude": 77.596898
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-06-18",
+        "endDate": "2025-12-30",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T20:35:11.347242"
+    },
+    {
+        "id": "proj_1759503911_1",
+        "projectName": "Community Hall Renovation - Marathahalli",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Completed",
+        "budget": 19242423,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 117,
+        "geoPoint": {
+            "latitude": 13.09894,
+            "longitude": 77.729085
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-08-06",
+        "endDate": "2026-04-19",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T20:35:11.347242"
+    },
+    {
+        "id": "proj_1759503911_2",
+        "projectName": "Pedestrian Skywalk - Hebbal",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Pending",
+        "budget": 57867046,
+        "location": "HSR Layout, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 140,
+        "geoPoint": {
+            "latitude": 12.863875,
+            "longitude": 77.64726
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-10-19",
+        "endDate": "2026-03-02",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T20:35:11.347242"
+    },
+    {
+        "id": "proj_1759503911_3",
+        "projectName": "Waste Management Facility - Hebbal",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "In Progress",
+        "budget": 87500077,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 80,
+        "geoPoint": {
+            "latitude": 12.879594,
+            "longitude": 77.777005
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-11-05",
+        "endDate": "2026-10-20",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T20:35:11.347242"
+    },
+    {
+        "id": "proj_1759503911_4",
+        "projectName": "Smart Parking System - Indiranagar",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Pending",
+        "budget": 228286617,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 100,
+        "geoPoint": {
+            "latitude": 13.072443,
+            "longitude": 77.531329
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-07-29",
+        "endDate": "2026-05-23",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T20:35:11.347242"
+    },
+    {
+        "id": "proj_1759503911_5",
+        "projectName": "Smart Parking System - Indiranagar",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "In Progress",
+        "budget": 314594424,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 102,
+        "geoPoint": {
+            "latitude": 13.054892,
+            "longitude": 77.633765
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-02-11",
+        "endDate": "2026-07-18",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T20:35:11.347242"
+    },
+    {
+        "id": "proj_1759503911_6",
+        "projectName": "Flyover Construction - Yelahanka",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "Completed",
+        "budget": 190935445,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 105,
+        "geoPoint": {
+            "latitude": 12.811258,
+            "longitude": 77.597398
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-11-12",
+        "endDate": "2025-09-09",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T20:35:11.347242"
+    },
+    {
+        "id": "proj_1759503911_7",
+        "projectName": "Smart Parking System - Marathahalli",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "In Progress",
+        "budget": 165196107,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 13,
+        "geoPoint": {
+            "latitude": 12.938757,
+            "longitude": 77.625494
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-06-17",
+        "endDate": "2026-01-26",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T20:35:11.347242"
+    },
+    {
+        "id": "proj_1759505669_0",
+        "projectName": "Lake Rejuvenation Project - Hebbal",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "In Progress",
+        "budget": 284278401,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 132,
+        "geoPoint": {
+            "latitude": 12.890487,
+            "longitude": 77.77044
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-04-09",
+        "endDate": "2026-02-20",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T21:04:29.596217"
+    },
+    {
+        "id": "proj_1759505669_1",
+        "projectName": "Flyover Construction - Whitefield",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Completed",
+        "budget": 339995429,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 142,
+        "geoPoint": {
+            "latitude": 12.821408,
+            "longitude": 77.600993
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-01-18",
+        "endDate": "2026-03-18",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T21:04:29.596217"
+    },
+    {
+        "id": "proj_1759505669_2",
+        "projectName": "Pedestrian Skywalk - Jayanagar",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Pending",
+        "budget": 1839492,
+        "location": "Electronic City, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 100,
+        "geoPoint": {
+            "latitude": 13.012546,
+            "longitude": 77.627849
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-04-09",
+        "endDate": "2025-11-01",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T21:04:29.596217"
+    },
+    {
+        "id": "proj_1759505669_3",
+        "projectName": "Lake Rejuvenation Project - Koramangala",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Completed",
+        "budget": 27381905,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 2,
+        "geoPoint": {
+            "latitude": 13.017578,
+            "longitude": 77.658961
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-06-29",
+        "endDate": "2026-04-13",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T21:04:29.596217"
+    },
+    {
+        "id": "proj_1759505669_4",
+        "projectName": "Pedestrian Skywalk - Marathahalli",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Completed",
+        "budget": 440593800,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 139,
+        "geoPoint": {
+            "latitude": 12.854901,
+            "longitude": 77.744368
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-03-01",
+        "endDate": "2026-10-29",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T21:04:29.596217"
+    },
+    {
+        "id": "proj_1759505669_5",
+        "projectName": "Public Park Development - Yelahanka",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "In Progress",
+        "budget": 431270579,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 94,
+        "geoPoint": {
+            "latitude": 13.044671,
+            "longitude": 77.524211
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-05-15",
+        "endDate": "2026-08-24",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-03T21:04:29.596217"
+    },
+    {
+        "id": "proj_1759586538_0",
+        "projectName": "Pedestrian Skywalk - Koramangala",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Pending",
+        "budget": 27551203,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 176,
+        "geoPoint": {
+            "latitude": 12.885223,
+            "longitude": 77.568018
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-03-23",
+        "endDate": "2026-02-19",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T19:32:18.078925"
+    },
+    {
+        "id": "proj_1759586538_1",
+        "projectName": "Public Park Development - Jayanagar",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "In Progress",
+        "budget": 497266150,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 182,
+        "geoPoint": {
+            "latitude": 12.844213,
+            "longitude": 77.696801
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-05-11",
+        "endDate": "2026-09-03",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T19:32:18.078925"
+    },
+    {
+        "id": "proj_1759586538_2",
+        "projectName": "Urban Forest Initiative - Whitefield",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Completed",
+        "budget": 336333074,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 175,
+        "geoPoint": {
+            "latitude": 13.007425,
+            "longitude": 77.665511
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-04-13",
+        "endDate": "2026-01-26",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T19:32:18.078925"
+    },
+    {
+        "id": "proj_1759586538_3",
+        "projectName": "Flyover Construction - Marathahalli",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Completed",
+        "budget": 390337701,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 68,
+        "geoPoint": {
+            "latitude": 12.916436,
+            "longitude": 77.702691
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-04-15",
+        "endDate": "2026-09-15",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T19:32:18.078925"
+    },
+    {
+        "id": "proj_1759586538_4",
+        "projectName": "Public Park Development - Whitefield",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Completed",
+        "budget": 397250117,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 89,
+        "geoPoint": {
+            "latitude": 12.828494,
+            "longitude": 77.514139
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-10-06",
+        "endDate": "2026-07-15",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T19:32:18.078925"
+    },
+    {
+        "id": "proj_1759586538_5",
+        "projectName": "Community Hall Renovation - Jayanagar",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "Pending",
+        "budget": 79299646,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 116,
+        "geoPoint": {
+            "latitude": 12.847241,
+            "longitude": 77.66359
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-02-03",
+        "endDate": "2026-04-20",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T19:32:18.078925"
+    },
+    {
+        "id": "proj_1759586538_6",
+        "projectName": "Waste Management Facility - Jayanagar",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "In Progress",
+        "budget": 33044822,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 32,
+        "geoPoint": {
+            "latitude": 12.833496,
+            "longitude": 77.706433
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-06-09",
+        "endDate": "2026-04-04",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T19:32:18.078925"
+    },
+    {
+        "id": "proj_1759586538_7",
+        "projectName": "LED Streetlight Installation - Electronic City",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "In Progress",
+        "budget": 398769142,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 70,
+        "geoPoint": {
+            "latitude": 13.079383,
+            "longitude": 77.619253
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-03-16",
+        "endDate": "2025-10-24",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T19:32:18.078925"
+    },
+    {
+        "id": "proj_1759586538_8",
+        "projectName": "Flyover Construction - Hebbal",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Pending",
+        "budget": 89621417,
+        "location": "HSR Layout, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 79,
+        "geoPoint": {
+            "latitude": 12.849921,
+            "longitude": 77.59502
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-08-10",
+        "endDate": "2026-02-10",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T19:32:18.078925"
+    },
+    {
+        "id": "proj_1759590297_0",
+        "projectName": "Public Park Development - Hebbal",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Pending",
+        "budget": 267318321,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 4,
+        "geoPoint": {
+            "latitude": 12.929407,
+            "longitude": 77.690537
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2024-10-21",
+        "endDate": "2026-02-10",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:34:57.459783"
+    },
+    {
+        "id": "proj_1759590297_1",
+        "projectName": "Stormwater Drain Upgrade - Indiranagar",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "Completed",
+        "budget": 454743065,
+        "location": "HSR Layout, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 46,
+        "geoPoint": {
+            "latitude": 12.886743,
+            "longitude": 77.620072
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-05-26",
+        "endDate": "2026-05-07",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:34:57.459783"
+    },
+    {
+        "id": "proj_1759590297_2",
+        "projectName": "Waste Management Facility - HSR Layout",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Pending",
+        "budget": 482817397,
+        "location": "Yelahanka, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 18,
+        "geoPoint": {
+            "latitude": 13.095541,
+            "longitude": 77.634517
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2024-12-30",
+        "endDate": "2026-11-27",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:34:57.459783"
+    },
+    {
+        "id": "proj_1759590297_3",
+        "projectName": "LED Streetlight Installation - Indiranagar",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Completed",
+        "budget": 182291110,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 147,
+        "geoPoint": {
+            "latitude": 12.851827,
+            "longitude": 77.737528
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2024-10-26",
+        "endDate": "2026-06-18",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:34:57.459783"
+    },
+    {
+        "id": "proj_1759590297_4",
+        "projectName": "Flyover Construction - Indiranagar",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Pending",
+        "budget": 214773889,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 2,
+        "geoPoint": {
+            "latitude": 12.864317,
+            "longitude": 77.59684
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-08-06",
+        "endDate": "2027-06-11",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:34:57.459783"
+    },
+    {
+        "id": "proj_1759590297_5",
+        "projectName": "Pedestrian Skywalk - Electronic City",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Completed",
+        "budget": 347732546,
+        "location": "Yelahanka, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 70,
+        "geoPoint": {
+            "latitude": 13.050374,
+            "longitude": 77.633176
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2024-10-13",
+        "endDate": "2025-10-19",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:34:57.459783"
+    },
+    {
+        "id": "proj_1759590297_6",
+        "projectName": "LED Streetlight Installation - Electronic City",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "Completed",
+        "budget": 6259955,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 179,
+        "geoPoint": {
+            "latitude": 12.85431,
+            "longitude": 77.673065
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-08-01",
+        "endDate": "2027-04-06",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:34:57.459783"
+    },
+    {
+        "id": "proj_1759590297_7",
+        "projectName": "Urban Forest Initiative - Marathahalli",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "In Progress",
+        "budget": 30434616,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 193,
+        "geoPoint": {
+            "latitude": 12.914372,
+            "longitude": 77.501539
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-12-16",
+        "endDate": "2026-01-14",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:34:57.459783"
+    },
+    {
+        "id": "proj_1759590297_8",
+        "projectName": "LED Streetlight Installation - Koramangala",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "Completed",
+        "budget": 329756345,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 196,
+        "geoPoint": {
+            "latitude": 12.801725,
+            "longitude": 77.589496
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-01-26",
+        "endDate": "2026-09-19",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:34:57.459783"
+    },
+    {
+        "id": "proj_1759590297_9",
+        "projectName": "Flyover Construction - HSR Layout",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "In Progress",
+        "budget": 264221057,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 132,
+        "geoPoint": {
+            "latitude": 12.882452,
+            "longitude": 77.774042
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-07-28",
+        "endDate": "2027-05-22",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:34:57.459783"
+    },
+    {
+        "id": "proj_1759591427_0",
+        "projectName": "Pedestrian Skywalk - Jayanagar",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Completed",
+        "budget": 271614330,
+        "location": "HSR Layout, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 105,
+        "geoPoint": {
+            "latitude": 13.034658,
+            "longitude": 77.694001
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-11-07",
+        "endDate": "2025-06-05",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:53:47.972814"
+    },
+    {
+        "id": "proj_1759591427_1",
+        "projectName": "Public Park Development - Indiranagar",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Completed",
+        "budget": 81604024,
+        "location": "Electronic City, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 194,
+        "geoPoint": {
+            "latitude": 12.801815,
+            "longitude": 77.525829
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-01-19",
+        "endDate": "2026-05-09",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:53:47.972814"
+    },
+    {
+        "id": "proj_1759591427_2",
+        "projectName": "Smart Parking System - Marathahalli",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Pending",
+        "budget": 55077205,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 145,
+        "geoPoint": {
+            "latitude": 13.003678,
+            "longitude": 77.537677
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-09-02",
+        "endDate": "2026-08-30",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:53:47.972814"
+    },
+    {
+        "id": "proj_1759591427_3",
+        "projectName": "Smart Parking System - Indiranagar",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "In Progress",
+        "budget": 468825727,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 22,
+        "geoPoint": {
+            "latitude": 12.978451,
+            "longitude": 77.608675
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-03-17",
+        "endDate": "2026-09-02",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:53:47.972814"
+    },
+    {
+        "id": "proj_1759591427_4",
+        "projectName": "Stormwater Drain Upgrade - Malleshwaram",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "In Progress",
+        "budget": 451143482,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 48,
+        "geoPoint": {
+            "latitude": 12.974164,
+            "longitude": 77.726658
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-04-02",
+        "endDate": "2025-10-22",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:53:47.972814"
+    },
+    {
+        "id": "proj_1759591427_5",
+        "projectName": "Smart Parking System - Whitefield",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Pending",
+        "budget": 169235574,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 67,
+        "geoPoint": {
+            "latitude": 12.939263,
+            "longitude": 77.733825
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-10-09",
+        "endDate": "2026-03-06",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T20:53:47.973780"
+    },
+    {
+        "id": "proj_1759592184_0",
+        "projectName": "Smart Parking System - HSR Layout",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Pending",
+        "budget": 56071224,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 7,
+        "geoPoint": {
+            "latitude": 12.862507,
+            "longitude": 77.634318
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-12-31",
+        "endDate": "2025-09-23",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:06:24.186075"
+    },
+    {
+        "id": "proj_1759592184_1",
+        "projectName": "Flyover Construction - Whitefield",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "In Progress",
+        "budget": 480328504,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 155,
+        "geoPoint": {
+            "latitude": 12.96797,
+            "longitude": 77.734668
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-08-13",
+        "endDate": "2027-01-29",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:06:24.186075"
+    },
+    {
+        "id": "proj_1759592184_2",
+        "projectName": "Waste Management Facility - Whitefield",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "Completed",
+        "budget": 23530125,
+        "location": "Electronic City, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 178,
+        "geoPoint": {
+            "latitude": 13.061561,
+            "longitude": 77.750555
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-05-25",
+        "endDate": "2027-05-08",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:06:24.186075"
+    },
+    {
+        "id": "proj_1759592184_3",
+        "projectName": "Public Park Development - Yelahanka",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "Pending",
+        "budget": 488361388,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 20,
+        "geoPoint": {
+            "latitude": 12.957441,
+            "longitude": 77.795453
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-03-27",
+        "endDate": "2026-08-28",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:06:24.186075"
+    },
+    {
+        "id": "proj_1759592184_4",
+        "projectName": "Smart Parking System - Yelahanka",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Pending",
+        "budget": 95159395,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 95,
+        "geoPoint": {
+            "latitude": 12.866933,
+            "longitude": 77.552404
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-06-20",
+        "endDate": "2026-12-19",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:06:24.186075"
+    },
+    {
+        "id": "proj_1759592184_5",
+        "projectName": "Community Hall Renovation - Whitefield",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "In Progress",
+        "budget": 201191850,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 186,
+        "geoPoint": {
+            "latitude": 13.002955,
+            "longitude": 77.592673
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2024-11-08",
+        "endDate": "2025-06-10",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:06:24.186075"
+    },
+    {
+        "id": "proj_1759592184_6",
+        "projectName": "Waste Management Facility - Yelahanka",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Pending",
+        "budget": 469629721,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 91,
+        "geoPoint": {
+            "latitude": 13.064573,
+            "longitude": 77.766494
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-10-26",
+        "endDate": "2026-01-18",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:06:24.187062"
+    },
+    {
+        "id": "proj_1759592232_0",
+        "projectName": "Smart Parking System - HSR Layout",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Pending",
+        "budget": 286337901,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 99,
+        "geoPoint": {
+            "latitude": 12.800402,
+            "longitude": 77.572075
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-03-12",
+        "endDate": "2026-12-17",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:12.271493"
+    },
+    {
+        "id": "proj_1759592232_1",
+        "projectName": "Waste Management Facility - Malleshwaram",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "Completed",
+        "budget": 159229795,
+        "location": "Electronic City, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 158,
+        "geoPoint": {
+            "latitude": 12.928549,
+            "longitude": 77.713545
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-05-20",
+        "endDate": "2026-04-18",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:12.271493"
+    },
+    {
+        "id": "proj_1759592232_2",
+        "projectName": "Pedestrian Skywalk - Marathahalli",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Pending",
+        "budget": 167312979,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 72,
+        "geoPoint": {
+            "latitude": 13.063231,
+            "longitude": 77.762201
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-07-14",
+        "endDate": "2026-01-10",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:12.271493"
+    },
+    {
+        "id": "proj_1759592232_3",
+        "projectName": "LED Streetlight Installation - Malleshwaram",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Completed",
+        "budget": 225077597,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 89,
+        "geoPoint": {
+            "latitude": 12.994926,
+            "longitude": 77.558238
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-08-13",
+        "endDate": "2027-06-07",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:12.271493"
+    },
+    {
+        "id": "proj_1759592232_4",
+        "projectName": "LED Streetlight Installation - Electronic City",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Completed",
+        "budget": 272965966,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 155,
+        "geoPoint": {
+            "latitude": 12.907921,
+            "longitude": 77.679894
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-05-03",
+        "endDate": "2026-12-06",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:12.271493"
+    },
+    {
+        "id": "proj_1759592270_0",
+        "projectName": "Public Park Development - Malleshwaram",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "Pending",
+        "budget": 395244724,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 177,
+        "geoPoint": {
+            "latitude": 13.021828,
+            "longitude": 77.569141
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-10-29",
+        "endDate": "2026-05-07",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:50.028072"
+    },
+    {
+        "id": "proj_1759592270_1",
+        "projectName": "Urban Forest Initiative - Electronic City",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "Pending",
+        "budget": 140381799,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 81,
+        "geoPoint": {
+            "latitude": 12.81619,
+            "longitude": 77.607741
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-08-04",
+        "endDate": "2026-05-28",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:50.028072"
+    },
+    {
+        "id": "proj_1759592270_2",
+        "projectName": "Stormwater Drain Upgrade - Whitefield",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "In Progress",
+        "budget": 211767439,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 170,
+        "geoPoint": {
+            "latitude": 13.083131,
+            "longitude": 77.58814
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-06-13",
+        "endDate": "2026-03-23",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:50.028072"
+    },
+    {
+        "id": "proj_1759592270_3",
+        "projectName": "Community Hall Renovation - Hebbal",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Pending",
+        "budget": 412762062,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 119,
+        "geoPoint": {
+            "latitude": 13.027174,
+            "longitude": 77.519772
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-02-15",
+        "endDate": "2026-05-31",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:50.028072"
+    },
+    {
+        "id": "proj_1759592270_4",
+        "projectName": "Stormwater Drain Upgrade - Malleshwaram",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "In Progress",
+        "budget": 166847866,
+        "location": "Yelahanka, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 108,
+        "geoPoint": {
+            "latitude": 12.942008,
+            "longitude": 77.656803
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-01-05",
+        "endDate": "2025-09-24",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:50.028072"
+    },
+    {
+        "id": "proj_1759592270_5",
+        "projectName": "Lake Rejuvenation Project - Jayanagar",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "Pending",
+        "budget": 263265662,
+        "location": "HSR Layout, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 72,
+        "geoPoint": {
+            "latitude": 13.041149,
+            "longitude": 77.52802
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-02-12",
+        "endDate": "2027-01-26",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:07:50.028072"
+    },
+    {
+        "id": "proj_1759595070_0",
+        "projectName": "Pedestrian Skywalk - Electronic City",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Pending",
+        "budget": 489734107,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 149,
+        "geoPoint": {
+            "latitude": 13.015018,
+            "longitude": 77.648894
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-03-07",
+        "endDate": "2026-10-04",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:54:30.586365"
+    },
+    {
+        "id": "proj_1759595070_1",
+        "projectName": "Lake Rejuvenation Project - Indiranagar",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Completed",
+        "budget": 49671975,
+        "location": "Yelahanka, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 160,
+        "geoPoint": {
+            "latitude": 12.878502,
+            "longitude": 77.758506
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-04-30",
+        "endDate": "2026-09-14",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:54:30.586365"
+    },
+    {
+        "id": "proj_1759595070_2",
+        "projectName": "Pedestrian Skywalk - HSR Layout",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "In Progress",
+        "budget": 111988993,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 180,
+        "geoPoint": {
+            "latitude": 12.876778,
+            "longitude": 77.625529
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-10-04",
+        "endDate": "2025-09-09",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:54:30.586365"
+    },
+    {
+        "id": "proj_1759595070_3",
+        "projectName": "Pedestrian Skywalk - Whitefield",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "Pending",
+        "budget": 75449538,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 134,
+        "geoPoint": {
+            "latitude": 13.036072,
+            "longitude": 77.562456
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-07-19",
+        "endDate": "2026-04-05",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:54:30.586365"
+    },
+    {
+        "id": "proj_1759595070_4",
+        "projectName": "Community Hall Renovation - Electronic City",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "In Progress",
+        "budget": 391226230,
+        "location": "Electronic City, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 184,
+        "geoPoint": {
+            "latitude": 13.046361,
+            "longitude": 77.514003
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-01-10",
+        "endDate": "2026-04-06",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T21:54:30.586365"
+    },
+    {
+        "id": "proj_1759595485_0",
+        "projectName": "Community Hall Renovation - Hebbal",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "In Progress",
+        "budget": 342494830,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 34,
+        "geoPoint": {
+            "latitude": 12.970733,
+            "longitude": 77.563968
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2024-11-06",
+        "endDate": "2025-12-09",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:01:25.193254"
+    },
+    {
+        "id": "proj_1759595485_1",
+        "projectName": "Stormwater Drain Upgrade - Electronic City",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Pending",
+        "budget": 129628843,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 89,
+        "geoPoint": {
+            "latitude": 13.017973,
+            "longitude": 77.782202
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-05-25",
+        "endDate": "2026-08-20",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:01:25.193254"
+    },
+    {
+        "id": "proj_1759595485_2",
+        "projectName": "Waste Management Facility - HSR Layout",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "In Progress",
+        "budget": 435357117,
+        "location": "Yelahanka, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 16,
+        "geoPoint": {
+            "latitude": 12.864068,
+            "longitude": 77.637587
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-01-08",
+        "endDate": "2026-08-29",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:01:25.193254"
+    },
+    {
+        "id": "proj_1759595485_3",
+        "projectName": "Flyover Construction - HSR Layout",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "Completed",
+        "budget": 79162159,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 43,
+        "geoPoint": {
+            "latitude": 12.972688,
+            "longitude": 77.700889
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2024-12-04",
+        "endDate": "2026-09-07",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:01:25.193254"
+    },
+    {
+        "id": "proj_1759595485_4",
+        "projectName": "Lake Rejuvenation Project - HSR Layout",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Completed",
+        "budget": 204794114,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 149,
+        "geoPoint": {
+            "latitude": 13.030331,
+            "longitude": 77.788688
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-05-16",
+        "endDate": "2026-05-27",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:01:25.193254"
+    },
+    {
+        "id": "proj_1759595485_5",
+        "projectName": "Stormwater Drain Upgrade - Hebbal",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Pending",
+        "budget": 294717044,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 34,
+        "geoPoint": {
+            "latitude": 12.958204,
+            "longitude": 77.552742
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-06-30",
+        "endDate": "2027-03-26",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:01:25.193254"
+    },
+    {
+        "id": "proj_1759595713_0",
+        "projectName": "Stormwater Drain Upgrade - Koramangala",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Completed",
+        "budget": 483041558,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 58,
+        "geoPoint": {
+            "latitude": 12.801765,
+            "longitude": 77.564064
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-02-14",
+        "endDate": "2027-01-17",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:05:13.626877"
+    },
+    {
+        "id": "proj_1759595713_1",
+        "projectName": "Waste Management Facility - Marathahalli",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "Pending",
+        "budget": 74123663,
+        "location": "Yelahanka, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 100,
+        "geoPoint": {
+            "latitude": 12.925118,
+            "longitude": 77.726941
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-06-20",
+        "endDate": "2027-04-28",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:05:13.626877"
+    },
+    {
+        "id": "proj_1759595713_2",
+        "projectName": "Lake Rejuvenation Project - Indiranagar",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "Completed",
+        "budget": 123772109,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 46,
+        "geoPoint": {
+            "latitude": 12.808064,
+            "longitude": 77.619961
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-06-20",
+        "endDate": "2026-08-02",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:05:13.626877"
+    },
+    {
+        "id": "proj_1759595713_3",
+        "projectName": "Public Park Development - Yelahanka",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "In Progress",
+        "budget": 233874071,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 138,
+        "geoPoint": {
+            "latitude": 12.904782,
+            "longitude": 77.627446
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-06-16",
+        "endDate": "2026-12-12",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:05:13.626877"
+    },
+    {
+        "id": "proj_1759595713_4",
+        "projectName": "Stormwater Drain Upgrade - Hebbal",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Pending",
+        "budget": 262532235,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 134,
+        "geoPoint": {
+            "latitude": 12.810041,
+            "longitude": 77.601635
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-07-12",
+        "endDate": "2026-08-15",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:05:13.626877"
+    },
+    {
+        "id": "proj_1759595713_5",
+        "projectName": "Stormwater Drain Upgrade - Malleshwaram",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Pending",
+        "budget": 150991221,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 177,
+        "geoPoint": {
+            "latitude": 12.864341,
+            "longitude": 77.575423
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2024-12-14",
+        "endDate": "2025-08-18",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T22:05:13.626877"
+    },
+    {
+        "id": "proj_1759601485_0",
+        "projectName": "Lake Rejuvenation Project - HSR Layout",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "Completed",
+        "budget": 297640384,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 142,
+        "geoPoint": {
+            "latitude": 13.010951,
+            "longitude": 77.593932
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-06-13",
+        "endDate": "2026-06-30",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T23:41:25.181074"
+    },
+    {
+        "id": "proj_1759601485_1",
+        "projectName": "Stormwater Drain Upgrade - Whitefield",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Completed",
+        "budget": 118408034,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 190,
+        "geoPoint": {
+            "latitude": 12.851806,
+            "longitude": 77.537963
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-08-28",
+        "endDate": "2026-06-02",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T23:41:25.181074"
+    },
+    {
+        "id": "proj_1759601485_2",
+        "projectName": "LED Streetlight Installation - Hebbal",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Pending",
+        "budget": 81896547,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 65,
+        "geoPoint": {
+            "latitude": 12.916775,
+            "longitude": 77.584389
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-03-16",
+        "endDate": "2025-10-04",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T23:41:25.181074"
+    },
+    {
+        "id": "proj_1759601485_3",
+        "projectName": "Pedestrian Skywalk - Whitefield",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "Pending",
+        "budget": 25210749,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 75,
+        "geoPoint": {
+            "latitude": 12.873029,
+            "longitude": 77.607251
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-11-29",
+        "endDate": "2025-06-07",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T23:41:25.181074"
+    },
+    {
+        "id": "proj_1759601485_4",
+        "projectName": "Flyover Construction - Whitefield",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Pending",
+        "budget": 223313009,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 7,
+        "geoPoint": {
+            "latitude": 12.848973,
+            "longitude": 77.552858
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-07-22",
+        "endDate": "2027-05-27",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T23:41:25.181074"
+    },
+    {
+        "id": "proj_1759601485_5",
+        "projectName": "Waste Management Facility - Yelahanka",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Completed",
+        "budget": 300943345,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 83,
+        "geoPoint": {
+            "latitude": 12.89813,
+            "longitude": 77.708672
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-10-16",
+        "endDate": "2025-08-05",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T23:41:25.181074"
+    },
+    {
+        "id": "proj_1759601485_6",
+        "projectName": "Lake Rejuvenation Project - HSR Layout",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "Completed",
+        "budget": 324139964,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 128,
+        "geoPoint": {
+            "latitude": 12.809168,
+            "longitude": 77.754518
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-03-07",
+        "endDate": "2026-02-12",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-04T23:41:25.181074"
+    },
+    {
+        "id": "proj_1759661256_0",
+        "projectName": "Pedestrian Skywalk - Hebbal",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Completed",
+        "budget": 437082946,
+        "location": "Yelahanka, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 142,
+        "geoPoint": {
+            "latitude": 12.806218,
+            "longitude": 77.686459
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-11-09",
+        "endDate": "2025-11-13",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:17:36.357675"
+    },
+    {
+        "id": "proj_1759661256_1",
+        "projectName": "Lake Rejuvenation Project - Malleshwaram",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "In Progress",
+        "budget": 354799352,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 195,
+        "geoPoint": {
+            "latitude": 12.894865,
+            "longitude": 77.614407
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-04-01",
+        "endDate": "2025-11-07",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:17:36.357675"
+    },
+    {
+        "id": "proj_1759661256_2",
+        "projectName": "Stormwater Drain Upgrade - Yelahanka",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Completed",
+        "budget": 369329504,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 151,
+        "geoPoint": {
+            "latitude": 13.06438,
+            "longitude": 77.789294
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-07-29",
+        "endDate": "2027-06-19",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:17:36.358721"
+    },
+    {
+        "id": "proj_1759661256_3",
+        "projectName": "LED Streetlight Installation - Indiranagar",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "In Progress",
+        "budget": 215624800,
+        "location": "HSR Layout, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 79,
+        "geoPoint": {
+            "latitude": 13.00595,
+            "longitude": 77.641715
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-02-09",
+        "endDate": "2025-09-15",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:17:36.358721"
+    },
+    {
+        "id": "proj_1759661256_4",
+        "projectName": "Waste Management Facility - Jayanagar",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Pending",
+        "budget": 198953836,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 91,
+        "geoPoint": {
+            "latitude": 13.098982,
+            "longitude": 77.597024
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-02-12",
+        "endDate": "2026-04-27",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:17:36.358721"
+    },
+    {
+        "id": "proj_1759661256_5",
+        "projectName": "Lake Rejuvenation Project - Indiranagar",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Completed",
+        "budget": 339169307,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 51,
+        "geoPoint": {
+            "latitude": 12.979182,
+            "longitude": 77.574822
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-10-20",
+        "endDate": "2026-10-20",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:17:36.358721"
+    },
+    {
+        "id": "proj_1759661256_6",
+        "projectName": "Lake Rejuvenation Project - HSR Layout",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "In Progress",
+        "budget": 385072774,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 136,
+        "geoPoint": {
+            "latitude": 12.87591,
+            "longitude": 77.523572
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-07-28",
+        "endDate": "2026-03-13",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:17:36.358721"
+    },
+    {
+        "id": "proj_1759661256_7",
+        "projectName": "Stormwater Drain Upgrade - Electronic City",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "In Progress",
+        "budget": 309936097,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 189,
+        "geoPoint": {
+            "latitude": 12.803676,
+            "longitude": 77.709237
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2024-11-03",
+        "endDate": "2025-10-08",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:17:36.358721"
+    },
+    {
+        "id": "proj_1759661256_8",
+        "projectName": "LED Streetlight Installation - Marathahalli",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "In Progress",
+        "budget": 427424393,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 100,
+        "geoPoint": {
+            "latitude": 13.042667,
+            "longitude": 77.710029
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-11-02",
+        "endDate": "2025-12-31",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:17:36.358721"
+    },
+    {
+        "id": "proj_1759661553_0",
+        "projectName": "Urban Forest Initiative - Hebbal",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "Completed",
+        "budget": 29982996,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 16,
+        "geoPoint": {
+            "latitude": 12.94135,
+            "longitude": 77.620095
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-09-03",
+        "endDate": "2026-05-05",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:22:33.768527"
+    },
+    {
+        "id": "proj_1759661553_1",
+        "projectName": "Smart Parking System - HSR Layout",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Pending",
+        "budget": 136134092,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 4,
+        "geoPoint": {
+            "latitude": 13.058854,
+            "longitude": 77.757954
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-03-10",
+        "endDate": "2026-11-14",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:22:33.768527"
+    },
+    {
+        "id": "proj_1759661553_2",
+        "projectName": "Urban Forest Initiative - Marathahalli",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Completed",
+        "budget": 22799729,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 83,
+        "geoPoint": {
+            "latitude": 12.848397,
+            "longitude": 77.797195
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-08-04",
+        "endDate": "2026-11-19",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:22:33.768527"
+    },
+    {
+        "id": "proj_1759661553_3",
+        "projectName": "Public Park Development - Electronic City",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Pending",
+        "budget": 193265185,
+        "location": "Electronic City, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 187,
+        "geoPoint": {
+            "latitude": 12.992965,
+            "longitude": 77.670133
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-05-16",
+        "endDate": "2026-10-12",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:22:33.768527"
+    },
+    {
+        "id": "proj_1759661553_4",
+        "projectName": "Smart Parking System - Yelahanka",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Pending",
+        "budget": 481651759,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 121,
+        "geoPoint": {
+            "latitude": 13.013408,
+            "longitude": 77.618632
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-07-07",
+        "endDate": "2027-06-19",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:22:33.768527"
+    },
+    {
+        "id": "proj_1759661553_5",
+        "projectName": "Smart Parking System - HSR Layout",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Completed",
+        "budget": 233865747,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 123,
+        "geoPoint": {
+            "latitude": 12.934855,
+            "longitude": 77.527986
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-05-11",
+        "endDate": "2027-01-10",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:22:33.769540"
+    },
+    {
+        "id": "proj_1759661553_6",
+        "projectName": "Urban Forest Initiative - Koramangala",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "In Progress",
+        "budget": 483920354,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 10,
+        "geoPoint": {
+            "latitude": 12.949662,
+            "longitude": 77.624669
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-02-25",
+        "endDate": "2026-07-25",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:22:33.769540"
+    },
+    {
+        "id": "proj_1759661553_7",
+        "projectName": "Lake Rejuvenation Project - Indiranagar",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Pending",
+        "budget": 419164433,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 66,
+        "geoPoint": {
+            "latitude": 12.924598,
+            "longitude": 77.559684
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-05-05",
+        "endDate": "2026-07-16",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:22:33.769540"
+    },
+    {
+        "id": "proj_1759661553_8",
+        "projectName": "Waste Management Facility - Jayanagar",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Completed",
+        "budget": 65928523,
+        "location": "Electronic City, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 110,
+        "geoPoint": {
+            "latitude": 12.987988,
+            "longitude": 77.574238
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-05-20",
+        "endDate": "2027-01-13",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:22:33.769540"
+    },
+    {
+        "id": "proj_1759661600_0",
+        "projectName": "Stormwater Drain Upgrade - Hebbal",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "Completed",
+        "budget": 360313919,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 40,
+        "geoPoint": {
+            "latitude": 12.810196,
+            "longitude": 77.639091
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-05-07",
+        "endDate": "2026-04-23",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:23:20.101484"
+    },
+    {
+        "id": "proj_1759661600_1",
+        "projectName": "Waste Management Facility - Marathahalli",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Pending",
+        "budget": 146535411,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 47,
+        "geoPoint": {
+            "latitude": 13.030103,
+            "longitude": 77.711896
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-03-04",
+        "endDate": "2026-02-10",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:23:20.101484"
+    },
+    {
+        "id": "proj_1759661600_2",
+        "projectName": "LED Streetlight Installation - Indiranagar",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "Pending",
+        "budget": 168534042,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 155,
+        "geoPoint": {
+            "latitude": 13.001898,
+            "longitude": 77.587062
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2024-10-19",
+        "endDate": "2026-08-18",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:23:20.101484"
+    },
+    {
+        "id": "proj_1759661600_3",
+        "projectName": "Public Park Development - Hebbal",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "In Progress",
+        "budget": 242932677,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 192,
+        "geoPoint": {
+            "latitude": 12.979499,
+            "longitude": 77.720338
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-12-31",
+        "endDate": "2025-07-02",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:23:20.101484"
+    },
+    {
+        "id": "proj_1759661600_4",
+        "projectName": "Flyover Construction - Hebbal",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "In Progress",
+        "budget": 33305549,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 13,
+        "geoPoint": {
+            "latitude": 12.976639,
+            "longitude": 77.585777
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-12-15",
+        "endDate": "2025-09-25",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:23:20.101484"
+    },
+    {
+        "id": "proj_1759661600_5",
+        "projectName": "Flyover Construction - Malleshwaram",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "In Progress",
+        "budget": 148538355,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 84,
+        "geoPoint": {
+            "latitude": 12.997994,
+            "longitude": 77.655819
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-02-07",
+        "endDate": "2025-08-17",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:23:20.101484"
+    },
+    {
+        "id": "proj_1759661600_6",
+        "projectName": "Flyover Construction - Malleshwaram",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Pending",
+        "budget": 274761398,
+        "location": "Electronic City, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 73,
+        "geoPoint": {
+            "latitude": 12.959666,
+            "longitude": 77.551063
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-10-23",
+        "endDate": "2025-11-22",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:23:20.101484"
+    },
+    {
+        "id": "proj_1759661600_7",
+        "projectName": "Smart Parking System - Yelahanka",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Pending",
+        "budget": 409290137,
+        "location": "Electronic City, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 67,
+        "geoPoint": {
+            "latitude": 12.840422,
+            "longitude": 77.503773
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2024-11-18",
+        "endDate": "2025-12-28",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:23:20.101484"
+    },
+    {
+        "id": "proj_1759661600_8",
+        "projectName": "Smart Parking System - Jayanagar",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Completed",
+        "budget": 126873293,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 170,
+        "geoPoint": {
+            "latitude": 13.049478,
+            "longitude": 77.789574
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-05-31",
+        "endDate": "2027-02-11",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:23:20.102510"
+    },
+    {
+        "id": "proj_1759662004_0",
+        "projectName": "Waste Management Facility - Jayanagar",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Pending",
+        "budget": 120288984,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 19,
+        "geoPoint": {
+            "latitude": 13.050295,
+            "longitude": 77.505538
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-01-12",
+        "endDate": "2026-02-21",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:30:04.411240"
+    },
+    {
+        "id": "proj_1759662004_1",
+        "projectName": "Stormwater Drain Upgrade - Jayanagar",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Completed",
+        "budget": 435947609,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 170,
+        "geoPoint": {
+            "latitude": 12.833246,
+            "longitude": 77.666783
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-03-10",
+        "endDate": "2026-06-01",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:30:04.411240"
+    },
+    {
+        "id": "proj_1759662004_2",
+        "projectName": "Flyover Construction - Yelahanka",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Completed",
+        "budget": 323379876,
+        "location": "Yelahanka, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 140,
+        "geoPoint": {
+            "latitude": 13.055687,
+            "longitude": 77.76706
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-01-22",
+        "endDate": "2026-07-13",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:30:04.411240"
+    },
+    {
+        "id": "proj_1759662004_3",
+        "projectName": "Community Hall Renovation - Jayanagar",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Completed",
+        "budget": 245736863,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 22,
+        "geoPoint": {
+            "latitude": 12.838537,
+            "longitude": 77.773632
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-06-30",
+        "endDate": "2026-09-30",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:30:04.411240"
+    },
+    {
+        "id": "proj_1759662004_4",
+        "projectName": "Waste Management Facility - HSR Layout",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Pending",
+        "budget": 319764564,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 37,
+        "geoPoint": {
+            "latitude": 12.977359,
+            "longitude": 77.721675
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-03-28",
+        "endDate": "2026-06-28",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:30:04.412288"
+    },
+    {
+        "id": "proj_1759662004_5",
+        "projectName": "Flyover Construction - Hebbal",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Completed",
+        "budget": 159776493,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 63,
+        "geoPoint": {
+            "latitude": 13.095784,
+            "longitude": 77.58972
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-06-16",
+        "endDate": "2027-02-15",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:30:04.412288"
+    },
+    {
+        "id": "proj_1759662004_6",
+        "projectName": "Smart Parking System - Yelahanka",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "In Progress",
+        "budget": 176676375,
+        "location": "Yelahanka, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 17,
+        "geoPoint": {
+            "latitude": 13.051353,
+            "longitude": 77.531016
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-08-23",
+        "endDate": "2026-05-26",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T16:30:04.412288"
+    },
+    {
+        "id": "proj_1759670782_0",
+        "projectName": "Community Hall Renovation - Marathahalli",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Pending",
+        "budget": 272411756,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 127,
+        "geoPoint": {
+            "latitude": 12.945913,
+            "longitude": 77.741366
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-05-07",
+        "endDate": "2026-01-27",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:56:22.502483"
+    },
+    {
+        "id": "proj_1759670782_1",
+        "projectName": "Waste Management Facility - Whitefield",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Completed",
+        "budget": 158991966,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 187,
+        "geoPoint": {
+            "latitude": 13.090653,
+            "longitude": 77.560558
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-12-02",
+        "endDate": "2025-06-20",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:56:22.502483"
+    },
+    {
+        "id": "proj_1759670782_2",
+        "projectName": "Public Park Development - Hebbal",
+        "description": "A new project to improve infrastructure in Jayanagar.",
+        "status": "Pending",
+        "budget": 17288070,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 168,
+        "geoPoint": {
+            "latitude": 13.011127,
+            "longitude": 77.780629
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2024-11-24",
+        "endDate": "2025-07-15",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:56:22.502483"
+    },
+    {
+        "id": "proj_1759670782_3",
+        "projectName": "Stormwater Drain Upgrade - Jayanagar",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Completed",
+        "budget": 36306752,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 59,
+        "geoPoint": {
+            "latitude": 13.045551,
+            "longitude": 77.619207
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-03-02",
+        "endDate": "2026-12-01",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:56:22.502483"
+    },
+    {
+        "id": "proj_1759670782_4",
+        "projectName": "LED Streetlight Installation - Indiranagar",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "Pending",
+        "budget": 375001075,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 91,
+        "geoPoint": {
+            "latitude": 12.803846,
+            "longitude": 77.544132
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-01-03",
+        "endDate": "2026-11-24",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:56:22.502483"
+    },
+    {
+        "id": "proj_1759670782_5",
+        "projectName": "LED Streetlight Installation - HSR Layout",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Pending",
+        "budget": 13405882,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 84,
+        "geoPoint": {
+            "latitude": 13.022036,
+            "longitude": 77.701766
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-03-03",
+        "endDate": "2026-02-01",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:56:22.502483"
+    },
+    {
+        "id": "proj_1759670782_6",
+        "projectName": "LED Streetlight Installation - Electronic City",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "In Progress",
+        "budget": 221313906,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 11,
+        "geoPoint": {
+            "latitude": 12.948814,
+            "longitude": 77.734045
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-04-10",
+        "endDate": "2025-11-26",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:56:22.502483"
+    },
+    {
+        "id": "proj_1759670831_0",
+        "projectName": "Public Park Development - Whitefield",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "In Progress",
+        "budget": 495384000,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 7,
+        "geoPoint": {
+            "latitude": 13.073178,
+            "longitude": 77.509525
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-03-25",
+        "endDate": "2027-02-16",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:57:11.266431"
+    },
+    {
+        "id": "proj_1759670831_1",
+        "projectName": "Lake Rejuvenation Project - Jayanagar",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "Completed",
+        "budget": 273793513,
+        "location": "HSR Layout, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 56,
+        "geoPoint": {
+            "latitude": 12.869633,
+            "longitude": 77.589968
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-07-05",
+        "endDate": "2026-02-26",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:57:11.266431"
+    },
+    {
+        "id": "proj_1759670831_2",
+        "projectName": "Stormwater Drain Upgrade - Indiranagar",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "In Progress",
+        "budget": 63237902,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 46,
+        "geoPoint": {
+            "latitude": 13.003872,
+            "longitude": 77.582665
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-08-17",
+        "endDate": "2027-05-20",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:57:11.266431"
+    },
+    {
+        "id": "proj_1759670831_3",
+        "projectName": "Waste Management Facility - HSR Layout",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Pending",
+        "budget": 491626181,
+        "location": "Electronic City, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 13,
+        "geoPoint": {
+            "latitude": 13.065026,
+            "longitude": 77.602344
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-03-19",
+        "endDate": "2026-05-25",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:57:11.266431"
+    },
+    {
+        "id": "proj_1759670831_4",
+        "projectName": "Public Park Development - HSR Layout",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Pending",
+        "budget": 270459138,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 113,
+        "geoPoint": {
+            "latitude": 13.047204,
+            "longitude": 77.669533
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-07-31",
+        "endDate": "2026-04-03",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:57:11.266431"
+    },
+    {
+        "id": "proj_1759670831_5",
+        "projectName": "Public Park Development - Koramangala",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Completed",
+        "budget": 178874284,
+        "location": "HSR Layout, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 31,
+        "geoPoint": {
+            "latitude": 13.022392,
+            "longitude": 77.670577
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-04-19",
+        "endDate": "2026-07-28",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:57:11.266431"
+    },
+    {
+        "id": "proj_1759670831_6",
+        "projectName": "Smart Parking System - HSR Layout",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "Pending",
+        "budget": 387498561,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 164,
+        "geoPoint": {
+            "latitude": 12.964945,
+            "longitude": 77.794607
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-07-11",
+        "endDate": "2026-08-20",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:57:11.266431"
+    },
+    {
+        "id": "proj_1759670831_7",
+        "projectName": "Pedestrian Skywalk - Koramangala",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Completed",
+        "budget": 13926456,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 172,
+        "geoPoint": {
+            "latitude": 12.98313,
+            "longitude": 77.577956
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-01-24",
+        "endDate": "2025-10-10",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:57:11.266431"
+    },
+    {
+        "id": "proj_1759670889_0",
+        "projectName": "Lake Rejuvenation Project - Indiranagar",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Completed",
+        "budget": 376022257,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 22,
+        "geoPoint": {
+            "latitude": 13.038347,
+            "longitude": 77.602622
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2024-10-21",
+        "endDate": "2026-10-12",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:58:09.150053"
+    },
+    {
+        "id": "proj_1759670889_1",
+        "projectName": "Smart Parking System - Koramangala",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Pending",
+        "budget": 33929785,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 64,
+        "geoPoint": {
+            "latitude": 12.916442,
+            "longitude": 77.748167
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-02-20",
+        "endDate": "2026-11-14",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:58:09.151053"
+    },
+    {
+        "id": "proj_1759670889_2",
+        "projectName": "Pedestrian Skywalk - Indiranagar",
+        "description": "A new project to improve infrastructure in Whitefield.",
+        "status": "In Progress",
+        "budget": 61443590,
+        "location": "Whitefield, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 96,
+        "geoPoint": {
+            "latitude": 13.06345,
+            "longitude": 77.597407
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-08-27",
+        "endDate": "2026-10-20",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:58:09.151053"
+    },
+    {
+        "id": "proj_1759670889_3",
+        "projectName": "Urban Forest Initiative - HSR Layout",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Pending",
+        "budget": 26081149,
+        "location": "Indiranagar, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 95,
+        "geoPoint": {
+            "latitude": 12.94908,
+            "longitude": 77.668952
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-05-15",
+        "endDate": "2026-04-17",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:58:09.151053"
+    },
+    {
+        "id": "proj_1759670889_4",
+        "projectName": "Smart Parking System - Jayanagar",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "Pending",
+        "budget": 43730097,
+        "location": "Koramangala, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 145,
+        "geoPoint": {
+            "latitude": 12.825417,
+            "longitude": 77.535022
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-05-17",
+        "endDate": "2026-02-11",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:58:09.151053"
+    },
+    {
+        "id": "proj_1759670889_5",
+        "projectName": "Community Hall Renovation - Whitefield",
+        "description": "A new project to improve infrastructure in Indiranagar.",
+        "status": "Pending",
+        "budget": 340169975,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BWSSB",
+        "wardNumber": 122,
+        "geoPoint": {
+            "latitude": 12.993749,
+            "longitude": 77.693806
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2025-06-29",
+        "endDate": "2027-01-08",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:58:09.151053"
+    },
+    {
+        "id": "proj_1759670889_6",
+        "projectName": "Lake Rejuvenation Project - Malleshwaram",
+        "description": "A new project to improve infrastructure in Electronic City.",
+        "status": "Completed",
+        "budget": 306174730,
+        "location": "Yelahanka, Bengaluru, Karnataka",
+        "department": "KPWD",
+        "wardNumber": 12,
+        "geoPoint": {
+            "latitude": 12.813217,
+            "longitude": 77.57138
+        },
+        "contractor": "Contractor_Alpha",
+        "startDate": "2025-04-27",
+        "endDate": "2026-07-31",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-05T18:58:09.151053"
+    },
+    {
+        "id": "proj_1759757186_0",
+        "projectName": "Community Hall Renovation - Hebbal",
+        "description": "A new project to improve infrastructure in Yelahanka.",
+        "status": "In Progress",
+        "budget": 442600069,
+        "location": "HSR Layout, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 110,
+        "geoPoint": {
+            "latitude": 12.955292,
+            "longitude": 77.521885
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2024-10-28",
+        "endDate": "2026-10-23",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-06T18:56:26.816805"
+    },
+    {
+        "id": "proj_1759757186_1",
+        "projectName": "Flyover Construction - Malleshwaram",
+        "description": "A new project to improve infrastructure in Koramangala.",
+        "status": "Completed",
+        "budget": 378353594,
+        "location": "HSR Layout, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 148,
+        "geoPoint": {
+            "latitude": 12.917388,
+            "longitude": 77.788714
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-07-18",
+        "endDate": "2026-04-18",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-06T18:56:26.816805"
+    },
+    {
+        "id": "proj_1759757186_2",
+        "projectName": "Stormwater Drain Upgrade - Hebbal",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "In Progress",
+        "budget": 134149689,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BDA",
+        "wardNumber": 90,
+        "geoPoint": {
+            "latitude": 13.00132,
+            "longitude": 77.670445
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2025-08-13",
+        "endDate": "2027-05-04",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-06T18:56:26.816805"
+    },
+    {
+        "id": "proj_1759757186_3",
+        "projectName": "Flyover Construction - Whitefield",
+        "description": "A new project to improve infrastructure in Hebbal.",
+        "status": "Completed",
+        "budget": 283992707,
+        "location": "Malleshwaram, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 62,
+        "geoPoint": {
+            "latitude": 12.992878,
+            "longitude": 77.707815
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-04-19",
+        "endDate": "2025-10-29",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-06T18:56:26.816805"
+    },
+    {
+        "id": "proj_1759757186_4",
+        "projectName": "Lake Rejuvenation Project - Koramangala",
+        "description": "A new project to improve infrastructure in Malleshwaram.",
+        "status": "Completed",
+        "budget": 414728547,
+        "location": "Marathahalli, Bengaluru, Karnataka",
+        "department": "BESCOM",
+        "wardNumber": 50,
+        "geoPoint": {
+            "latitude": 12.881701,
+            "longitude": 77.785727
+        },
+        "contractor": "Contractor_Delta",
+        "startDate": "2025-03-21",
+        "endDate": "2025-10-25",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-06T18:56:26.816805"
+    },
+    {
+        "id": "proj_1759757186_5",
+        "projectName": "Smart Parking System - Marathahalli",
+        "description": "A new project to improve infrastructure in HSR Layout.",
+        "status": "In Progress",
+        "budget": 28194950,
+        "location": "Hebbal, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 115,
+        "geoPoint": {
+            "latitude": 13.055603,
+            "longitude": 77.537422
+        },
+        "contractor": "Contractor_Gamma",
+        "startDate": "2024-12-01",
+        "endDate": "2025-06-15",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-06T18:56:26.816805"
+    },
+    {
+        "id": "proj_1759757186_6",
+        "projectName": "Urban Forest Initiative - Whitefield",
+        "description": "A new project to improve infrastructure in Marathahalli.",
+        "status": "Completed",
+        "budget": 127476009,
+        "location": "Jayanagar, Bengaluru, Karnataka",
+        "department": "BBMP",
+        "wardNumber": 110,
+        "geoPoint": {
+            "latitude": 13.07498,
+            "longitude": 77.616655
+        },
+        "contractor": "Contractor_Beta",
+        "startDate": "2024-10-28",
+        "endDate": "2026-03-26",
+        "source": "Scraped from Mock Data Portal",
+        "sourceUrl": "http://mock.example.com/projects",
+        "scrapedAt": "2025-10-06T18:56:26.816805"
     }
 ]

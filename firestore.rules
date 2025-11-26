@@ -1,45 +1,69 @@
 rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Users can read and write their own user document
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+    
+    // Political Funding Data - Public read access for transparency
+    match /political_funding/{document} {
+      allow read: if true; // Public read access for transparency
+      allow write: if true; // Allow write for development/setup
     }
     
-    // Projects are readable by all authenticated users
-    match /projects/{projectId} {
-      allow read: if request.auth != null;
-      allow write: if request.auth != null && 
-        (resource == null || 
-         request.auth.uid in resource.data.authorizedUsers);
+    // Audit Reports - Public read access for transparency
+    match /audit_reports/{document} {
+      allow read: if true; // Public read access for transparency
+      allow write: if true; // Allow write for development/setup
     }
     
-    // Political donations are readable by all authenticated users
-    match /politicalDonations/{donationId} {
-      allow read: if request.auth != null;
-      allow write: if false; // Only admin/cloud functions can write
+    // System Configuration - Read only for public, write for setup
+    match /system_config/{document} {
+      allow read: if true;
+      allow write: if true; // Allow initial setup writes
     }
     
-    // User feedback is readable by all authenticated users
-    match /userFeedback/{feedbackId} {
-      allow read: if request.auth != null;
-      allow create: if request.auth != null && 
-        request.auth.uid == resource.data.userId;
+    // User Interactions and Feedback - Authenticated access
+    match /user_interactions/{document} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Analytics and Metrics - Public read for transparency dashboard
+    match /analytics/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Data Sources Status - Public read access, setup write
+    match /data_sources/{document} {
+      allow read: if true;
+      allow write: if true; // Allow initial setup writes
+    }
+    
+    // Bangalore Projects Data - Public read access
+    match /bengaluru_projects/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Social Platform Posts - Public read, authenticated write
+    match /social_posts/{document} {
+      allow read: if true;
+      allow create: if request.auth != null;
       allow update, delete: if request.auth != null && 
         request.auth.uid == resource.data.userId;
     }
     
-    // AI red flags are readable by all authenticated users
-    match /aiRedFlags/{flagId} {
-      allow read: if request.auth != null;
-      allow write: if false; // Only admin/cloud functions can write
+    // Comments on social posts
+    match /social_posts/{postId}/comments/{comment} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null && 
+        request.auth.uid == resource.data.userId;
     }
     
-    // Pending projects for crowdsourcing
-    match /pendingProjects/{projectId} {
-      allow read: if request.auth != null;
-      allow create: if request.auth != null;
-      allow update, delete: if false; // Only admin can approve/reject
+    // Default rule for any other documents
+    match /{document=**} {
+      allow read: if true; // Allow read access for transparency
+      allow write: if request.auth != null; // Require authentication for writes
     }
   }
 }
